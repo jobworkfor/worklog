@@ -1,0 +1,4 @@
+[cookies]
+product=
+variant=userdebug
+vendor_variant=cn

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<product module="src.core.handler.handler_node_product">
+    <product-config title="product" target="product" />
+
+    <config title="sample 1" target="variants">
+        <opt value="user" />
+        <opt value="userdebug" />
+    </config>
+
+    <config title="sample 2" target="vendor_variants">
+        <opt value="cn" />
+    </config>
+
+    <config title="sample 3" target="vendor_variants1">
+        <opt value="cn" />
+        <opt value="cn1" />
+    </config>
+
+    <config title="sample 4" target="build_threads">
+        <opt value="-j1" />
+        <opt value="-j2" />
+        <opt value="-j4" />
+        <opt value="-j8" />
+        <opt value="-j16" />
+        <opt value="-j32" />
+        <opt value="-j64" />
+    </config>
+
+    <config title="sample 5" target="build_log">
+        <opt value="no" />
+        <opt value="yes" />
+    </config>
+
+    <empty-line />
+
+    <item title="sample action 1" color-key="2">
+        <action value="missi" target="_bsbuild_envsetup" />
+        <action value="product" target="_bsbuild_envsetup" />
+    </item>
+
+
+    <empty-line />
+
+    <item title="sample action 2" color-key="1">
+        <action value="bootimage" target="_bsbuild_build_bootimage" />
+        <action value="systemimage" target="_bsbuild_build_systemimage" />
+        <action value="systemextimage" target="_bsbuild_build_systemextimage" />
+    </item>
+
+    <item title="sample action 3" color-key="1">
+        <input title="system image module" target="_bsbuild_build_system_module" />
+        <input title="vendor image module" target="_bsbuild_build_vendor_module" />
+    </item>
+
+    <action title="last build" handler="LastBuildActionNodeHandler" color-key="1" />
+</product>
+
+<!--
+    color scheme:
+          key | fg color            | bg color           | style
+        * 0   | curses.COLOR_WHITE  | curses.COLOR_BLACK |
+        * 1   | curses.COLOR_GREEN  | curses.COLOR_BLACK | BOLD
+        * 2   | curses.COLOR_YELLOW | curses.COLOR_BLACK |
+-->

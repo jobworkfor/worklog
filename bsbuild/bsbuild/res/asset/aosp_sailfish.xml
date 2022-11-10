@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<product module="src.core.handler.handler_node_product">
+    <product-config title="product" target="product" />
+
+    <config title="variant" target="variant">
+        <opt value="user" />
+        <opt value="userdebug" />
+        <opt value="eng" />
+    </config>
+
+    <config title="build thread" target="build_thread">
+        <opt value="-j1" />
+        <opt value="-j2" />
+        <opt value="-j4" />
+        <opt value="-j8" />
+        <opt value="-j16" />
+        <opt value="-j32" />
+        <opt value="-j64" />
+    </config>
+
+    <config title="build log" target="build_log">
+        <opt value="no" />
+        <opt value="yes" />
+    </config>
+
+    <empty-line />
+
+    <action title="envsetup" target="_bsbuild_envsetup" color-key="2" />
+
+    <empty-line />
+
+    <action value="build otapackage" target="_bsbuild_build_otapackage" color-key="1" />
+
+    <empty-line />
+
+    <action value="build all" target="_bsbuild_build_all" color-key="1" />
+
+    <item title="build image" color-key="1">
+        <action value="bootimage" target="_bsbuild_build_bootimage" />
+        <action value="systemimage" target="_bsbuild_build_systemimage" />
+        <action value="vendorimage" target="_bsbuild_build_vendorimage" />
+    </item>
+
+    <input title="build module" target="_bsbuild_build_module" color-key="1" />
+
+    <action title="last build" handler="LastBuildActionNodeHandler" color-key="1" />
+</product>
