@@ -1,0 +1,96 @@
+@startuml
+autonumber
+
+participant Typeface
+participant FontFamily
+
+box "Internal Service" #MediumAquaMarine
+'/frameworks/base/core/jni/android/graphics/FontFamily.cpp
+participant "graphics/\nFontFamily.cpp" as n_g_ff
+
+'/frameworks/minikin/libs/minikin/FontFamily.cpp
+participant "minikin/FontFamily.cpp\nFontStyle" as n_fs
+
+'/frameworks/minikin/libs/minikin/FontFamily.h
+participant "minikin/FontFamily.cpp\nFontFamily" as n_m_ff
+
+'/external/skia/include/ports/SkFontMgr.h
+participant "SkFontMgr.h\nSkFontMgr" as n_skf_mgr
+
+' /frameworks/base/libs/hwui/hwui/MinikinSkia.h
+participant "MinikinSkia.h\nMinikinFontSkia" as n_mf_sk
+
+'/frameworks/base/core/jni/android/graphics/Typeface.cpp
+participant "graphics/\nTypeface.cpp" as n_tf
+
+'/frameworks/base/libs/hwui/hwui/Typeface.cpp
+participant "Typeface.cpp\nTypeface" as n_h_tf
+
+'/frameworks/minikin/libs/minikin/FontCollection.cpp
+participant "FontCollection.cpp\nFontCollection" as n_m_fc
+
+end box
+
+
+Typeface -> Typeface:static{init()}
+Typeface -> Typeface:fontConfig=FontListParser.parse(fontsIn)
+Typeface -> Typeface:makeFamilyFromParsed(f, bufferForPath)
+Typeface -> FontFamily:new FontFamily(family.lang, family.variant)
+FontFamily -> n_g_ff:nCreateFamily()
+
+n_g_ff -> n_g_ff:FontFamily_create()
+
+n_g_ff -> n_fs : FontStyle::registerLanguageList\n(str.c_str());
+n_g_ff <-- n_fs : langId
+
+n_g_ff -> n_m_ff : new FontFamily\n(langId, variant);
+n_g_ff <-- n_m_ff : (jlong)
+FontFamily <- n_g_ff:mNativePtr
+
+Typeface <-- FontFamily:fontFam ily
+
+
+Typeface -> FontFamily:fontFamily.addFontWeightStyle()
+FontFamily -> n_g_ff:nAddFontWeightStyle\n(mNativePtr, font, ttcIndex, axes, weight, style)
+n_g_ff -> n_g_ff:FontFamily_addFontWeightStyle()
+
+note over n_g_ff: env->GetDirectBufferAddress(font) == NULL?  <color red>ALOGE("addFont failed to create font, buffer invalid");</color>
+note over n_g_ff: env->GetDirectBufferCapacity(font) < 0?  <color red>ALOGE("addFont failed to create font, buffer size invalid");</color>
+
+n_g_ff -> n_skf_mgr:SkFontMgr::RefDefault()
+n_g_ff <-- n_skf_mgr:SkAutoTUnref<SkFontMgr> fm
+
+note over n_g_ff: fm->createFromStream(...) == NULL?  <color red>ALOGE("addFont failed to create font, invalid request");</color>
+
+n_g_ff -> n_mf_sk:new MinikinFontSkia(face, fontPtr, (size_t)fontSize, ttcIndex);
+n_g_ff <-- n_mf_sk:MinikinFont* minikinFont
+
+n_g_ff -> n_mf_sk:fontFamily->addFont(minikinFont, FontStyle(weight / 100, isItalic));
+
+n_mf_sk -> n_mf_sk:addFontLocked(typeface, style);
+n_mf_sk -> n_mf_sk:mFonts.push_back(Font(typeface, style));
+note over n_mf_sk :if (!analyzeStyle(...))  <color red>ALOGD("failed to analyze style");</color>
+
+n_g_ff <-- n_mf_sk
+FontFamily <-- n_g_ff:return true
+
+Typeface <- FontFamily:return fontFamily
+
+Typeface -> Typeface :<b>sFallbackFonts</b> = familyList.toArray(new FontFamily[familyList.size()]);
+
+Typeface -> Typeface :Typeface.createFromFamilies(sFallbackFonts)
+Typeface -> Typeface :new Typeface(nativeCreateFromArray(ptrArray))
+
+Typeface -> n_tf :Typeface_createFromArray(..., jlongArray familyArray)
+
+n_tf -> n_h_tf :Typeface::createFromFamilies(familyVec)
+
+n_h_tf -> n_h_tf :Typeface* result = new Typeface;
+
+n_h_tf -> n_m_fc : new FontCollection(families);
+n_m_fc -> n_m_fc : ??? family->getClosestMatch(defaultStyle)
+n_h_tf <-- n_m_fc : result->fFontCollection
+
+
+
+@enduml

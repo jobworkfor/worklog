@@ -1,0 +1,45 @@
+@startuml
+
+autonumber
+'hide footbox
+
+title "Initial process of WifiService"
+legend top left
+This diagram describes the data connection call back
+end legend
+
+actor System
+
+box "com.android.phone" #white
+participant QtiDcTracker
+participant DcTracker
+participant DcTrackerBase
+participant PhoneBase
+participant DefaultPhoneNotifier
+end box
+
+box "system_server" #white
+participant TelephonyRegistry
+end box
+
+box "com.android.systemui" #white
+participant MobileSignalController
+end box
+
+'---------------- com.android.phone ----------------
+System -> QtiDcTracker : handleMessage()
+QtiDcTracker->DcTracker:handleMessage()
+DcTracker->DcTrackerBase:handleMessage()
+DcTracker<-DcTrackerBase:onDataSetupComplete()
+DcTracker->DcTracker:completeConnection()
+DcTracker->PhoneBase:notifyDataConnection()
+PhoneBase->DefaultPhoneNotifier:notifyDataConnection()
+DefaultPhoneNotifier->DefaultPhoneNotifier:doNotifyDataConnection()
+
+'---------------- system_server ----------------
+DefaultPhoneNotifier->TelephonyRegistry:notifyDataConnectionForSubscriber()
+
+'---------------- com.android.systemui ----------------
+TelephonyRegistry->MobileSignalController:onDataConnectionStateChanged()
+
+@enduml

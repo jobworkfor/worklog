@@ -1,0 +1,2190 @@
+*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+Build fingerprint: 'Android/aosp_x86_64/generic_x86_64:7.1.1/N6F26Q/bob01172320:eng/test-keys'
+Revision: '0'
+ABI: 'x86_64'
+pid: 4577, tid: 4577, name: main  >>> zygote64 <<<
+signal 4 (SIGILL), code 2 (ILL_ILLOPN), fault addr 0x7ffef72e1310
+    rax 000000000000001b  rbx 0000000000000000  rcx c0f22af80ee59b69  rdx 0000000000000004
+    rsi 00007fffb86bfa80  rdi 0000000000000003
+    r8  0000000000000000  r9  000000000000003f  r10 00007ffef63a9ef0  r11 0000000000000246
+    r12 0000000000000003  r13 00007ffef3411400  r14 00007ffef3457630  r15 0000000000000fa0
+    cs  0000000000000033  ss  000000000000002b
+    rip 00007ffef72e1310  rbp 0000000000000000  rsp 00007fffb86c0130  eflags 0000000000000202
+
+backtrace:
+    #00 pc 000000000000a310  /system/lib64/libminikin.so
+    #01 pc 000000000000a2e5  /system/lib64/libminikin.so (_ZN7android12CmapCoverage11getCoverageERNS_12SparseBitSetEPKhmPb+1093)
+    #02 pc 000000000000cf80  /system/lib64/libminikin.so (_ZN7android10FontFamily11getCoverageEv+144)
+    #03 pc 000000000000a464  /system/lib64/libminikin.so (_ZN7android14FontCollectionC1ERKNSt3__16vectorIPNS_10FontFamilyENS1_9allocatorIS4_EEEE+324)
+    #04 pc 0000000000032537  /system/lib64/libhwui.so
+    #05 pc 000000000008ae70  /system/lib64/libc.so (pthread_once+144)
+    #06 pc 00000000000323e8  /system/lib64/libhwui.so (_ZN7android8Typeface14resolveDefaultEPS0_+24)
+    #07 pc 0000000000031b1c  /system/lib64/libhwui.so (_ZN7android12MinikinUtils19prepareMinikinPaintEPNS_12MinikinPaintEPPNS_14FontCollectionEPKNS_5PaintEPNS_8TypefaceE+44)
+    #08 pc 0000000000031de6  /system/lib64/libhwui.so (_ZN7android12MinikinUtils11measureTextEPKNS_5PaintEiPNS_8TypefaceEPKtmmmPf+118)
+    #09 pc 00000000001268f2  /system/lib64/libandroid_runtime.so
+    #10 pc 0000000001a1c8c9  /system/framework/x86_64/boot-framework.oat (offset 0x1609000) (android.graphics.Paint.nGetTextAdvances+325)
+    #11 pc 0000000001a26119  /system/framework/x86_64/boot-framework.oat (offset 0x1609000) (android.graphics.Paint.measureText+389)
+    #12 pc 0000000001a25f44  /system/framework/x86_64/boot-framework.oat (offset 0x1609000) (android.graphics.Paint.measureText+160)
+    #13 pc 000000000234003b  /system/framework/x86_64/boot-framework.oat (offset 0x1609000) (android.widget.TextView.preloadFontCache+119)
+    #14 pc 000000000254e201  /system/framework/x86_64/boot-framework.oat (offset 0x1609000) (com.android.internal.os.ZygoteInit.preloadTextResources+61)
+    #15 pc 000000000254c69e  /system/framework/x86_64/boot-framework.oat (offset 0x1609000) (com.android.internal.os.ZygoteInit.preload+282)
+    #16 pc 000000000254ba1a  /system/framework/x86_64/boot-framework.oat (offset 0x1609000) (com.android.internal.os.ZygoteInit.main+918)
+    #17 pc 0000000000138516  /system/lib64/libart.so (art_quick_invoke_static_stub+806)
+    #18 pc 00000000001463ec  /system/lib64/libart.so (_ZN3art9ArtMethod6InvokeEPNS_6ThreadEPjjPNS_6JValueEPKc+268)
+    #19 pc 00000000004daeb7  /system/lib64/libart.so (_ZN3artL18InvokeWithArgArrayERKNS_33ScopedObjectAccessAlreadyRunnableEPNS_9ArtMethodEPNS_8ArgArrayEPNS_6JValueEPKc+87)
+    #20 pc 00000000004daa64  /system/lib64/libart.so (_ZN3art17InvokeWithVarArgsERKNS_33ScopedObjectAccessAlreadyRunnableEP8_jobjectP10_jmethodIDP13__va_list_tag+388)
+    #21 pc 00000000003dc08d  /system/lib64/libart.so (_ZN3art3JNI21CallStaticVoidMethodVEP7_JNIEnvP7_jclassP10_jmethodIDP13__va_list_tag+781)
+    #22 pc 000000000016d08a  /system/lib64/libart.so (_ZN3art8CheckJNI11CallMethodVEPKcP7_JNIEnvP8_jobjectP7_jclassP10_jmethodIDP13__va_list_tagNS_9Primitive4TypeENS_10InvokeTypeE+3562)
+    #23 pc 000000000016100f  /system/lib64/libart.so (_ZN3art8CheckJNI21CallStaticVoidMethodVEP7_JNIEnvP7_jclassP10_jmethodIDP13__va_list_tag+47)
+    #24 pc 00000000000ab292  /system/lib64/libandroid_runtime.so (_ZN7_JNIEnv20CallStaticVoidMethodEP7_jclassP10_jmethodIDz+146)
+    #25 pc 00000000000ae0d9  /system/lib64/libandroid_runtime.so (_ZN7android14AndroidRuntime5startEPKcRKNS_6VectorINS_7String8EEEb+665)
+    #26 pc 0000000000002318  /system/bin/app_process64
+    #27 pc 000000000001c954  /system/lib64/libc.so (__libc_init+84)
+    #28 pc 0000000000001cf4  /system/bin/app_process64
+    #29 pc 0000000000000005  <unknown>
+
+stack:
+         00007fffb86c00b0  00007ffef3411400  [anon:libc_malloc]
+         00007fffb86c00b8  0000000000000001
+         00007fffb86c00c0  00007ffef63a1720  /system/lib64/libc.so (free)
+         00007fffb86c00c8  00007ffef3411400  [anon:libc_malloc]
+         00007fffb86c00d0  00000000000018cc
+         00007fffb86c00d8  00007ffef76d0680  /system/lib64/libharfbuzz_ng.so (hb_blob_create+48)
+         00007fffb86c00e0  0000003000000028
+         00007fffb86c00e8  00007fffb86c0130
+         00007fffb86c00f0  00007fffb86bfc30
+         00007fffb86c00f8  00007fffb86c0140
+         00007fffb86c0100  c0f22af80ee59b69
+         00007fffb86c0108  0000000000000000
+         00007fffb86c0110  00007ffef3457630  [anon:libc_malloc]
+         00007fffb86c0118  0000000000000fa0
+         00007fffb86c0120  0000000000000000
+         00007fffb86c0128  00007ffef72e1310  /system/lib64/libminikin.so
+    #00  00007fffb86c0130  0000000000000000
+         00007fffb86c0138  00007ffef72e12e6  /system/lib64/libminikin.so
+    #01  00007fffb86c0140  0000000000000000
+         00007fffb86c0148  0000000000000000
+         00007fffb86c0150  0000000000000000
+         00007fffb86c0158  0000000000000000
+         00007fffb86c0160  c0f22af80ee59b69
+         00007fffb86c0168  00007ffef3457600  [anon:libc_malloc]
+         00007fffb86c0170  00007ffef3411400  [anon:libc_malloc]
+         00007fffb86c0178  0000000000000000
+         00007fffb86c0180  00007ffef35fe080  [anon:libc_malloc]
+         00007fffb86c0188  00007ffef3457630  [anon:libc_malloc]
+         00007fffb86c0190  0000000000000001
+         00007fffb86c0198  00007ffef72e3f81  /system/lib64/libminikin.so (_ZN7android10FontFamily11getCoverageEv+145)
+    #02  00007fffb86c01a0  000018ccb86bfce0
+         00007fffb86c01a8  c0f22af80ee59b69
+         00007fffb86c01b0  00007fffb86c0290
+         00007fffb86c01b8  00007ffef35fe000  [anon:libc_malloc]
+         00007fffb86c01c0  0000000000000000
+         00007fffb86c01c8  00007ffef3457600  [anon:libc_malloc]
+         00007fffb86c01d0  0000000000000001
+         00007fffb86c01d8  00007ffef72e1465  /system/lib64/libminikin.so (_ZN7android14FontCollectionC1ERKNSt3__16vectorIPNS_10FontFamilyENS1_9allocatorIS4_EEEE+325)
+    #03  00007fffb86c01e0  0000000000000001
+         00007fffb86c01e8  00007ffef643cec4  /system/lib64/libc.so (je_free+116)
+         00007fffb86c01f0  00007ffef35fe018  [anon:libc_malloc]
+         00007fffb86c01f8  00007ffef35fe020  [anon:libc_malloc]
+         00007fffb86c0200  00007fffb86c0290
+         00007fffb86c0208  0000000000000001
+         00007fffb86c0210  00007ffef35fe000  [anon:libc_malloc]
+         00007fffb86c0218  00007ffef3426208  [anon:libc_malloc]
+         00007fffb86c0220  0000000000000000
+         00007fffb86c0228  00007ffef35fe000  [anon:libc_malloc]
+         00007fffb86c0230  0000000000000000
+         00007fffb86c0238  0000000000000001
+         00007fffb86c0240  c0f22af80ee59b69
+         00007fffb86c0248  0000000000000004
+         00007fffb86c0250  c0f22af80ee59b69
+         00007fffb86c0258  00007ffef35fe000  [anon:libc_malloc]
+         ........  ........
+    #04  00007fffb86c0290  00007ffef342b998  [anon:libc_malloc]
+         00007fffb86c0298  00007ffef342b9a0  [anon:libc_malloc]
+         00007fffb86c02a0  00007ffef342b9a0  [anon:libc_malloc]
+         00007fffb86c02a8  c0f22af80ee59b69
+         00007fffb86c02b0  00007ffef6af6498  /system/lib64/libhwui.so
+         00007fffb86c02b8  00007fffb86c03c0
+         00007fffb86c02c0  0000000000000000
+         00007fffb86c02c8  00007ffef640fe71  /system/lib64/libc.so (pthread_once+145)
+    #05  00007fffb86c02d0  0000000000000000
+         00007fffb86c02d8  c0f22af80ee59b69
+         00007fffb86c02e0  000000006fb2fba0  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007fffb86c02e8  00007ffef34c89a0  [anon:libc_malloc]
+         00007fffb86c02f0  00007fffb86c0408
+         00007fffb86c02f8  0000000000000000
+         00007fffb86c0300  0000000000000002
+         00007fffb86c0308  00007fffb86c03c0
+         00007fffb86c0310  0000000000000000
+         00007fffb86c0318  00007ffef6a523e9  /system/lib64/libhwui.so (_ZN7android8Typeface14resolveDefaultEPS0_+25)
+    #06  00007fffb86c0320  c0f22af80ee59b69
+         00007fffb86c0328  00007ffef6a51b1d  /system/lib64/libhwui.so (_ZN7android12MinikinUtils19prepareMinikinPaintEPNS_12MinikinPaintEPPNS_14FontCollectionEPKNS_5PaintEPNS_8TypefaceE+45)
+    #07  00007fffb86c0330  0000004300430000
+         00007fffb86c0338  0059000000000000
+         00007fffb86c0340  c0f22af80ee59b69
+         00007fffb86c0348  0000000000000000
+         00007fffb86c0350  c0f22af80ee59b69
+         00007fffb86c0358  000000006fb2fba0  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007fffb86c0360  0000000000000000
+         00007fffb86c0368  0000000000000002
+         00007fffb86c0370  0000000000000001
+         00007fffb86c0378  0000000000000000
+         00007fffb86c0380  00007fffb86c03c0
+         00007fffb86c0388  00007ffef6a51de7  /system/lib64/libhwui.so (_ZN7android12MinikinUtils11measureTextEPKNS_5PaintEiPNS_8TypefaceEPKtmmmPf+119)
+    #08  00007fffb86c0390  0000000000000000
+         00007fffb86c0398  00000000f343e240
+         00007fffb86c03a0  0000000012cc8be0  /dev/ashmem/dalvik-main space (deleted)
+         00007fffb86c03a8  000000006fb2fba0  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007fffb86c03b0  0043000000000000
+         00007fffb86c03b8  00007ffef3342468  /system/lib64/libart.so
+         00007fffb86c03c0  0000000000000000
+         00007fffb86c03c8  0000000000000000
+         00007fffb86c03d0  0000000000000000
+         00007fffb86c03d8  0000000000000000
+         00007fffb86c03e0  00007ffe00000000
+         00007fffb86c03e8  0000000000000000
+         00007fffb86c03f0  0000000000000000
+         00007fffb86c03f8  0000000000000000
+         00007fffb86c0400  00007ffef343e240  [anon:libc_malloc]
+         00007fffb86c0408  00007fffb86c0528
+         ........  ........
+    #09  00007fffb86c0450  0000000000000001
+         00007fffb86c0458  0000000000000000
+         00007fffb86c0460  00007ffef34c89a0  [anon:libc_malloc]
+         00007fffb86c0468  00007ffef33156a7  /system/lib64/libart.so (_ZN3art12JniMethodEndEjPNS_6ThreadE+71)
+         00007fffb86c0470  0000000000430000
+         00007fffb86c0478  0059000012c5e150
+         00007fffb86c0480  c0f22af80ee59b69
+         00007fffb86c0488  0000000012cc8be0  /dev/ashmem/dalvik-main space (deleted)
+         00007fffb86c0490  0000000000000002
+         00007fffb86c0498  0000000000000000
+         00007fffb86c04a0  0000000000000001
+         00007fffb86c04a8  00007ffef34c89a0  [anon:libc_malloc]
+         00007fffb86c04b0  0000000000000000
+         00007fffb86c04b8  00000000738038ca  /system/framework/x86_64/boot-framework.oat (android.graphics.Paint.nGetTextAdvances+326)
+    #10  00007fffb86c04c0  c0f22af800000001
+         00007fffb86c04c8  00007ffe00000000
+         00007fffb86c04d0  00007ffe00000001
+         00007fffb86c04d8  0000000000000002
+         00007fffb86c04e0  0000000000000000
+         00007fffb86c04e8  00007fff00000000
+         00007fffb86c04f0  00007ffef343e240  [anon:libc_malloc]
+         00007fffb86c04f8  00007ffef30a707f  /system/lib64/libart.so (_ZN3art9JNIEnvExt19CheckNoHeldMonitorsEv+95)
+         00007fffb86c0500  00007ffef33efc40  /system/lib64/libart.so
+         00007fffb86c0508  00007ffef3495a00  [anon:libc_malloc]
+         00007fffb86c0510  0000000070459fd0  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c0518  0000000000000000
+         00007fffb86c0520  700570c000000003
+         00007fffb86c0528  000000006fb2fb90  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007fffb86c0530  0000000000000000
+         00007fffb86c0538  0000000000000000
+         ........  ........
+    #11  00007fffb86c05a0  000000007045baf0  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c05a8  00007ffef34c89a0  [anon:libc_malloc]
+         00007fffb86c05b0  0000000000000000
+         00007fffb86c05b8  000000006fb2fb90  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007fffb86c05c0  0000000000000001
+         00007fffb86c05c8  0000000200000001
+         00007fffb86c05d0  0000000000000000
+         00007fffb86c05d8  00007ffe12cc8be0
+         00007fffb86c05e0  000000007045a3c0  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c05e8  0000000000000000
+         00007fffb86c05f0  12cc8be000000001
+         00007fffb86c05f8  0000000000000000
+         00007fffb86c0600  0000000000000000
+         00007fffb86c0608  0000000000000000
+         00007fffb86c0610  0000000000000000
+         00007fffb86c0618  0000000012cc8be0  /dev/ashmem/dalvik-main space (deleted)
+         ........  ........
+    #12  00007fffb86c0650  000000007045bab8  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c0658  6fb2fb907380d8f2
+         00007fffb86c0660  000000007045bc40  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c0668  f34c89a012cc8be0
+         00007fffb86c0670  0000000100007ffe
+         00007fffb86c0678  00000000738015a4  /system/framework/x86_64/boot-framework.oat (android.graphics.Paint.<init>+48)
+         00007fffb86c0680  0000000070459a20  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c0688  0000000012cc8be0  /dev/ashmem/dalvik-main space (deleted)
+         00007fffb86c0690  000000006fb2fb90  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007fffb86c0698  00000000701e7258  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c06a0  0000000000000004
+         00007fffb86c06a8  000000007412703c  /system/framework/x86_64/boot-framework.oat (android.widget.TextView.preloadFontCache+120)
+    #13  00007fffb86c06b0  000000007029c750  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c06b8  00000000701e7258  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c06c0  0000000000000004
+         00007fffb86c06c8  00000000701d7db8  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c06d0  000000007014cab8  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c06d8  0000000074335202  /system/framework/x86_64/boot-framework.oat (com.android.internal.os.ZygoteInit.preloadTextResources+62)
+    #14  00007fffb86c06e0  00000000703063e0  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c06e8  000000007014cab8  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c06f0  00000000701e7258  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c06f8  000000007433369f  /system/framework/x86_64/boot-framework.oat (com.android.internal.os.ZygoteInit.preload+283)
+    #15  00007fffb86c0700  0000000070306258  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c0708  0000000000014902
+         00007fffb86c0710  0000000012c007e0  /dev/ashmem/dalvik-main space (deleted)
+         00007fffb86c0718  0000000000000001
+         00007fffb86c0720  0000000000014902
+         00007fffb86c0728  0000000012c007e0  /dev/ashmem/dalvik-main space (deleted)
+         00007fffb86c0730  0000000000000001
+         00007fffb86c0738  0000000074332a1b  /system/framework/x86_64/boot-framework.oat (com.android.internal.os.ZygoteInit.main+919)
+    #16  00007fffb86c0740  00000000703061b0  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c0748  0001490200000bcc
+         00007fffb86c0750  12c0084000000000
+         00007fffb86c0758  12c092e0701be5c0
+         00007fffb86c0760  12c092e0701f7390
+         00007fffb86c0768  000000010000000e
+         00007fffb86c0770  c0f22af80ee59b69
+         00007fffb86c0778  00007fffb86c0b18
+         00007fffb86c0780  00007fffb86c0a01
+         00007fffb86c0788  000000139c43053d
+         00007fffb86c0790  00007ffef3495a00  [anon:libc_malloc]
+         00007fffb86c0798  00007ffef33fe210  [anon:.bss]
+         00007fffb86c07a0  0000000000000000
+         00007fffb86c07a8  00007ffef2ea6930  /system/lib64/libart.so (_ZN3art11ClassLinker15InitializeClassEPNS_6ThreadENS_6HandleINS_6mirror5ClassEEEbb+1840)
+         00007fffb86c07b0  000000006fc89e18  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007fffb86c07b8  000000006fc89e18  /data/dalvik-cache/x86_64/system@framework@boot.art
+         ........  ........
+    #17  00007fffb86c0800  0000000000000000
+         00007fffb86c0808  00007ffe12c007e0
+         00007fffb86c0810  c0f22af80ee59b69
+         00007fffb86c0818  00007fffb86c0b38
+         00007fffb86c0820  0000000072baae18  /system/framework/x86_64/boot-framework.oat
+         00007fffb86c0828  00007fffb86c0b58
+         00007fffb86c0830  00007fffb86c0c00
+         00007fffb86c0838  00007ffef3495a00  [anon:libc_malloc]
+         00007fffb86c0840  0000000072baae18  /system/framework/x86_64/boot-framework.oat
+         00007fffb86c0848  00007fffb86c0b38
+         00007fffb86c0850  00007fffb86c08e0
+         00007fffb86c0858  00007ffef2e4d3ed  /system/lib64/libart.so (_ZN3art9ArtMethod6InvokeEPNS_6ThreadEPjjPNS_6JValueEPKc+269)
+    #18  00007fffb86c0860  00007ffef33fec68  [anon:.bss]
+         00007fffb86c0868  00007ffef3495a98  [anon:libc_malloc]
+         00007fffb86c0870  000000007001fa20  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c0878  00007ffef3495a00  [anon:libc_malloc]
+         00007fffb86c0880  0000000000000000
+         00007fffb86c0888  00007ffef2e95629  /system/lib64/libart.so (_ZN3art11ClassLinker14EnsureResolvedEPNS_6ThreadEPKcPNS_6mirror5ClassE+1625)
+         00007fffb86c0890  0000000000000000
+         00007fffb86c0898  0000000000000000
+         00007fffb86c08a0  0000000000000000
+         00007fffb86c08a8  0000000000000a80
+         00007fffb86c08b0  c0f22af80ee59b69
+         00007fffb86c08b8  00000000703061b0  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c08c0  00007fffb86c0c00
+         00007fffb86c08c8  00007fffb86c0b58
+         00007fffb86c08d0  0000000072baae18  /system/framework/x86_64/boot-framework.oat
+         00007fffb86c08d8  00007fffb86c0b38
+         ........  ........
+    #19  00007fffb86c08f0  c0f22af80ee59b69
+         00007fffb86c08f8  000000007001fa20  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c0900  c0f22af80ee59b69
+         00007fffb86c0908  00000000000009de
+         00007fffb86c0910  00007ffef348c140  [anon:libc_malloc]
+         00007fffb86c0918  00007ffef34801c0  [anon:libc_malloc]
+         00007fffb86c0920  000000007000f310  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c0928  000000007000f310  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c0930  00007ffef348c380  [anon:libc_malloc]
+         00007fffb86c0938  00007ffef2eca494  /system/lib64/libart.so (_ZN3art10ClassTable6LookupEPKcm+292)
+         00007fffb86c0940  00007ffef3495a00  [anon:libc_malloc]
+         00007fffb86c0948  00007ffef3480250  [anon:libc_malloc]
+         00007fffb86c0950  c0f22af80ee59b69
+         00007fffb86c0958  0000000000200005
+         00007fffb86c0960  00007ffef3495a00  [anon:libc_malloc]
+         00007fffb86c0968  0000000000000000
+         ........  ........
+    #20  00007fffb86c0b20  00007fffb86c0c38
+         00007fffb86c0b28  00000000f2e6e491
+         00007fffb86c0b30  00007fffb86c0c00
+         00007fffb86c0b38  0000000000000000
+         00007fffb86c0b40  0000000072baae18  /system/framework/x86_64/boot-framework.oat
+         00007fffb86c0b48  0000000400000002
+         00007fffb86c0b50  00007fffb86c0b58
+         00007fffb86c0b58  00007ffe12c007e0
+         00007fffb86c0b60  0000000000000013
+         00007fffb86c0b68  0000000000000000
+         00007fffb86c0b70  0000000072b090d4  /system/framework/x86_64/boot-framework.oat
+         00007fffb86c0b78  00007fffb86c0ce0
+         00007fffb86c0b80  0000000000000038
+         00007fffb86c0b88  0000000072c165f5  /system/framework/x86_64/boot-framework.oat
+         00007fffb86c0b90  0000000070306530  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c0b98  0000000000000000
+         ........  ........
+    #21  00007fffb86c0be0  00007fffb86c0dd0
+         00007fffb86c0be8  00007ffef343e240  [anon:libc_malloc]
+         00007fffb86c0bf0  0000000000000000
+         00007fffb86c0bf8  00000000703061b0  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c0c00  00007ffef3495a00  [anon:libc_malloc]
+         00007fffb86c0c08  00007ffef343e240  [anon:libc_malloc]
+         00007fffb86c0c10  00007ffef34e7f00  [anon:libc_malloc]
+         00007fffb86c0c18  00007ffef3495a00  [anon:libc_malloc]
+         00007fffb86c0c20  0000004300000043
+         00007fffb86c0c28  0000000000100000
+         00007fffb86c0c30  c0f22af80ee59b69
+         00007fffb86c0c38  0000000000100019
+         00007fffb86c0c40  00007fffb86c0dd0
+         00007fffb86c0c48  00007ffef343e240  [anon:libc_malloc]
+         00007fffb86c0c50  0000000000000000
+         00007fffb86c0c58  00000000703061b0  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         ........  ........
+    #22  00007fffb86c0c70  00007ffe00000000
+         00007fffb86c0c78  00007fffb86c0d48
+         00007fffb86c0c80  00007ffef34de0f0  [anon:libc_malloc]
+         00007fffb86c0c88  0000000000100019
+         00007fffb86c0c90  000000000000002f
+         00007fffb86c0c98  00007ffef643cec4  /system/lib64/libc.so (je_free+116)
+         00007fffb86c0ca0  c0f22af80ee59b69
+         00007fffb86c0ca8  00007fffb86c0e01
+         00007fffb86c0cb0  00007fffb86c0e20
+         00007fffb86c0cb8  0000000000000001
+         00007fffb86c0cc0  00007ffef334166e  /system/lib64/libart.so
+         00007fffb86c0cc8  0000000000000001
+         00007fffb86c0cd0  00007ffef670ea59  /system/lib64/libandroid_runtime.so
+         00007fffb86c0cd8  0000000000000016
+         00007fffb86c0ce0  00007ffef670ea70  /system/lib64/libandroid_runtime.so
+         00007fffb86c0ce8  0000000900000000
+         ........  ........
+    #23  00007fffb86c0db0  0000000000000009
+         00007fffb86c0db8  00007ffe00000000
+         00007fffb86c0dc0  00007ffef670ea59  /system/lib64/libandroid_runtime.so
+         00007fffb86c0dc8  00007ffef6647293  /system/lib64/libandroid_runtime.so (_ZN7_JNIEnv20CallStaticVoidMethodEP7_jclassP10_jmethodIDz+147)
+    #24  00007fffb86c0dd0  0000003000000020
+         00007fffb86c0dd8  00007fffb86c0eb0
+         00007fffb86c0de0  00007fffb86c0df0
+         00007fffb86c0de8  c0f22af80ee59b69
+         00007fffb86c0df0  00000001b86c0ed0
+         00007fffb86c0df8  00000000703061b0  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+         00007fffb86c0e00  00430000f34e7f00
+         00007fffb86c0e08  0000000000200005
+         00007fffb86c0e10  00007fffb86c0df8
+         00007fffb86c0e18  000000000000000f
+         00007fffb86c0e20  00007ffef3495a00  [anon:libc_malloc]
+         00007fffb86c0e28  00007ffef343e240  [anon:libc_malloc]
+         00007fffb86c0e30  00007ffef34e7f00  [anon:libc_malloc]
+         00007fffb86c0e38  00007ffef3495a00  [anon:libc_malloc]
+         00007fffb86c0e40  0000005900000043
+         00007fffb86c0e48  00007ffef3495a00  [anon:libc_malloc]
+         ........  ........
+    #25  00007fffb86c0eb0  00007fffb86c10a8
+         00007fffb86c0eb8  00000001b86c0f40
+         00007fffb86c0ec0  00007ffef63b5b48  /system/lib64/libc.so (__set_errno_internal+8)
+         00007fffb86c0ec8  00007ffef343e240  [anon:libc_malloc]
+         00007fffb86c0ed0  5219bb542f5742fd
+         00007fffb86c0ed8  00007ffef308e670  /system/lib64/libart.so (JNI_GetDefaultJavaVMInitArgs)
+         00007fffb86c0ee0  00007ffef308e170  /system/lib64/libart.so (JNI_CreateJavaVM)
+         00007fffb86c0ee8  00007ffef308e640  /system/lib64/libart.so (JNI_GetCreatedJavaVMs)
+         00007fffb86c0ef0  00007fffb86c10a8
+         00007fffb86c0ef8  c0f22af80ee59b69
+         00007fffb86c0f00  00007ffef34a8e68  [anon:libc_malloc]
+         00007fffb86c0f08  00007ffef3ac62c2  /system/lib64/libcutils.so (property_get+18)
+         00007fffb86c0f10  0000000000000002
+         00007fffb86c0f18  00007ffef342a280  [anon:libc_malloc]
+         00007fffb86c0f20  0000000000000008
+         00007fffb86c0f28  00007ffef34a8e68  [anon:libc_malloc]
+         ........  ........
+    #26  00007fffb86c0fd0  00007ffef7fff5f9  /system/bin/app_process64
+         00007fffb86c0fd8  0000000000000000
+         00007fffb86c0fe0  0000000000000001
+         00007fffb86c0fe8  00007ffef8001ac0  /system/bin/app_process64
+         00007fffb86c0ff0  0000000100000000
+         00007fffb86c0ff8  00007ffef8001b00  /system/bin/app_process64
+         00007fffb86c1000  00007fffb86c2188
+         00007fffb86c1008  00007ffef34a8ef8  [anon:libc_malloc]
+         00007fffb86c1010  00007ffef34a8ec8  [anon:libc_malloc]
+         00007fffb86c1018  00007ffef34a8e98  [anon:libc_malloc]
+         00007fffb86c1020  0000000000000000
+         00007fffb86c1028  00007ffef8001b00  /system/bin/app_process64
+         00007fffb86c1030  00007ffef343cf58  [anon:libc_malloc]
+         00007fffb86c1038  0000000000000003
+         00007fffb86c1040  0000000000000000
+         00007fffb86c1048  0000000000000008
+         ........  ........
+    #27  00007fffb86c2120  0000000000000000
+         00007fffb86c2128  0000000000000000
+         00007fffb86c2130  00007fffb86c2178
+         00007fffb86c2138  0000000000000000
+         00007fffb86c2140  0000000000000000
+         00007fffb86c2148  00007ffef7ffdcf5  /system/bin/app_process64
+    #28  00007fffb86c2150  00007ffef7ff4398
+         00007fffb86c2158  00007ffef8001a78  /system/bin/app_process64
+         00007fffb86c2160  00007ffef8001a88  /system/bin/app_process64
+         00007fffb86c2168  00007ffef8001aa0  /system/bin/app_process64
+         00007fffb86c2170  00007fffb86c2180
+         00007fffb86c2178  0000000000000000
+         00007fffb86c2180  0000000000000006
+    #29  00007fffb86c2188  00007fffb86c3c24
+         00007fffb86c2190  00007fffb86c3c3e
+         00007fffb86c2198  00007fffb86c3c47
+         00007fffb86c21a0  00007fffb86c3c53
+         00007fffb86c21a8  00007fffb86c3c5c
+         00007fffb86c21b0  00007fffb86c3c72
+         00007fffb86c21b8  0000000000000000
+         00007fffb86c21c0  00007fffb86c3c87
+         00007fffb86c21c8  00007fffb86c3cc4
+         00007fffb86c21d0  00007fffb86c3cdf
+         00007fffb86c21d8  00007fffb86c3cf2
+         00007fffb86c21e0  00007fffb86c3d07
+         00007fffb86c21e8  00007fffb86c3d22
+         00007fffb86c21f0  00007fffb86c3d35
+         00007fffb86c21f8  00007fffb86c3d4e
+         00007fffb86c2200  00007fffb86c3d67
+
+memory near rsi:
+    00007fffb86bfa60 00007ffef3ad8400 00007ffef3acf4f1  ................
+    00007fffb86bfa70 00007ffef3ad8400 00007ffef3acf4f1  ................
+    00007fffb86bfa80 00007fffb86bfae0 000000000000000b  ..k.............
+    00007fffb86bfa90 00007fffb86bfb9c 0000000000000001  ..k.............
+    00007fffb86bfaa0 00007ffef72f2cb0 0000000000000008  .,/.............
+    00007fffb86bfab0 00007fffb86bfce0 0000000000000012  ..k.............
+    00007fffb86bfac0 00000000000001d9 00000000b86bfce0  ..........k.....
+    00007fffb86bfad0 0000000000000003 00007ffef640a581  ..........@.....
+    00007fffb86bfae0 bd58a0d24a11e100 00000000001b2e42  ...J..X.B.......
+    00007fffb86bfaf0 c0f22af80ee59b69 00007ffef3ad82b0  i....*..........
+    00007fffb86bfb00 0000000000000000 00007fffb86bfbc0  ..........k.....
+    00007fffb86bfb10 0000000000000003 0000000000000001  ................
+    00007fffb86bfb20 0000000000000000 00007ffef3ac9478  ........x.......
+    00007fffb86bfb30 0000000000000000 0000000000000000  ................
+    00007fffb86bfb40 0000000058a0d24a 000000001b2e42bd  J..X.....B......
+    00007fffb86bfb50 c0f22af80ee59b69 0000000000000003  i....*..........
+
+code around rip:
+    00007ffef72e12f0 8d48f189d0894150 158d48000119b335  PA....H.5....H..
+    00007ffef72e1300 000003bf000119db ffffeb80e8c03100  .........1......
+    00007ffef72e1310 2e66666666660b0f 0000000000841f0f  ..fffff.........
+    00007ffef72e1320 4155415641574155 894878ec83485354  UAWAVAUATSH..xH.
+    00007ffef72e1330 894920245c8948f3 4864302464894cfc  .H.\$ I..L.d$0dH
+    00007ffef72e1340 480000002825048b 2444c74170244489  ..%(...H.D$pA.D$
+    00007ffef72e1350 058b480000000108 10c083480001645c  .....H..\d..H...
+    00007ffef72e1360 2444c74124048949 c0570f0000000010  I..$A.D$......W.
+    00007ffef72e1370 0f41682444110f41 44110f4158244411  A..D$hA..D$XA..D
+    00007ffef72e1380 382444110f414824 0f41282444110f41  $HA..D$8A..D$(A.
+    00007ffef72e1390 253d8b4818244411 ffffeb30e8000164  .D$.H.=%d...0...
+    00007ffef72e13a0 00000723800fd8f7 4489481824448d49  ....#...I.D$.H.D
+    00007ffef72e13b0 01640f058b481024 108901518d088b00  $.H...d.....Q...
+    00007ffef72e13c0 6b8b480c244c8941 03fdc1482b2b4808  A.L$.H.k.H++H...
+    00007ffef72e13d0 358d4828246c8948 19158d48000118d4  H.l$(H.5....H...
+    00007ffef72e13e0 00000003bf000119 ea9ee8e98948c031  ........1.H.....
+
+memory map: (fault address prefixed with --->)
+    00000000'12c00000-00000000'12e00fff rw-         0    201000  /dev/ashmem/dalvik-main space (deleted)
+    00000000'12e01000-00000000'15bfffff ---    201000   2dff000  /dev/ashmem/dalvik-main space (deleted)
+    00000000'15c00000-00000000'15c00fff rw-         0      1000  /dev/ashmem/dalvik-main space 1 (deleted)
+    00000000'15c01000-00000000'18bfffff ---      1000   2fff000  /dev/ashmem/dalvik-main space 1 (deleted)
+    00000000'40497000-00000000'4049ffff rw-         0      9000  /dev/ashmem/dalvik-large object space allocation (deleted)
+    00000000'404db000-00000000'404defff rw-         0      4000  /dev/ashmem/dalvik-large object space allocation (deleted)
+    00000000'40af0000-00000000'40af7fff rw-         0      8000  /dev/ashmem/dalvik-large object space allocation (deleted)
+    00000000'40f5d000-00000000'40f64fff rw-         0      8000  /dev/ashmem/dalvik-large object space allocation (deleted)
+    00000000'41318000-00000000'4131bfff rw-         0      4000  /dev/ashmem/dalvik-large object space allocation (deleted)
+    00000000'41454000-00000000'41457fff rw-         0      4000  /dev/ashmem/dalvik-large object space allocation (deleted)
+    00000000'41458000-00000000'4145ffff rw-         0      8000  /dev/ashmem/dalvik-large object space allocation (deleted)
+    00000000'414f6000-00000000'414f9fff rw-         0      4000  /dev/ashmem/dalvik-large object space allocation (deleted)
+    00000000'4164e000-00000000'41655fff rw-         0      8000  /dev/ashmem/dalvik-large object space allocation (deleted)
+    00000000'41713000-00000000'41716fff rw-         0      4000  /dev/ashmem/dalvik-large object space allocation (deleted)
+    00000000'41759000-00000000'41761fff rw-         0      9000  /dev/ashmem/dalvik-large object space allocation (deleted)
+    00000000'418ad000-00000000'418b4fff rw-         0      8000  /dev/ashmem/dalvik-large object space allocation (deleted)
+    00000000'6fa6b000-00000000'6fd0afff rw-         0    2a0000  /data/dalvik-cache/x86_64/system@framework@boot.art
+    00000000'6fd0b000-00000000'6fe86fff rw-         0    17c000  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+    00000000'6fe87000-00000000'6febbfff rw-         0     35000  /data/dalvik-cache/x86_64/system@framework@boot-conscrypt.art
+    00000000'6febc000-00000000'6fef4fff rw-         0     39000  /data/dalvik-cache/x86_64/system@framework@boot-okhttp.art
+    00000000'6fef5000-00000000'6fef7fff rw-         0      3000  /data/dalvik-cache/x86_64/system@framework@boot-core-junit.art
+    00000000'6fef8000-00000000'6ff3dfff rw-         0     46000  /data/dalvik-cache/x86_64/system@framework@boot-bouncycastle.art
+    00000000'6ff3e000-00000000'6ff7ffff rw-         0     42000  /data/dalvik-cache/x86_64/system@framework@boot-ext.art
+    00000000'6ff80000-00000000'7073bfff rw-         0    7bc000  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+    00000000'7073c000-00000000'707cbfff rw-         0     90000  /data/dalvik-cache/x86_64/system@framework@boot-telephony-common.art
+    00000000'707cc000-00000000'707d3fff rw-         0      8000  /data/dalvik-cache/x86_64/system@framework@boot-voip-common.art
+    00000000'707d4000-00000000'707dffff rw-         0      c000  /data/dalvik-cache/x86_64/system@framework@boot-ims-common.art
+    00000000'707e0000-00000000'70802fff rw-         0     23000  /data/dalvik-cache/x86_64/system@framework@boot-apache-xml.art
+    00000000'70803000-00000000'70829fff rw-         0     27000  /data/dalvik-cache/x86_64/system@framework@boot-org.apache.http.legacy.boot.art
+    00000000'7082a000-00000000'70d5cfff r--         0    533000  /system/framework/x86_64/boot.oat
+    00000000'70d5d000-00000000'71160fff r-x    533000    404000  /system/framework/x86_64/boot.oat (load base 0x533000)
+    00000000'71161000-00000000'71161fff r--    937000      1000  /system/framework/x86_64/boot.oat
+    00000000'71162000-00000000'71162fff rw-    938000      1000  /system/framework/x86_64/boot.oat
+    00000000'71163000-00000000'715f0fff r--         0    48e000  /system/framework/x86_64/boot-core-libart.oat
+    00000000'715f1000-00000000'7190ffff r-x    48e000    31f000  /system/framework/x86_64/boot-core-libart.oat (load base 0x48e000)
+    00000000'71910000-00000000'71910fff r--    7ad000      1000  /system/framework/x86_64/boot-core-libart.oat
+    00000000'71911000-00000000'71911fff rw-    7ae000      1000  /system/framework/x86_64/boot-core-libart.oat
+    00000000'71912000-00000000'7197ffff r--         0     6e000  /system/framework/x86_64/boot-conscrypt.oat
+    00000000'71980000-00000000'719d8fff r-x     6e000     59000  /system/framework/x86_64/boot-conscrypt.oat (load base 0x6e000)
+    00000000'719d9000-00000000'719d9fff r--     c7000      1000  /system/framework/x86_64/boot-conscrypt.oat
+    00000000'719da000-00000000'719dafff rw-     c8000      1000  /system/framework/x86_64/boot-conscrypt.oat
+    00000000'719db000-00000000'71a61fff r--         0     87000  /system/framework/x86_64/boot-okhttp.oat
+    00000000'71a62000-00000000'71ac4fff r-x     87000     63000  /system/framework/x86_64/boot-okhttp.oat (load base 0x87000)
+    00000000'71ac5000-00000000'71ac5fff r--     ea000      1000  /system/framework/x86_64/boot-okhttp.oat
+    00000000'71ac6000-00000000'71ac6fff rw-     eb000      1000  /system/framework/x86_64/boot-okhttp.oat
+    00000000'71ac7000-00000000'71acffff r--         0      9000  /system/framework/x86_64/boot-core-junit.oat
+    00000000'71ad0000-00000000'71ad2fff r-x      9000      3000  /system/framework/x86_64/boot-core-junit.oat (load base 0x9000)
+    00000000'71ad3000-00000000'71ad3fff r--      c000      1000  /system/framework/x86_64/boot-core-junit.oat
+    00000000'71ad4000-00000000'71ad4fff rw-      d000      1000  /system/framework/x86_64/boot-core-junit.oat
+    00000000'71ad5000-00000000'71c3ffff r--         0    16b000  /system/framework/x86_64/boot-bouncycastle.oat
+    00000000'71c40000-00000000'71c85fff r-x    16b000     46000  /system/framework/x86_64/boot-bouncycastle.oat (load base 0x16b000)
+    00000000'71c86000-00000000'71c86fff r--    1b1000      1000  /system/framework/x86_64/boot-bouncycastle.oat
+    00000000'71c87000-00000000'71c87fff rw-    1b2000      1000  /system/framework/x86_64/boot-bouncycastle.oat
+    00000000'71c88000-00000000'71da2fff r--         0    11b000  /system/framework/x86_64/boot-ext.oat
+    00000000'71da3000-00000000'71de4fff r-x    11b000     42000  /system/framework/x86_64/boot-ext.oat (load base 0x11b000)
+    00000000'71de5000-00000000'71de5fff r--    15d000      1000  /system/framework/x86_64/boot-ext.oat
+    00000000'71de6000-00000000'71de6fff rw-    15e000      1000  /system/framework/x86_64/boot-ext.oat
+    00000000'71de7000-00000000'733effff r--         0   1609000  /system/framework/x86_64/boot-framework.oat
+    00000000'733f0000-00000000'74478fff r-x   1609000   1089000  /system/framework/x86_64/boot-framework.oat (load base 0x1609000)
+    00000000'74479000-00000000'74479fff r--   2692000      1000  /system/framework/x86_64/boot-framework.oat
+    00000000'7447a000-00000000'7447afff rw-   2693000      1000  /system/framework/x86_64/boot-framework.oat
+    00000000'7447b000-00000000'7475bfff r--         0    2e1000  /system/framework/x86_64/boot-telephony-common.oat
+    00000000'7475c000-00000000'7495afff r-x    2e1000    1ff000  /system/framework/x86_64/boot-telephony-common.oat (load base 0x2e1000)
+    00000000'7495b000-00000000'7495bfff r--    4e0000      1000  /system/framework/x86_64/boot-telephony-common.oat
+    00000000'7495c000-00000000'7495cfff rw-    4e1000      1000  /system/framework/x86_64/boot-telephony-common.oat
+    00000000'7495d000-00000000'7498cfff r--         0     30000  /system/framework/x86_64/boot-voip-common.oat
+    00000000'7498d000-00000000'7499efff r-x     30000     12000  /system/framework/x86_64/boot-voip-common.oat (load base 0x30000)
+    00000000'7499f000-00000000'7499ffff r--     42000      1000  /system/framework/x86_64/boot-voip-common.oat
+    00000000'749a0000-00000000'749a0fff rw-     43000      1000  /system/framework/x86_64/boot-voip-common.oat
+    00000000'749a1000-00000000'749ccfff r--         0     2c000  /system/framework/x86_64/boot-ims-common.oat
+    00000000'749cd000-00000000'749e9fff r-x     2c000     1d000  /system/framework/x86_64/boot-ims-common.oat (load base 0x2c000)
+    00000000'749ea000-00000000'749eafff r--     49000      1000  /system/framework/x86_64/boot-ims-common.oat
+    00000000'749eb000-00000000'749ebfff rw-     4a000      1000  /system/framework/x86_64/boot-ims-common.oat
+    00000000'749ec000-00000000'74b3bfff r--         0    150000  /system/framework/x86_64/boot-apache-xml.oat
+    00000000'74b3c000-00000000'74b60fff r-x    150000     25000  /system/framework/x86_64/boot-apache-xml.oat (load base 0x150000)
+    00000000'74b61000-00000000'74b61fff r--    175000      1000  /system/framework/x86_64/boot-apache-xml.oat
+    00000000'74b62000-00000000'74b62fff rw-    176000      1000  /system/framework/x86_64/boot-apache-xml.oat
+    00000000'74b63000-00000000'74c0dfff r--         0     ab000  /system/framework/x86_64/boot-org.apache.http.legacy.boot.oat
+    00000000'74c0e000-00000000'74c81fff r-x     ab000     74000  /system/framework/x86_64/boot-org.apache.http.legacy.boot.oat (load base 0xab000)
+    00000000'74c82000-00000000'74c82fff r--    11f000      1000  /system/framework/x86_64/boot-org.apache.http.legacy.boot.oat
+    00000000'74c83000-00000000'74c83fff rw-    120000      1000  /system/framework/x86_64/boot-org.apache.http.legacy.boot.oat
+    00000000'74c84000-00000000'74ccefff rw-         0     4b000  /dev/ashmem/dalvik-zygote space (deleted)
+    00000000'74ccf000-00000000'78c83fff ---     4b000   3fb5000  /dev/ashmem/dalvik-zygote space (deleted)
+    00007ffe'e9e00000-00007ffe'e9ffffff rw-         0    200000  [anon:libc_malloc]
+    00007ffe'eb1ab000-00007ffe'eb1cafff r--         0     20000  /dev/__properties__/u:object_r:logd_prop:s0
+    00007ffe'eb1cb000-00007ffe'eb1eafff r--         0     20000  /dev/__properties__/u:object_r:default_prop:s0
+    00007ffe'eb1eb000-00007ffe'eb235fff r--         0     4b000  /system/fonts/Roboto-Regular.ttf
+    00007ffe'eb236000-00007ffe'eb259fff r--         0     24000  /system/usr/hyphen-data/hyph-nn.hyb
+    00007ffe'eb25a000-00007ffe'eb27dfff r--         0     24000  /system/usr/hyphen-data/hyph-nb.hyb
+    00007ffe'eb27e000-00007ffe'eb2cbfff r--         0     4e000  /system/usr/hyphen-data/hyph-hu.hyb
+    00007ffe'eb2cc000-00007ffe'eb2effff r-x         0     24000  /system/lib64/libcompiler_rt.so (BuildId: 23f757fd55aabb91fb0a7f24a96a97b5)
+    00007ffe'eb2f0000-00007ffe'eb2f0fff ---         0      1000
+    00007ffe'eb2f1000-00007ffe'eb2f1fff r--     24000      1000  /system/lib64/libcompiler_rt.so
+    00007ffe'eb2f2000-00007ffe'eb2f2fff rw-     25000      1000  /system/lib64/libcompiler_rt.so
+    00007ffe'eb2f3000-00007ffe'eb31ffff rw-         0     2d000  [anon:.bss]
+    00007ffe'eb320000-00007ffe'ec472fff r--    bf6000   1153000  /system/framework/framework-res.apk
+    00007ffe'ec473000-00007ffe'ed99efff r--         0   152c000  /system/usr/icu/icudt56l.dat
+    00007ffe'ed99f000-00007ffe'ed99ffff ---         0      1000  [anon:thread stack guard page]
+    00007ffe'ed9a0000-00007ffe'ed9a0fff ---         0      1000
+    00007ffe'ed9a1000-00007ffe'edaa3fff rw-         0    103000  [stack:4617]
+    00007ffe'edaa4000-00007ffe'edaa4fff ---         0      1000  [anon:thread stack guard page]
+    00007ffe'edaa5000-00007ffe'edaa5fff ---         0      1000
+    00007ffe'edaa6000-00007ffe'edba8fff rw-         0    103000  [stack:4616]
+    00007ffe'edba9000-00007ffe'edba9fff ---         0      1000  [anon:thread stack guard page]
+    00007ffe'edbaa000-00007ffe'edbaafff ---         0      1000
+    00007ffe'edbab000-00007ffe'edcadfff rw-         0    103000  [stack:4615]
+    00007ffe'edcae000-00007ffe'edcaefff ---         0      1000  [anon:thread stack guard page]
+    00007ffe'edcaf000-00007ffe'edcaffff ---         0      1000
+    00007ffe'edcb0000-00007ffe'eddb2fff rw-         0    103000  [stack:4614]
+    00007ffe'eddb3000-00007ffe'ef2defff r--         0   152c000  /system/usr/icu/icudt56l.dat
+    00007ffe'ef2df000-00007ffe'ef3cffff r-x         0     f1000  /system/lib64/libvixl.so (BuildId: 7caf769f8972101e8a9037e22a8e287a)
+    00007ffe'ef3d0000-00007ffe'ef3d4fff r--     f0000      5000  /system/lib64/libvixl.so
+    00007ffe'ef3d5000-00007ffe'ef3d5fff rw-     f5000      1000  /system/lib64/libvixl.so
+    00007ffe'ef3d6000-00007ffe'ef3dbfff rw-         0      6000  [anon:.bss]
+    00007ffe'ef3dc000-00007ffe'ef857fff r-x         0    47c000  /system/lib64/libart-compiler.so (BuildId: 81353ba0e0e5db2c81fd1fadd16e0321)
+    00007ffe'ef858000-00007ffe'ef86efff r--    47b000     17000  /system/lib64/libart-compiler.so
+    00007ffe'ef86f000-00007ffe'ef86ffff rw-    492000      1000  /system/lib64/libart-compiler.so
+    00007ffe'ef870000-00007ffe'ef873fff rw-         0      4000  [anon:.bss]
+    00007ffe'ef874000-00007ffe'ef93bfff rw-         0     c8000  /dev/ashmem/dalvik-indirect ref table (deleted)
+    00007ffe'ef93c000-00007ffe'efa03fff rw-         0     c8000  /dev/ashmem/dalvik-indirect ref table (deleted)
+    00007ffe'efa04000-00007ffe'f0204fff rw-         0    801000  /dev/ashmem/dalvik-live stack (deleted)
+    00007ffe'f0205000-00007ffe'f0a05fff rw-         0    801000  /dev/ashmem/dalvik-allocation stack (deleted)
+    00007ffe'f0a06000-00007ffe'f2a06fff rw-         0   2001000  /dev/ashmem/dalvik-card table (deleted)
+    00007ffe'f2a07000-00007ffe'f2ac6fff rw-         0     c0000  /dev/ashmem/dalvik-allocspace main rosalloc space 1 mark-bitmap 2 (deleted)
+    00007ffe'f2ac7000-00007ffe'f2b86fff rw-         0     c0000  /dev/ashmem/dalvik-allocspace main rosalloc space 1 live-bitmap 2 (deleted)
+    00007ffe'f2b87000-00007ffe'f2c46fff rw-         0     c0000  /dev/ashmem/dalvik-allocspace main rosalloc space mark-bitmap 1 (deleted)
+    00007ffe'f2c47000-00007ffe'f2d06fff rw-         0     c0000  /dev/ashmem/dalvik-allocspace main rosalloc space live-bitmap 1 (deleted)
+    00007ffe'f2d07000-00007ffe'f33eafff r-x         0    6e4000  /system/lib64/libart.so (BuildId: 8f493036c03c7bee4a27f41bf4fff970)
+    00007ffe'f33eb000-00007ffe'f33f9fff r--    6e3000      f000  /system/lib64/libart.so
+    00007ffe'f33fa000-00007ffe'f33fcfff rw-    6f2000      3000  /system/lib64/libart.so
+    00007ffe'f33fd000-00007ffe'f33fffff rw-         0      3000  [anon:.bss]
+    00007ffe'f3400000-00007ffe'f37fffff rw-         0    400000  [anon:libc_malloc]
+    00007ffe'f3806000-00007ffe'f38a6fff r--   1ea0000     a1000  /system/framework/framework-res.apk
+    00007ffe'f38a7000-00007ffe'f39a6fff rw-         0    100000  /dev/ashmem/dalvik-allocspace zygote / non moving space mark-bitmap 0 (deleted)
+    00007ffe'f39a7000-00007ffe'f39a7fff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f39a8000-00007ffe'f39a8fff rw-         0      1000  [anon:linker_alloc]
+    00007ffe'f39a9000-00007ffe'f39c7fff r-x         0     1f000  /system/lib64/libunwind.so
+    00007ffe'f39c8000-00007ffe'f39c8fff ---         0      1000
+    00007ffe'f39c9000-00007ffe'f39c9fff r--     1f000      1000  /system/lib64/libunwind.so
+    00007ffe'f39ca000-00007ffe'f39cafff rw-     20000      1000  /system/lib64/libunwind.so
+    00007ffe'f39cb000-00007ffe'f39f3fff rw-         0     29000  [anon:.bss]
+    00007ffe'f39f4000-00007ffe'f39fcfff r-x         0      9000  /system/lib64/libcamera_metadata.so (BuildId: 56f62b8b69b5a082af7f34a909992db9)
+    00007ffe'f39fd000-00007ffe'f39fdfff ---         0      1000
+    00007ffe'f39fe000-00007ffe'f39fefff r--      9000      1000  /system/lib64/libcamera_metadata.so
+    00007ffe'f39ff000-00007ffe'f3a00fff rw-      a000      2000  /system/lib64/libcamera_metadata.so
+    00007ffe'f3a01000-00007ffe'f3a91fff r-x         0     91000  /system/lib64/libbinder.so (BuildId: 3e3918b7447026159c8f503efcfe0b47)
+    00007ffe'f3a92000-00007ffe'f3a92fff ---         0      1000
+    00007ffe'f3a93000-00007ffe'f3aa4fff r--     91000     12000  /system/lib64/libbinder.so
+    00007ffe'f3aa5000-00007ffe'f3aa5fff rw-     a3000      1000  /system/lib64/libbinder.so
+    00007ffe'f3aa6000-00007ffe'f3aaafff r-x         0      5000  /system/lib64/libhardware_legacy.so (BuildId: ef047bf1de641191da142d5ffc8a77be)
+    00007ffe'f3aab000-00007ffe'f3aabfff ---         0      1000
+    00007ffe'f3aac000-00007ffe'f3aacfff r--      5000      1000  /system/lib64/libhardware_legacy.so
+    00007ffe'f3aad000-00007ffe'f3aadfff rw-      6000      1000  /system/lib64/libhardware_legacy.so
+    00007ffe'f3aae000-00007ffe'f3aaefff rw-         0      1000  [anon:.bss]
+    00007ffe'f3aaf000-00007ffe'f3ab5fff r-x         0      7000  /system/lib64/libnativehelper.so (BuildId: 21f576adcca583af205c06a1ccb09530)
+    00007ffe'f3ab6000-00007ffe'f3ab6fff r--      6000      1000  /system/lib64/libnativehelper.so
+    00007ffe'f3ab7000-00007ffe'f3ab7fff rw-      7000      1000  /system/lib64/libnativehelper.so
+    00007ffe'f3ab8000-00007ffe'f3ad4fff r-x         0     1d000  /system/lib64/libcutils.so (BuildId: 348783bf759aa7c9ceb72ba1d2357dae)
+    00007ffe'f3ad5000-00007ffe'f3ad5fff ---         0      1000
+    00007ffe'f3ad6000-00007ffe'f3ad7fff r--     1d000      2000  /system/lib64/libcutils.so
+    00007ffe'f3ad8000-00007ffe'f3ad8fff rw-     1f000      1000  /system/lib64/libcutils.so
+    00007ffe'f3ad9000-00007ffe'f3b0efff r-x         0     36000  /system/lib64/libpng.so (BuildId: 88474f6f757821a57dba222bea7a7118)
+    00007ffe'f3b0f000-00007ffe'f3b0ffff ---         0      1000
+    00007ffe'f3b10000-00007ffe'f3b10fff r--     36000      1000  /system/lib64/libpng.so
+    00007ffe'f3b11000-00007ffe'f3b11fff rw-     37000      1000  /system/lib64/libpng.so
+    00007ffe'f3b12000-00007ffe'f3d5efff r-x         0    24d000  /system/lib64/libicui18n.so (BuildId: 5d2b63db782333f8562159aab7bdd64d)
+    00007ffe'f3d5f000-00007ffe'f3d72fff r--    24c000     14000  /system/lib64/libicui18n.so
+    00007ffe'f3d73000-00007ffe'f3d73fff rw-    260000      1000  /system/lib64/libicui18n.so
+    00007ffe'f3d74000-00007ffe'f3d88fff r-x         0     15000  /system/lib64/libselinux.so (BuildId: 777b7bffe87e47e82505c795ad6973f3)
+    00007ffe'f3d89000-00007ffe'f3d89fff ---         0      1000
+    00007ffe'f3d8a000-00007ffe'f3d8afff r--     15000      1000  /system/lib64/libselinux.so
+    00007ffe'f3d8b000-00007ffe'f3d8bfff rw-     16000      1000  /system/lib64/libselinux.so
+    00007ffe'f3d8c000-00007ffe'f3d8cfff rw-         0      1000  [anon:.bss]
+    00007ffe'f3d8d000-00007ffe'f3db1fff r-x         0     25000  /system/lib64/libEGL.so (BuildId: f4d95cb58c71f0ad700b76fa1a35974e)
+    00007ffe'f3db2000-00007ffe'f3db2fff ---         0      1000
+    00007ffe'f3db3000-00007ffe'f3db6fff r--     25000      4000  /system/lib64/libEGL.so
+    00007ffe'f3db7000-00007ffe'f3db7fff rw-     29000      1000  /system/lib64/libEGL.so
+    00007ffe'f3db8000-00007ffe'f3dbefff rw-         0      7000  [anon:.bss]
+    00007ffe'f3dbf000-00007ffe'f3dc6fff r-x         0      8000  /system/lib64/libimage_type_recognition.so (BuildId: 279be50227eada535fa6668435ae2d56)
+    00007ffe'f3dc7000-00007ffe'f3dc7fff ---         0      1000
+    00007ffe'f3dc8000-00007ffe'f3dc8fff r--      8000      1000  /system/lib64/libimage_type_recognition.so
+    00007ffe'f3dc9000-00007ffe'f3dc9fff rw-      9000      1000  /system/lib64/libimage_type_recognition.so
+    00007ffe'f3dca000-00007ffe'f42f1fff r-x         0    528000  /system/lib64/libpdfium.so (BuildId: 51064d359a9e15b26e78f1aeef340df7)
+    00007ffe'f42f2000-00007ffe'f4309fff r--    527000     18000  /system/lib64/libpdfium.so
+    00007ffe'f430a000-00007ffe'f430dfff rw-    53f000      4000  /system/lib64/libpdfium.so
+    00007ffe'f430e000-00007ffe'f430efff rw-         0      1000  [anon:.bss]
+    00007ffe'f430f000-00007ffe'f4349fff r-x         0     3b000  /system/lib64/libssl.so (BuildId: 70b398279094f10157ed99ce5eebcaec)
+    00007ffe'f434a000-00007ffe'f434afff ---         0      1000
+    00007ffe'f434b000-00007ffe'f434cfff r--     3b000      2000  /system/lib64/libssl.so
+    00007ffe'f434d000-00007ffe'f434dfff rw-     3d000      1000  /system/lib64/libssl.so
+    00007ffe'f434e000-00007ffe'f4359fff r-x         0      c000  /system/lib64/libmediautils.so (BuildId: a5ffa78f26fc9540ab6018442dc42c1c)
+    00007ffe'f435a000-00007ffe'f435bfff r--      b000      2000  /system/lib64/libmediautils.so
+    00007ffe'f435c000-00007ffe'f435cfff rw-      d000      1000  /system/lib64/libmediautils.so
+    00007ffe'f435d000-00007ffe'f435dfff r-x         0      1000  /system/lib64/libstagefright_enc_common.so (BuildId: e6233b330dc9947d620768ea7d43a089)
+    00007ffe'f435e000-00007ffe'f435efff r--         0      1000  /system/lib64/libstagefright_enc_common.so (BuildId: e6233b330dc9947d620768ea7d43a089)
+    00007ffe'f435f000-00007ffe'f435ffff rw-      1000      1000  /system/lib64/libstagefright_enc_common.so
+    00007ffe'f4360000-00007ffe'f4369fff r-x         0      a000  /system/lib64/libaudioutils.so (BuildId: 1c061299b8919dc206759bf711aff866)
+    00007ffe'f436a000-00007ffe'f436afff r--      9000      1000  /system/lib64/libaudioutils.so
+    00007ffe'f436b000-00007ffe'f436bfff rw-      a000      1000  /system/lib64/libaudioutils.so
+    00007ffe'f436c000-00007ffe'f4387fff r-x         0     1c000  /system/lib64/libui.so (BuildId: 6e41e1bfde37ca345636f2775d460bbc)
+    00007ffe'f4388000-00007ffe'f4388fff ---         0      1000
+    00007ffe'f4389000-00007ffe'f4389fff r--     1c000      1000  /system/lib64/libui.so
+    00007ffe'f438a000-00007ffe'f438afff rw-     1d000      1000  /system/lib64/libui.so
+    00007ffe'f438b000-00007ffe'f438cfff r-x         0      2000  /system/lib64/libprocessgroup.so (BuildId: 0b73bc6316624f63cfa705756815ba79)
+    00007ffe'f438d000-00007ffe'f438dfff r--      1000      1000  /system/lib64/libprocessgroup.so
+    00007ffe'f438e000-00007ffe'f438efff rw-      2000      1000  /system/lib64/libprocessgroup.so
+    00007ffe'f438f000-00007ffe'f43e7fff r-x         0     59000  /system/lib64/libsonivox.so (BuildId: 65c559ae3d7220cd4bbf6eecce010259)
+    00007ffe'f43e8000-00007ffe'f43e8fff ---         0      1000
+    00007ffe'f43e9000-00007ffe'f43e9fff r--     59000      1000  /system/lib64/libsonivox.so
+    00007ffe'f43ea000-00007ffe'f43eafff rw-     5a000      1000  /system/lib64/libsonivox.so
+    00007ffe'f43eb000-00007ffe'f43f1fff rw-         0      7000  [anon:.bss]
+    00007ffe'f43f2000-00007ffe'f43f2fff r-x         0      1000  /system/lib64/libsync.so (BuildId: bcec9f4e349adeed9706c6752c010d8a)
+    00007ffe'f43f3000-00007ffe'f43f3fff r--         0      1000  /system/lib64/libsync.so (BuildId: bcec9f4e349adeed9706c6752c010d8a)
+    00007ffe'f43f4000-00007ffe'f43f4fff rw-      1000      1000  /system/lib64/libsync.so
+    00007ffe'f43f5000-00007ffe'f4403fff r-x         0      f000  /system/lib64/liblog.so (BuildId: 70fb0d97178a48399f77a6fcb413ac34)
+    00007ffe'f4404000-00007ffe'f4404fff ---         0      1000
+    00007ffe'f4405000-00007ffe'f4405fff r--      f000      1000  /system/lib64/liblog.so
+    00007ffe'f4406000-00007ffe'f4406fff rw-     10000      1000  /system/lib64/liblog.so
+    00007ffe'f4407000-00007ffe'f4412fff r-x         0      c000  /system/lib64/libbase.so (BuildId: 836f848394ee05d6ae429f91b9752d40)
+    00007ffe'f4413000-00007ffe'f4413fff r--      b000      1000  /system/lib64/libbase.so
+    00007ffe'f4414000-00007ffe'f4414fff rw-      c000      1000  /system/lib64/libbase.so
+    00007ffe'f4415000-00007ffe'f4418fff r-x         0      4000  /system/lib64/libspeexresampler.so (BuildId: a289bc0dd8763978d8a4c94997866d24)
+    00007ffe'f4419000-00007ffe'f4419fff r--      3000      1000  /system/lib64/libspeexresampler.so
+    00007ffe'f441a000-00007ffe'f441afff rw-      4000      1000  /system/lib64/libspeexresampler.so
+    00007ffe'f441b000-00007ffe'f4426fff r-x         0      c000  /system/lib64/libpiex.so (BuildId: 4d53b6465a21f6f3a057259bb77e00a8)
+    00007ffe'f4427000-00007ffe'f4427fff r--      b000      1000  /system/lib64/libpiex.so
+    00007ffe'f4428000-00007ffe'f4428fff rw-      c000      1000  /system/lib64/libpiex.so
+    00007ffe'f4429000-00007ffe'f444bfff r-x         0     23000  /system/lib64/libprotobuf-cpp-lite.so (BuildId: 5be2d65f12141a5158ddc6f0d93d3f51)
+    00007ffe'f444c000-00007ffe'f444cfff r--     22000      1000  /system/lib64/libprotobuf-cpp-lite.so
+    00007ffe'f444d000-00007ffe'f444dfff rw-     23000      1000  /system/lib64/libprotobuf-cpp-lite.so
+    00007ffe'f444e000-00007ffe'f447afff r-x         0     2d000  /system/lib64/libstagefright_foundation.so (BuildId: 548e1a56b27d5520643ad1e88c93282d)
+    00007ffe'f447b000-00007ffe'f447bfff ---         0      1000
+    00007ffe'f447c000-00007ffe'f447dfff r--     2d000      2000  /system/lib64/libstagefright_foundation.so
+    00007ffe'f447e000-00007ffe'f447efff rw-     2f000      1000  /system/lib64/libstagefright_foundation.so
+    00007ffe'f447f000-00007ffe'f4484fff r-x         0      6000  /system/lib64/libtiff_directory.so (BuildId: 424c2a4dd67f5a06dc9ad1272630dc70)
+    00007ffe'f4485000-00007ffe'f4485fff r--      5000      1000  /system/lib64/libtiff_directory.so
+    00007ffe'f4486000-00007ffe'f4486fff rw-      6000      1000  /system/lib64/libtiff_directory.so
+    00007ffe'f4487000-00007ffe'f46bdfff r-x         0    237000  /system/lib64/libstagefright.so (BuildId: 2354098207fa7f01d8d5025049d9c484)
+    00007ffe'f46be000-00007ffe'f46ecfff r--    236000     2f000  /system/lib64/libstagefright.so
+    00007ffe'f46ed000-00007ffe'f46edfff rw-    265000      1000  /system/lib64/libstagefright.so
+    00007ffe'f46ee000-00007ffe'f4700fff r-x         0     13000  /system/lib64/libimg_utils.so (BuildId: 169f69fdf6a28c76eb04ab8672ba1589)
+    00007ffe'f4701000-00007ffe'f4703fff r--     12000      3000  /system/lib64/libimg_utils.so
+    00007ffe'f4704000-00007ffe'f4704fff rw-     15000      1000  /system/lib64/libimg_utils.so
+    00007ffe'f4705000-00007ffe'f471dfff r-x         0     19000  /system/lib64/libsoundtrigger.so (BuildId: ae766c906b3682ef7f0f4b4dcbb6eb21)
+    00007ffe'f471e000-00007ffe'f471efff ---         0      1000
+    00007ffe'f471f000-00007ffe'f4724fff r--     19000      6000  /system/lib64/libsoundtrigger.so
+    00007ffe'f4725000-00007ffe'f4725fff rw-     1f000      1000  /system/lib64/libsoundtrigger.so
+    00007ffe'f4726000-00007ffe'f4819fff r-x         0     f4000  /system/lib64/libc++.so (BuildId: 543654d2789633fdb39075d02d563ca6)
+    00007ffe'f481a000-00007ffe'f4821fff r--     f3000      8000  /system/lib64/libc++.so
+    00007ffe'f4822000-00007ffe'f4822fff rw-     fb000      1000  /system/lib64/libc++.so
+    00007ffe'f4823000-00007ffe'f4825fff rw-         0      3000  [anon:.bss]
+    00007ffe'f4826000-00007ffe'f4877fff r-x         0     52000  /system/lib64/libm.so
+    00007ffe'f4878000-00007ffe'f4878fff r--     51000      1000  /system/lib64/libm.so
+    00007ffe'f4879000-00007ffe'f4879fff rw-     52000      1000  /system/lib64/libm.so
+    00007ffe'f487a000-00007ffe'f487bfff r-x         0      2000  /system/lib64/libmemtrack.so (BuildId: e8728dfe297710363dbfa02c9d092832)
+    00007ffe'f487c000-00007ffe'f487cfff r--      1000      1000  /system/lib64/libmemtrack.so
+    00007ffe'f487d000-00007ffe'f487dfff rw-      2000      1000  /system/lib64/libmemtrack.so
+    00007ffe'f487e000-00007ffe'f48cdfff r-x         0     50000  /system/lib64/libopus.so (BuildId: 49c4f6a875a254aa30f7b67e48e340d4)
+    00007ffe'f48ce000-00007ffe'f48cefff ---         0      1000
+    00007ffe'f48cf000-00007ffe'f48cffff r--     50000      1000  /system/lib64/libopus.so
+    00007ffe'f48d0000-00007ffe'f48d0fff rw-     51000      1000  /system/lib64/libopus.so
+    00007ffe'f48d1000-00007ffe'f493afff r-x         0     6a000  /system/lib64/libcamera_client.so (BuildId: e5928da99645d292239e44575d290aac)
+    00007ffe'f493b000-00007ffe'f493bfff ---         0      1000
+    00007ffe'f493c000-00007ffe'f494cfff r--     6a000     11000  /system/lib64/libcamera_client.so
+    00007ffe'f494d000-00007ffe'f494dfff rw-     7b000      1000  /system/lib64/libcamera_client.so
+    00007ffe'f494e000-00007ffe'f4951fff r-x         0      4000  /system/lib64/libbinary_parse.so (BuildId: c2d35471d6cc7121e946d59c7266b33b)
+    00007ffe'f4952000-00007ffe'f4952fff ---         0      1000
+    00007ffe'f4953000-00007ffe'f4953fff r--      4000      1000  /system/lib64/libbinary_parse.so
+    00007ffe'f4954000-00007ffe'f4954fff rw-      5000      1000  /system/lib64/libbinary_parse.so
+    00007ffe'f4955000-00007ffe'f5e85fff r-x         0   1531000  /system/lib64/libLLVM.so (BuildId: 305dedb2ba9a27958bf8ec92289a5960)
+    00007ffe'f5e86000-00007ffe'f5e86fff ---         0      1000
+    00007ffe'f5e87000-00007ffe'f5fbcfff r--   1531000    136000  /system/lib64/libLLVM.so
+    00007ffe'f5fbd000-00007ffe'f5fbdfff rw-   1667000      1000  /system/lib64/libLLVM.so
+    00007ffe'f5fbe000-00007ffe'f5fcffff rw-         0     12000  [anon:.bss]
+    00007ffe'f5fd0000-00007ffe'f615bfff r-x         0    18c000  /system/lib64/libmedia.so (BuildId: a9d14ad236534604bced8f91d452e9f6)
+    00007ffe'f615c000-00007ffe'f619bfff r--    18b000     40000  /system/lib64/libmedia.so
+    00007ffe'f619c000-00007ffe'f619cfff rw-    1cb000      1000  /system/lib64/libmedia.so
+    00007ffe'f619d000-00007ffe'f61aefff r-x         0     12000  /system/lib64/libbacktrace.so (BuildId: aad9fbb93b0638512564a5bc08efa982)
+    00007ffe'f61af000-00007ffe'f61affff ---         0      1000
+    00007ffe'f61b0000-00007ffe'f61b0fff r--     12000      1000  /system/lib64/libbacktrace.so
+    00007ffe'f61b1000-00007ffe'f61b1fff rw-     13000      1000  /system/lib64/libbacktrace.so
+    00007ffe'f61b2000-00007ffe'f61d2fff r-x         0     21000  /system/lib64/libutils.so (BuildId: b52fd31d28efa242f25de9153331caa3)
+    00007ffe'f61d3000-00007ffe'f61d3fff ---         0      1000
+    00007ffe'f61d4000-00007ffe'f61d4fff r--     21000      1000  /system/lib64/libutils.so
+    00007ffe'f61d5000-00007ffe'f61d5fff rw-     22000      1000  /system/lib64/libutils.so
+    00007ffe'f61d6000-00007ffe'f6365fff r-x         0    190000  /system/lib64/libicuuc.so (BuildId: 5c4025384e56bb3ca2aa97779c1965e9)
+    00007ffe'f6366000-00007ffe'f6378fff r--    18f000     13000  /system/lib64/libicuuc.so
+    00007ffe'f6379000-00007ffe'f6379fff rw-    1a2000      1000  /system/lib64/libicuuc.so
+    00007ffe'f637a000-00007ffe'f637bfff rw-         0      2000  [anon:.bss]
+    00007ffe'f637c000-00007ffe'f6381fff r-x         0      6000  /system/lib64/libnetutils.so (BuildId: 616bce4a1af46079218e69ceb8f7d131)
+    00007ffe'f6382000-00007ffe'f6382fff ---         0      1000
+    00007ffe'f6383000-00007ffe'f6383fff r--      6000      1000  /system/lib64/libnetutils.so
+    00007ffe'f6384000-00007ffe'f6384fff rw-      7000      1000  /system/lib64/libnetutils.so
+    00007ffe'f6385000-00007ffe'f646efff r-x         0     ea000  /system/lib64/libc.so
+    00007ffe'f646f000-00007ffe'f6475fff r--     e9000      7000  /system/lib64/libc.so
+    00007ffe'f6476000-00007ffe'f6477fff rw-     f0000      2000  /system/lib64/libc.so
+    00007ffe'f6478000-00007ffe'f6479fff rw-         0      2000  [anon:.bss]
+    00007ffe'f647a000-00007ffe'f647afff r--         0      1000  [anon:.bss]
+    00007ffe'f647b000-00007ffe'f6481fff rw-         0      7000  [anon:.bss]
+    00007ffe'f6482000-00007ffe'f64b1fff r-x         0     30000  /system/lib64/libinput.so (BuildId: 2c6b3f998310cec5ffe46ec15210d242)
+    00007ffe'f64b2000-00007ffe'f64b2fff ---         0      1000
+    00007ffe'f64b3000-00007ffe'f64b9fff r--     30000      7000  /system/lib64/libinput.so
+    00007ffe'f64ba000-00007ffe'f64bafff rw-     37000      1000  /system/lib64/libinput.so
+    00007ffe'f64bb000-00007ffe'f6589fff r-x         0     cf000  /system/lib64/libdng_sdk.so (BuildId: 19e028033e0fdbe1b7cac0137819d93d)
+    00007ffe'f658a000-00007ffe'f658afff ---         0      1000
+    00007ffe'f658b000-00007ffe'f6591fff r--     cf000      7000  /system/lib64/libdng_sdk.so
+    00007ffe'f6592000-00007ffe'f6592fff rw-     d6000      1000  /system/lib64/libdng_sdk.so
+    00007ffe'f6593000-00007ffe'f6598fff r-x         0      6000  /system/lib64/libpowermanager.so (BuildId: dbf45c801c698117c041387845adea53)
+    00007ffe'f6599000-00007ffe'f6599fff ---         0      1000
+    00007ffe'f659a000-00007ffe'f659afff r--      6000      1000  /system/lib64/libpowermanager.so
+    00007ffe'f659b000-00007ffe'f659bfff rw-      7000      1000  /system/lib64/libpowermanager.so
+    00007ffe'f659c000-00007ffe'f6769fff r-x         0    1ce000  /system/lib64/libandroid_runtime.so
+    00007ffe'f676a000-00007ffe'f676afff ---         0      1000
+    00007ffe'f676b000-00007ffe'f6788fff r--    1ce000     1e000  /system/lib64/libandroid_runtime.so
+    00007ffe'f6789000-00007ffe'f6789fff rw-    1ec000      1000  /system/lib64/libandroid_runtime.so
+    00007ffe'f678a000-00007ffe'f678bfff rw-         0      2000  [anon:.bss]
+    00007ffe'f678c000-00007ffe'f67aafff r-x         0     1f000  /system/lib64/libpcre.so (BuildId: b539d004992755ba4f904e9043f4ff2b)
+    00007ffe'f67ab000-00007ffe'f67abfff r--     1e000      1000  /system/lib64/libpcre.so
+    00007ffe'f67ac000-00007ffe'f67acfff rw-     1f000      1000  /system/lib64/libpcre.so
+    00007ffe'f67ad000-00007ffe'f6827fff r-x         0     7b000  /system/lib64/libft2.so (BuildId: 9eee09f5ca1a7c1eef4fc4aaa7d6bf33)
+    00007ffe'f6828000-00007ffe'f6828fff ---         0      1000
+    00007ffe'f6829000-00007ffe'f682bfff r--     7b000      3000  /system/lib64/libft2.so
+    00007ffe'f682c000-00007ffe'f682cfff rw-     7e000      1000  /system/lib64/libft2.so
+    00007ffe'f682d000-00007ffe'f68d8fff r-x         0     ac000  /system/lib64/libgui.so (BuildId: 708d96566c8d09ef37e24ec69d679177)
+    00007ffe'f68d9000-00007ffe'f68f1fff r--     ac000     19000  /system/lib64/libgui.so
+    00007ffe'f68f2000-00007ffe'f68f2fff rw-     c5000      1000  /system/lib64/libgui.so
+    00007ffe'f68f3000-00007ffe'f68fbfff r-x         0      9000  /system/lib64/libGLESv1_CM.so
+    00007ffe'f68fc000-00007ffe'f68fcfff ---         0      1000
+    00007ffe'f68fd000-00007ffe'f68fdfff r--      9000      1000  /system/lib64/libGLESv1_CM.so
+    00007ffe'f68fe000-00007ffe'f68fefff rw-      a000      1000  /system/lib64/libGLESv1_CM.so
+    00007ffe'f68ff000-00007ffe'f69befff r-x         0     c0000  /system/lib64/libbcinfo.so (BuildId: a5e7f7b81d41321c187803ae29100979)
+    00007ffe'f69bf000-00007ffe'f69c3fff r--     bf000      5000  /system/lib64/libbcinfo.so
+    00007ffe'f69c4000-00007ffe'f69c4fff rw-     c4000      1000  /system/lib64/libbcinfo.so
+    00007ffe'f69c5000-00007ffe'f69e9fff r-x         0     25000  /system/lib64/libexpat.so (BuildId: 0eaf95f0e44e83cdb2e198e038635a58)
+    00007ffe'f69ea000-00007ffe'f69eafff ---         0      1000
+    00007ffe'f69eb000-00007ffe'f69ecfff r--     25000      2000  /system/lib64/libexpat.so
+    00007ffe'f69ed000-00007ffe'f69edfff rw-     27000      1000  /system/lib64/libexpat.so
+    00007ffe'f69ee000-00007ffe'f6a03fff r-x         0     16000  /system/lib64/libGLESv2.so
+    00007ffe'f6a04000-00007ffe'f6a04fff r--     15000      1000  /system/lib64/libGLESv2.so
+    00007ffe'f6a05000-00007ffe'f6a05fff rw-     16000      1000  /system/lib64/libGLESv2.so
+    00007ffe'f6a06000-00007ffe'f6a10fff r-x         0      b000  /system/lib64/libnbaio.so (BuildId: 93181a376ef7d1bd3de18b79aa32c7f4)
+    00007ffe'f6a11000-00007ffe'f6a11fff ---         0      1000
+    00007ffe'f6a12000-00007ffe'f6a12fff r--      b000      1000  /system/lib64/libnbaio.so
+    00007ffe'f6a13000-00007ffe'f6a13fff rw-      c000      1000  /system/lib64/libnbaio.so
+    00007ffe'f6a14000-00007ffe'f6a1dfff r-x         0      a000  /system/lib64/libnativeloader.so (BuildId: ac3ca002f1da538c1cc4b68e157c8ba7)
+    00007ffe'f6a1e000-00007ffe'f6a1efff r--      9000      1000  /system/lib64/libnativeloader.so
+    00007ffe'f6a1f000-00007ffe'f6a1ffff rw-      a000      1000  /system/lib64/libnativeloader.so
+    00007ffe'f6a20000-00007ffe'f6aeefff r-x         0     cf000  /system/lib64/libhwui.so (BuildId: fdb8afe9714b3d2852ad04019a9c524e)
+    00007ffe'f6aef000-00007ffe'f6af5fff r--     ce000      7000  /system/lib64/libhwui.so
+    00007ffe'f6af6000-00007ffe'f6af6fff rw-     d5000      1000  /system/lib64/libhwui.so
+    00007ffe'f6af7000-00007ffe'f6bfefff r-x         0    108000  /system/lib64/libsqlite.so (BuildId: 2a96e5b0b58951ffa248564f4a133489)
+    00007ffe'f6bff000-00007ffe'f6bfffff ---         0      1000
+    00007ffe'f6c00000-00007ffe'f6c01fff r--    108000      2000  /system/lib64/libsqlite.so
+    00007ffe'f6c02000-00007ffe'f6c03fff rw-    10a000      2000  /system/lib64/libsqlite.so
+    00007ffe'f6c04000-00007ffe'f6c04fff rw-         0      1000  [anon:.bss]
+    00007ffe'f6c05000-00007ffe'f6c07fff r-x         0      3000  /system/lib64/libnativebridge.so (BuildId: a528ccf13ddd1e1d9612db3f99ac3622)
+    00007ffe'f6c08000-00007ffe'f6c08fff r--      2000      1000  /system/lib64/libnativebridge.so
+    00007ffe'f6c09000-00007ffe'f6c09fff rw-      3000      1000  /system/lib64/libnativebridge.so
+    00007ffe'f6c0a000-00007ffe'f728bfff r-x         0    682000  /system/lib64/libskia.so (BuildId: 16d1ebfcb2f64b8d3ea374c5e0e97082)
+    00007ffe'f728c000-00007ffe'f728cfff ---         0      1000
+    00007ffe'f728d000-00007ffe'f72c9fff r--    682000     3d000  /system/lib64/libskia.so
+    00007ffe'f72ca000-00007ffe'f72cbfff rw-    6bf000      2000  /system/lib64/libskia.so
+    00007ffe'f72cc000-00007ffe'f72d6fff rw-         0      b000  [anon:.bss]
+--->00007ffe'f72d7000-00007ffe'f72f5fff r-x         0     1f000  /system/lib64/libminikin.so (BuildId: 6bfa5531212bd37ac7c5ed84830d27c0)
+    00007ffe'f72f6000-00007ffe'f72f6fff ---         0      1000
+    00007ffe'f72f7000-00007ffe'f72f7fff r--     1f000      1000  /system/lib64/libminikin.so
+    00007ffe'f72f8000-00007ffe'f72f9fff rw-     20000      2000  /system/lib64/libminikin.so
+    00007ffe'f72fa000-00007ffe'f72fbfff r-x         0      2000  /system/lib64/libstagefright_http_support.so (BuildId: 035c2c11473045b10230a94303fc4112)
+    00007ffe'f72fc000-00007ffe'f72fcfff r--      1000      1000  /system/lib64/libstagefright_http_support.so
+    00007ffe'f72fd000-00007ffe'f72fdfff rw-      2000      1000  /system/lib64/libstagefright_http_support.so
+    00007ffe'f72fe000-00007ffe'f7424fff r-x         0    127000  /system/lib64/libcrypto.so (BuildId: 62058511375d1690a585e69f89064e27)
+    00007ffe'f7425000-00007ffe'f7438fff r--    126000     14000  /system/lib64/libcrypto.so
+    00007ffe'f7439000-00007ffe'f7439fff rw-    13a000      1000  /system/lib64/libcrypto.so
+    00007ffe'f743a000-00007ffe'f743cfff r-x         0      3000  /system/lib64/libstdc++.so (BuildId: be513ee3a265b11e2f2214704319bedd)
+    00007ffe'f743d000-00007ffe'f743dfff r--      2000      1000  /system/lib64/libstdc++.so
+    00007ffe'f743e000-00007ffe'f743efff rw-      3000      1000  /system/lib64/libstdc++.so
+    00007ffe'f743f000-00007ffe'f7457fff r-x         0     19000  /system/lib64/libradio.so (BuildId: 1e146d09d104c3a7ad900d7b3dc8eaae)
+    00007ffe'f7458000-00007ffe'f7458fff ---         0      1000
+    00007ffe'f7459000-00007ffe'f745efff r--     19000      6000  /system/lib64/libradio.so
+    00007ffe'f745f000-00007ffe'f745ffff rw-     1f000      1000  /system/lib64/libradio.so
+    00007ffe'f7460000-00007ffe'f7462fff r-x         0      3000  /system/lib64/libETC1.so (BuildId: bded0b5ed32a4dc91a3792754b3645d1)
+    00007ffe'f7463000-00007ffe'f7463fff r--      2000      1000  /system/lib64/libETC1.so
+    00007ffe'f7464000-00007ffe'f7464fff rw-      3000      1000  /system/lib64/libETC1.so
+    00007ffe'f7465000-00007ffe'f7482fff r-x         0     1e000  /system/lib64/libvulkan.so (BuildId: 74ad8f6b5944ab2f9d9f396c63d012d1)
+    00007ffe'f7483000-00007ffe'f7484fff r--     1d000      2000  /system/lib64/libvulkan.so
+    00007ffe'f7485000-00007ffe'f7485fff rw-     1f000      1000  /system/lib64/libvulkan.so
+    00007ffe'f7486000-00007ffe'f74dcfff r-x         0     57000  /system/lib64/libjpeg.so (BuildId: 9fa24a8c231906667a642a16cafa7bbd)
+    00007ffe'f74dd000-00007ffe'f74ddfff r--     56000      1000  /system/lib64/libjpeg.so
+    00007ffe'f74de000-00007ffe'f74defff rw-     57000      1000  /system/lib64/libjpeg.so
+    00007ffe'f74df000-00007ffe'f7541fff r-x         0     63000  /system/lib64/libinputflinger.so (BuildId: 9adfc47cd01a969faa450beebe53b205)
+    00007ffe'f7542000-00007ffe'f7542fff ---         0      1000
+    00007ffe'f7543000-00007ffe'f7547fff r--     63000      5000  /system/lib64/libinputflinger.so
+    00007ffe'f7548000-00007ffe'f7548fff rw-     68000      1000  /system/lib64/libinputflinger.so
+    00007ffe'f7549000-00007ffe'f7565fff r-x         0     1d000  /system/lib64/libvorbisidec.so (BuildId: 0d55346680d5293966ea49806f162502)
+    00007ffe'f7566000-00007ffe'f7566fff ---         0      1000
+    00007ffe'f7567000-00007ffe'f7567fff r--     1d000      1000  /system/lib64/libvorbisidec.so
+    00007ffe'f7568000-00007ffe'f7568fff rw-     1e000      1000  /system/lib64/libvorbisidec.so
+    00007ffe'f7569000-00007ffe'f75adfff r-x         0     45000  /system/lib64/libstagefright_omx.so (BuildId: a23494224fe5a61c5d60a79cd6b38e2e)
+    00007ffe'f75ae000-00007ffe'f75aefff ---         0      1000
+    00007ffe'f75af000-00007ffe'f75b3fff r--     45000      5000  /system/lib64/libstagefright_omx.so
+    00007ffe'f75b4000-00007ffe'f75b4fff rw-     4a000      1000  /system/lib64/libstagefright_omx.so
+    00007ffe'f75b5000-00007ffe'f75b8fff r-x         0      4000  /system/lib64/libusbhost.so (BuildId: cc8d92d48a79a1ef7d0b4203ceb88c50)
+    00007ffe'f75b9000-00007ffe'f75b9fff r--      3000      1000  /system/lib64/libusbhost.so
+    00007ffe'f75ba000-00007ffe'f75bafff rw-      4000      1000  /system/lib64/libusbhost.so
+    00007ffe'f75bb000-00007ffe'f75e1fff r-x         0     27000  /system/lib64/libmemunreachable.so (BuildId: 29936a3e41d0d39ee2370182a26d6169)
+    00007ffe'f75e2000-00007ffe'f75e2fff ---         0      1000
+    00007ffe'f75e3000-00007ffe'f75e3fff r--     27000      1000  /system/lib64/libmemunreachable.so
+    00007ffe'f75e4000-00007ffe'f75e4fff rw-     28000      1000  /system/lib64/libmemunreachable.so
+    00007ffe'f75e5000-00007ffe'f75edfff r-x         0      9000  /system/lib64/libstagefright_avc_common.so (BuildId: 35c6726bb7362df9bf32286024e72c46)
+    00007ffe'f75ee000-00007ffe'f75eefff r--      8000      1000  /system/lib64/libstagefright_avc_common.so
+    00007ffe'f75ef000-00007ffe'f75effff rw-      9000      1000  /system/lib64/libstagefright_avc_common.so
+    00007ffe'f75f0000-00007ffe'f75f1fff r-x         0      2000  /system/lib64/libnetd_client.so (BuildId: 5f05ca193f7043fc8371ed2110a2131e)
+    00007ffe'f75f2000-00007ffe'f75f2fff r--      1000      1000  /system/lib64/libnetd_client.so
+    00007ffe'f75f3000-00007ffe'f75f3fff rw-      2000      1000  /system/lib64/libnetd_client.so
+    00007ffe'f75f4000-00007ffe'f7620fff r-x         0     2d000  /system/lib64/libdrmframework.so (BuildId: a33f26c9950c7dce1f387cff4d8df494)
+    00007ffe'f7621000-00007ffe'f7627fff r--     2c000      7000  /system/lib64/libdrmframework.so
+    00007ffe'f7628000-00007ffe'f7628fff rw-     33000      1000  /system/lib64/libdrmframework.so
+    00007ffe'f7629000-00007ffe'f763ffff r-x         0     17000  /system/lib64/libz.so (BuildId: f0a805a6c3e7e091d6c3745e2e5c4e54)
+    00007ffe'f7640000-00007ffe'f7640fff r--     16000      1000  /system/lib64/libz.so
+    00007ffe'f7641000-00007ffe'f7641fff rw-     17000      1000  /system/lib64/libz.so
+    00007ffe'f7642000-00007ffe'f7667fff r-x         0     26000  /system/lib64/liblzma.so (BuildId: b22c5ff99939a2de37225388f205f1a3)
+    00007ffe'f7668000-00007ffe'f7668fff r--     25000      1000  /system/lib64/liblzma.so
+    00007ffe'f7669000-00007ffe'f7669fff rw-     26000      1000  /system/lib64/liblzma.so
+    00007ffe'f766a000-00007ffe'f766ffff rw-         0      6000  [anon:.bss]
+    00007ffe'f7670000-00007ffe'f7671fff r-x         0      2000  /system/lib64/libradio_metadata.so (BuildId: af76f8a3ae417dbab44703a5fdcf9158)
+    00007ffe'f7672000-00007ffe'f7672fff r--      1000      1000  /system/lib64/libradio_metadata.so
+    00007ffe'f7673000-00007ffe'f7673fff rw-      2000      1000  /system/lib64/libradio_metadata.so
+    00007ffe'f7674000-00007ffe'f76bffff r-x         0     4c000  /system/lib64/libRScpp.so (BuildId: 89fed70f707e29d614e969912454c970)
+    00007ffe'f76c0000-00007ffe'f76c0fff ---         0      1000
+    00007ffe'f76c1000-00007ffe'f76c1fff r--     4c000      1000  /system/lib64/libRScpp.so
+    00007ffe'f76c2000-00007ffe'f76c2fff rw-     4d000      1000  /system/lib64/libRScpp.so
+    00007ffe'f76c3000-00007ffe'f771efff r-x         0     5c000  /system/lib64/libharfbuzz_ng.so (BuildId: bf61a9b359002dee1a3d8a74e0b3113e)
+    00007ffe'f771f000-00007ffe'f771ffff ---         0      1000
+    00007ffe'f7720000-00007ffe'f7721fff r--     5c000      2000  /system/lib64/libharfbuzz_ng.so
+    00007ffe'f7722000-00007ffe'f7722fff rw-     5e000      1000  /system/lib64/libharfbuzz_ng.so
+    00007ffe'f7723000-00007ffe'f7769fff r-x         0     47000  /system/lib64/libwilhelm.so (BuildId: 940489c83777edff441f9e28fc31e012)
+    00007ffe'f776a000-00007ffe'f7771fff r--     46000      8000  /system/lib64/libwilhelm.so
+    00007ffe'f7772000-00007ffe'f7772fff rw-     4e000      1000  /system/lib64/libwilhelm.so
+    00007ffe'f7773000-00007ffe'f77b8fff r-x         0     46000  /system/lib64/libandroidfw.so (BuildId: f49c9d0a76a8e89e80d236f5db6fe3d4)
+    00007ffe'f77b9000-00007ffe'f77bbfff r--     45000      3000  /system/lib64/libandroidfw.so
+    00007ffe'f77bc000-00007ffe'f77bcfff rw-     48000      1000  /system/lib64/libandroidfw.so
+    00007ffe'f77bd000-00007ffe'f77befff r-x         0      2000  /system/lib64/libpackagelistparser.so (BuildId: 862d92a68b2eb1fc46409a47168a0a55)
+    00007ffe'f77bf000-00007ffe'f77bffff r--      1000      1000  /system/lib64/libpackagelistparser.so
+    00007ffe'f77c0000-00007ffe'f77c0fff rw-      2000      1000  /system/lib64/libpackagelistparser.so
+    00007ffe'f77c1000-00007ffe'f77c2fff r-x         0      2000  /system/lib64/libhardware.so (BuildId: 14c94e341d03124c95ebecb3f5942f8f)
+    00007ffe'f77c3000-00007ffe'f77c3fff r--      1000      1000  /system/lib64/libhardware.so
+    00007ffe'f77c4000-00007ffe'f77c4fff rw-      2000      1000  /system/lib64/libhardware.so
+    00007ffe'f77c5000-00007ffe'f7818fff r-x         0     54000  /system/lib64/libRS_internal.so (BuildId: 1c5a9a9406dbcab2b91114b83ab8c844)
+    00007ffe'f7819000-00007ffe'f781cfff r--     53000      4000  /system/lib64/libRS_internal.so
+    00007ffe'f781d000-00007ffe'f781dfff rw-     57000      1000  /system/lib64/libRS_internal.so
+    00007ffe'f781e000-00007ffe'f7828fff r-x         0      b000  /system/lib64/libRS.so (BuildId: d8407c7ffc9054f8b490ef27da5efb6c)
+    00007ffe'f7829000-00007ffe'f7829fff r--      a000      1000  /system/lib64/libRS.so
+    00007ffe'f782a000-00007ffe'f782afff rw-      b000      1000  /system/lib64/libRS.so
+    00007ffe'f782b000-00007ffe'f782dfff r-x         0      3000  /system/lib64/libstagefright_yuv.so (BuildId: e68cca3d3dc97039a04d28bf37d41f89)
+    00007ffe'f782e000-00007ffe'f782efff ---         0      1000
+    00007ffe'f782f000-00007ffe'f782ffff r--      3000      1000  /system/lib64/libstagefright_yuv.so
+    00007ffe'f7830000-00007ffe'f7830fff rw-      4000      1000  /system/lib64/libstagefright_yuv.so
+    00007ffe'f7837000-00007ffe'f7851fff r--         0     1b000  /system/usr/hyphen-data/hyph-de-ch-1901.hyb
+    00007ffe'f7852000-00007ffe'f786bfff r--         0     1a000  /system/usr/hyphen-data/hyph-de-1996.hyb
+    00007ffe'f786c000-00007ffe'f788bfff r-x         0     20000  /system/lib64/egl/libGLES_android.so (BuildId: fca0e0be70008ce61ffa1ee0a77a57d1)
+    00007ffe'f788c000-00007ffe'f788dfff r--     1f000      2000  /system/lib64/egl/libGLES_android.so
+    00007ffe'f788e000-00007ffe'f788efff rw-     21000      1000  /system/lib64/egl/libGLES_android.so
+    00007ffe'f788f000-00007ffe'f78b9fff r-x         0     2b000  /system/lib64/libpixelflinger.so (BuildId: f59145168aa5d429401cb150aef522bf)
+    00007ffe'f78ba000-00007ffe'f78bbfff r--     2a000      2000  /system/lib64/libpixelflinger.so
+    00007ffe'f78bc000-00007ffe'f78bcfff rw-     2c000      1000  /system/lib64/libpixelflinger.so
+    00007ffe'f78bd000-00007ffe'f79bcfff rw-         0    100000  /dev/ashmem/dalvik-allocspace zygote / non moving space live-bitmap 0 (deleted)
+    00007ffe'f79bd000-00007ffe'f79bdfff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f79c1000-00007ffe'f79e0fff r--         0     20000  /dev/__properties__/u:object_r:qemu_prop:s0
+    00007ffe'f79e1000-00007ffe'f79e1fff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f79f5000-00007ffe'f79f5fff rw-         0      1000  [anon:linker_alloc]
+    00007ffe'f79fb000-00007ffe'f79fbfff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7a03000-00007ffe'f7a03fff rw-         0      1000  [anon:linker_alloc_small_objects]
+    00007ffe'f7a11000-00007ffe'f7a11fff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7a14000-00007ffe'f7a2efff r--         0     1b000  /system/usr/hyphen-data/hyph-de-1901.hyb
+    00007ffe'f7a2f000-00007ffe'f7a49fff r--    178000     1b000  /system/framework/ext.jar
+    00007ffe'f7a4a000-00007ffe'f7a4afff rw-         0      1000  [anon:linker_alloc]
+    00007ffe'f7a60000-00007ffe'f7a60fff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7a67000-00007ffe'f7a67fff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7a7a000-00007ffe'f7a7afff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7a82000-00007ffe'f7aa1fff rw-         0     20000  /dev/ashmem/dalvik-LinearAlloc (deleted)
+    00007ffe'f7aa2000-00007ffe'f7aa2fff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7ab6000-00007ffe'f7ab6fff rw-         0      1000  [anon:linker_alloc]
+    00007ffe'f7ac7000-00007ffe'f7ac7fff rw-         0      1000  [anon:linker_alloc_vector]
+    00007ffe'f7ac9000-00007ffe'f7ac9fff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7ad4000-00007ffe'f7ad4fff r--         0      1000  /system/usr/hyphen-data/hyph-und-ethi.hyb
+    00007ffe'f7ad5000-00007ffe'f7ad5fff r--         0      1000  /system/usr/hyphen-data/hyph-tk.hyb
+    00007ffe'f7ad6000-00007ffe'f7ad6fff r--         0      1000  /system/usr/hyphen-data/hyph-te.hyb
+    00007ffe'f7ad7000-00007ffe'f7ad7fff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7ad8000-00007ffe'f7ad8fff r--         0      1000  /system/usr/hyphen-data/hyph-ta.hyb
+    00007ffe'f7ad9000-00007ffe'f7adafff r--         0      2000  /system/usr/hyphen-data/hyph-sl.hyb
+    00007ffe'f7adb000-00007ffe'f7b19fff r-x         0     3f000  /system/lib64/libopenjdk.so (BuildId: bacf4e124133a9d07f46dbf1edf1ab50)
+    00007ffe'f7b1a000-00007ffe'f7b1afff ---         0      1000
+    00007ffe'f7b1b000-00007ffe'f7b1cfff r--     3f000      2000  /system/lib64/libopenjdk.so
+    00007ffe'f7b1d000-00007ffe'f7b1efff rw-     41000      2000  /system/lib64/libopenjdk.so
+    00007ffe'f7b1f000-00007ffe'f7b1ffff rw-         0      1000  [anon:linker_alloc]
+    00007ffe'f7b20000-00007ffe'f7b20fff r--         0      1000  /system/usr/hyphen-data/hyph-pt.hyb
+    00007ffe'f7b21000-00007ffe'f7b21fff r--         0      1000  /system/usr/hyphen-data/hyph-pa.hyb
+    00007ffe'f7b22000-00007ffe'f7b22fff r--         0      1000  /system/usr/hyphen-data/hyph-or.hyb
+    00007ffe'f7b23000-00007ffe'f7b23fff r--         0      1000  /system/usr/hyphen-data/hyph-mr.hyb
+    00007ffe'f7b24000-00007ffe'f7b25fff r--         0      2000  /system/usr/hyphen-data/hyph-mn-cyrl.hyb
+    00007ffe'f7b26000-00007ffe'f7b26fff r--         0      1000  /system/usr/hyphen-data/hyph-ml.hyb
+    00007ffe'f7b27000-00007ffe'f7b27fff r--         0      1000  /system/usr/hyphen-data/hyph-kn.hyb
+    00007ffe'f7b28000-00007ffe'f7b28fff r--         0      1000  /system/usr/hyphen-data/hyph-hy.hyb
+    00007ffe'f7b29000-00007ffe'f7b31fff r--         0      9000  /system/usr/hyphen-data/hyph-ga.hyb
+    00007ffe'f7b32000-00007ffe'f7b37fff r--         0      6000  /system/usr/hyphen-data/hyph-et.hyb
+    00007ffe'f7b38000-00007ffe'f7b57fff rw-         0     20000  /dev/ashmem/dalvik-LinearAlloc (deleted)
+    00007ffe'f7b58000-00007ffe'f7b58fff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7b59000-00007ffe'f7b60fff r--         0      8000  /system/usr/hyphen-data/hyph-en-us.hyb
+    00007ffe'f7b61000-00007ffe'f7b61fff rw-         0      1000  [anon:linker_alloc]
+    00007ffe'f7b62000-00007ffe'f7b62fff r--         0      1000  /system/usr/hyphen-data/hyph-hr.hyb
+    00007ffe'f7b63000-00007ffe'f7b63fff r--         0      1000  /system/usr/hyphen-data/hyph-hi.hyb
+    00007ffe'f7b64000-00007ffe'f7b64fff r--         0      1000  /system/usr/hyphen-data/hyph-gu.hyb
+    00007ffe'f7b65000-00007ffe'f7b68fff r--         0      4000  /system/usr/hyphen-data/hyph-es.hyb
+    00007ffe'f7b69000-00007ffe'f7b69fff rw-         0      1000  [anon:linker_alloc_vector]
+    00007ffe'f7b6a000-00007ffe'f7b6afff rw-         0      1000  [anon:linker_alloc_small_objects]
+    00007ffe'f7b6b000-00007ffe'f7b8afff r--         0     20000  /dev/__properties__/u:object_r:radio_prop:s0
+    00007ffe'f7b8b000-00007ffe'f7bc6fff r-x         0     3c000  /system/lib64/libjavacore.so (BuildId: ee14c9337f584c3b7844f4a9ee39f554)
+    00007ffe'f7bc7000-00007ffe'f7bc8fff r--     3b000      2000  /system/lib64/libjavacore.so
+    00007ffe'f7bc9000-00007ffe'f7bcafff rw-     3d000      2000  /system/lib64/libjavacore.so
+    00007ffe'f7bcb000-00007ffe'f7bcbfff rw-         0      1000  [anon:.bss]
+    00007ffe'f7bcc000-00007ffe'f7bccfff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7bcd000-00007ffe'f7bcefff r--         0      2000  /system/usr/hyphen-data/hyph-fr.hyb
+    00007ffe'f7bcf000-00007ffe'f7bdafff r--         0      c000  /system/usr/hyphen-data/hyph-en-gb.hyb
+    00007ffe'f7bdb000-00007ffe'f7be3fff r--         0      9000  /system/usr/hyphen-data/hyph-cy.hyb
+    00007ffe'f7be4000-00007ffe'f7be4fff rw-         0      1000  [anon:linker_alloc]
+    00007ffe'f7be5000-00007ffe'f7be5fff r--         0      1000  /system/usr/hyphen-data/hyph-eu.hyb
+    00007ffe'f7be6000-00007ffe'f7be7fff r--         0      2000  /system/usr/hyphen-data/hyph-da.hyb
+    00007ffe'f7be8000-00007ffe'f7be8fff r--         0      1000  /system/usr/hyphen-data/hyph-bn.hyb
+    00007ffe'f7be9000-00007ffe'f7be9fff r--         0      1000  /system/usr/hyphen-data/hyph-as.hyb
+    00007ffe'f7bea000-00007ffe'f7beafff r--         0      1000  /system/framework/org.apache.http.legacy.boot.jar
+    00007ffe'f7beb000-00007ffe'f7bebfff r--      4000      1000  /system/framework/apache-xml.jar
+    00007ffe'f7bec000-00007ffe'f7becfff r--         0      1000  /system/framework/ims-common.jar
+    00007ffe'f7bed000-00007ffe'f7bedfff ---         0      1000  [anon:thread signal stack guard page]
+    00007ffe'f7bee000-00007ffe'f7bf1fff rw-         0      4000  [anon:thread signal stack]
+    00007ffe'f7bf2000-00007ffe'f7bf2fff ---         0      1000  [anon:thread signal stack guard page]
+    00007ffe'f7bf3000-00007ffe'f7bf6fff rw-         0      4000  [anon:thread signal stack]
+    00007ffe'f7bf7000-00007ffe'f7bf7fff ---         0      1000  [anon:thread signal stack guard page]
+    00007ffe'f7bf8000-00007ffe'f7bfbfff rw-         0      4000  [anon:thread signal stack]
+    00007ffe'f7bfc000-00007ffe'f7c12fff r-x         0     17000  /system/lib64/libmediandk.so (BuildId: e1f7121314c9681685397c51432fa5ab)
+    00007ffe'f7c13000-00007ffe'f7c13fff ---         0      1000
+    00007ffe'f7c14000-00007ffe'f7c15fff r--     17000      2000  /system/lib64/libmediandk.so
+    00007ffe'f7c16000-00007ffe'f7c16fff rw-     19000      1000  /system/lib64/libmediandk.so
+    00007ffe'f7c17000-00007ffe'f7c2dfff r-x         0     17000  /system/lib64/libmediadrm.so (BuildId: 8bbe8664108a089267b972fa42dff5ec)
+    00007ffe'f7c2e000-00007ffe'f7c2efff ---         0      1000
+    00007ffe'f7c2f000-00007ffe'f7c32fff r--     17000      4000  /system/lib64/libmediadrm.so
+    00007ffe'f7c33000-00007ffe'f7c33fff rw-     1b000      1000  /system/lib64/libmediadrm.so
+    00007ffe'f7c34000-00007ffe'f7c49fff r-x         0     16000  /system/lib64/libGLESv3.so
+    00007ffe'f7c4a000-00007ffe'f7c4afff r--     15000      1000  /system/lib64/libGLESv3.so
+    00007ffe'f7c4b000-00007ffe'f7c4bfff rw-     16000      1000  /system/lib64/libGLESv3.so
+    00007ffe'f7c4c000-00007ffe'f7c8bfff rw-         0     40000  /dev/ashmem/dalvik-mark stack (deleted)
+    00007ffe'f7c8c000-00007ffe'f7c8cfff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7c8d000-00007ffe'f7c8dfff r--         0      1000  /system/framework/voip-common.jar
+    00007ffe'f7c8e000-00007ffe'f7c8efff r--         0      1000  /system/framework/telephony-common.jar
+    00007ffe'f7c8f000-00007ffe'f7c96fff r-x         0      8000  /system/lib64/libopenjdkjvm.so (BuildId: 5035deefb3e0772d7f9043063f24e887)
+    00007ffe'f7c97000-00007ffe'f7c97fff r--      7000      1000  /system/lib64/libopenjdkjvm.so
+    00007ffe'f7c98000-00007ffe'f7c98fff rw-      8000      1000  /system/lib64/libopenjdkjvm.so
+    00007ffe'f7c99000-00007ffe'f7c99fff r--         0      1000  /system/framework/framework.jar
+    00007ffe'f7c9a000-00007ffe'f7c9afff r--         0      1000  /system/framework/bouncycastle.jar
+    00007ffe'f7c9b000-00007ffe'f7c9bfff r--         0      1000  /system/framework/core-junit.jar
+    00007ffe'f7c9c000-00007ffe'f7c9cfff ---         0      1000  [anon:thread signal stack guard page]
+    00007ffe'f7c9d000-00007ffe'f7ca0fff rw-         0      4000  [anon:thread signal stack]
+    00007ffe'f7ca1000-00007ffe'f7cc0fff r-x         0     20000  /system/lib64/libcamera2ndk.so (BuildId: b845ea8246538eaf61c18d8c872e7968)
+    00007ffe'f7cc1000-00007ffe'f7cc1fff ---         0      1000
+    00007ffe'f7cc2000-00007ffe'f7cc4fff r--     20000      3000  /system/lib64/libcamera2ndk.so
+    00007ffe'f7cc5000-00007ffe'f7cc5fff rw-     23000      1000  /system/lib64/libcamera2ndk.so
+    00007ffe'f7cc6000-00007ffe'f7cc6fff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7cc7000-00007ffe'f7cc7fff rw-         0      1000  [anon:linker_alloc]
+    00007ffe'f7cc8000-00007ffe'f7cc8fff r--         0      1000  /system/framework/okhttp.jar
+    00007ffe'f7cc9000-00007ffe'f7ccafff r--      3000      2000  /system/framework/core-libart.jar
+    00007ffe'f7ccb000-00007ffe'f7cccfff rw-         0      2000  /dev/ashmem/dalvik-indirect ref table (deleted)
+    00007ffe'f7ccd000-00007ffe'f7ccffff r-x         0      3000  /system/lib64/libwebviewchromium_plat_support.so (BuildId: 950cdfb46f7ce803cd61edf876ce9520)
+    00007ffe'f7cd0000-00007ffe'f7cd0fff r--      2000      1000  /system/lib64/libwebviewchromium_plat_support.so
+    00007ffe'f7cd1000-00007ffe'f7cd1fff rw-      3000      1000  /system/lib64/libwebviewchromium_plat_support.so
+    00007ffe'f7cd2000-00007ffe'f7ceffff r-x         0     1e000  /system/lib64/libandroid.so (BuildId: b37e1eaa29e1b854ef10f8ba9628ec62)
+    00007ffe'f7cf0000-00007ffe'f7cf0fff ---         0      1000
+    00007ffe'f7cf1000-00007ffe'f7cf4fff r--     1e000      4000  /system/lib64/libandroid.so
+    00007ffe'f7cf5000-00007ffe'f7cf5fff rw-     22000      1000  /system/lib64/libandroid.so
+    00007ffe'f7cf6000-00007ffe'f7d15fff rw-         0     20000  /dev/ashmem/dalvik-large marked objects (deleted)
+    00007ffe'f7d16000-00007ffe'f7d35fff rw-         0     20000  /dev/ashmem/dalvik-large live objects (deleted)
+    00007ffe'f7d36000-00007ffe'f7d55fff r--         0     20000  /dev/__properties__/u:object_r:fingerprint_prop:s0
+    00007ffe'f7d56000-00007ffe'f7d75fff r--         0     20000  /dev/__properties__/u:object_r:debug_prop:s0
+    00007ffe'f7d76000-00007ffe'f7d95fff r--         0     20000  /dev/__properties__/u:object_r:vold_prop:s0
+    00007ffe'f7d96000-00007ffe'f7d96fff rw-         0      1000  [anon:linker_alloc]
+    00007ffe'f7d97000-00007ffe'f7d97fff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7d98000-00007ffe'f7d98fff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7d99000-00007ffe'f7d99fff r--         0      1000  /system/framework/conscrypt.jar
+    00007ffe'f7d9a000-00007ffe'f7d9bfff r-x         0      2000  /system/lib64/libOpenSLES.so (BuildId: dcc7c64d3cd01ee5c4044dedc3175e0e)
+    00007ffe'f7d9c000-00007ffe'f7d9cfff ---         0      1000
+    00007ffe'f7d9d000-00007ffe'f7d9dfff r--      2000      1000  /system/lib64/libOpenSLES.so
+    00007ffe'f7d9e000-00007ffe'f7d9efff rw-      3000      1000  /system/lib64/libOpenSLES.so
+    00007ffe'f7d9f000-00007ffe'f7da0fff r-x         0      2000  /system/lib64/libOpenMAXAL.so (BuildId: 429276f47fbc120e61a562834ccf1240)
+    00007ffe'f7da1000-00007ffe'f7da1fff r--      1000      1000  /system/lib64/libOpenMAXAL.so
+    00007ffe'f7da2000-00007ffe'f7da2fff rw-      2000      1000  /system/lib64/libOpenMAXAL.so
+    00007ffe'f7da3000-00007ffe'f7da4fff rw-         0      2000  /dev/ashmem/dalvik-indirect ref table (deleted)
+    00007ffe'f7da5000-00007ffe'f7da5fff r-x         0      1000  /system/lib64/libjnigraphics.so (BuildId: 1757db1440196a8b325bb00caaabfc88)
+    00007ffe'f7da6000-00007ffe'f7da6fff r--         0      1000  /system/lib64/libjnigraphics.so (BuildId: 1757db1440196a8b325bb00caaabfc88)
+    00007ffe'f7da7000-00007ffe'f7da7fff rw-      1000      1000  /system/lib64/libjnigraphics.so
+    00007ffe'f7da8000-00007ffe'f7da8fff r--     1d000      1000  /system/framework/core-oj.jar
+    00007ffe'f7da9000-00007ffe'f7daafff rw-         0      2000  /dev/ashmem/dalvik-indirect ref table (deleted)
+    00007ffe'f7dab000-00007ffe'f7dacfff rw-         0      2000  /dev/ashmem/dalvik-indirect ref table (deleted)
+    00007ffe'f7dad000-00007ffe'f7dadfff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7dae000-00007ffe'f7daffff rw-         0      2000  /dev/ashmem/dalvik-indirect ref table (deleted)
+    00007ffe'f7db0000-00007ffe'f7db1fff rw-         0      2000  /dev/ashmem/dalvik-mark sweep sweep array free buffer (deleted)
+    00007ffe'f7db2000-00007ffe'f7db2fff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7db3000-00007ffe'f7dbdfff r--    7bc000      b000  /data/dalvik-cache/x86_64/system@framework@boot-framework.art
+    00007ffe'f7dbe000-00007ffe'f7dddfff r--         0     20000  /dev/__properties__/u:object_r:config_prop:s0
+    00007ffe'f7dde000-00007ffe'f7dfdfff r--         0     20000  /dev/__properties__/u:object_r:dalvik_prop:s0
+    00007ffe'f7dfe000-00007ffe'f7e1dfff r--         0     20000  /dev/__properties__/u:object_r:system_prop:s0
+    00007ffe'f7e1e000-00007ffe'f7e1efff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7e1f000-00007ffe'f7e1ffff rw-         0      1000  [anon:linker_alloc]
+    00007ffe'f7e20000-00007ffe'f7e21fff rw-         0      2000  /dev/ashmem/dalvik-mark sweep sweep array free buffer (deleted)
+    00007ffe'f7e22000-00007ffe'f7e24fff rw-         0      3000  /dev/ashmem/dalvik-rosalloc page map (deleted)
+    00007ffe'f7e25000-00007ffe'f7e25fff rw-         0      1000  [anon:linker_alloc_small_objects]
+    00007ffe'f7e26000-00007ffe'f7e27fff rw-         0      2000  /dev/ashmem/dalvik-mark sweep sweep array free buffer (deleted)
+    00007ffe'f7e28000-00007ffe'f7e2afff rw-         0      3000  /dev/ashmem/dalvik-rosalloc page map (deleted)
+    00007ffe'f7e2b000-00007ffe'f7e2bfff rw-         0      1000  [anon:linker_alloc_vector]
+    00007ffe'f7e2c000-00007ffe'f7e2cfff rw-         0      1000  [anon:linker_alloc_small_objects]
+    00007ffe'f7e2d000-00007ffe'f7e4cfff r--         0     20000  /dev/__properties__/u:object_r:logd_prop:s0
+    00007ffe'f7e4d000-00007ffe'f7e6cfff r--         0     20000  /dev/__properties__/u:object_r:log_tag_prop:s0
+    00007ffe'f7e6d000-00007ffe'f7e6dfff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7e6e000-00007ffe'f7e6efff rw-         0      1000  [anon:linker_alloc_vector]
+    00007ffe'f7e6f000-00007ffe'f7e6ffff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7e70000-00007ffe'f7e70fff rw-         0      1000  [anon:linker_alloc]
+    00007ffe'f7e71000-00007ffe'f7e71fff r--     27000      1000  /data/dalvik-cache/x86_64/system@framework@boot-org.apache.http.legacy.boot.art
+    00007ffe'f7e72000-00007ffe'f7e72fff r--     23000      1000  /data/dalvik-cache/x86_64/system@framework@boot-apache-xml.art
+    00007ffe'f7e73000-00007ffe'f7e73fff r--      c000      1000  /data/dalvik-cache/x86_64/system@framework@boot-ims-common.art
+    00007ffe'f7e74000-00007ffe'f7e84fff r-x         0     11000  /system/lib64/liblz4.so (BuildId: d9ce62614886637ae33a08f4908ee436)
+    00007ffe'f7e85000-00007ffe'f7e85fff r--     10000      1000  /system/lib64/liblz4.so
+    00007ffe'f7e86000-00007ffe'f7e86fff rw-     11000      1000  /system/lib64/liblz4.so
+    00007ffe'f7e87000-00007ffe'f7e87fff r-x         0      1000  /system/lib64/libsigchain.so (BuildId: ef242fa3879477a9745bff70d27a53c3)
+    00007ffe'f7e88000-00007ffe'f7e88fff r--         0      1000  /system/lib64/libsigchain.so (BuildId: ef242fa3879477a9745bff70d27a53c3)
+    00007ffe'f7e89000-00007ffe'f7e89fff rw-      1000      1000  /system/lib64/libsigchain.so
+    00007ffe'f7e8a000-00007ffe'f7e8bfff r--     90000      2000  /data/dalvik-cache/x86_64/system@framework@boot-telephony-common.art
+    00007ffe'f7e8c000-00007ffe'f7eabfff r--         0     20000  /dev/__properties__/u:object_r:default_prop:s0
+    00007ffe'f7eac000-00007ffe'f7ecbfff r--         0     20000  /dev/__properties__/properties_serial
+    00007ffe'f7ecc000-00007ffe'f7eccfff rw-         0      1000  [anon:linker_alloc_vector]
+    00007ffe'f7ecd000-00007ffe'f7ecdfff r--      8000      1000  /data/dalvik-cache/x86_64/system@framework@boot-voip-common.art
+    00007ffe'f7ece000-00007ffe'f7ecefff r--     42000      1000  /data/dalvik-cache/x86_64/system@framework@boot-ext.art
+    00007ffe'f7ecf000-00007ffe'f7ecffff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7ed0000-00007ffe'f7ed0fff r--     46000      1000  /data/dalvik-cache/x86_64/system@framework@boot-bouncycastle.art
+    00007ffe'f7ed1000-00007ffe'f7ed1fff r--      3000      1000  /data/dalvik-cache/x86_64/system@framework@boot-core-junit.art
+    00007ffe'f7ed2000-00007ffe'f7ed2fff rw-         0      1000  [anon:linker_alloc_lob]
+    00007ffe'f7ed3000-00007ffe'f7ed3fff r--     39000      1000  /data/dalvik-cache/x86_64/system@framework@boot-okhttp.art
+    00007ffe'f7ed4000-00007ffe'f7ed5fff r--    17c000      2000  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+    00007ffe'f7ed6000-00007ffe'f7ed6fff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7ed7000-00007ffe'f7ed7fff r--     35000      1000  /data/dalvik-cache/x86_64/system@framework@boot-conscrypt.art
+    00007ffe'f7ed8000-00007ffe'f7edcfff r--    2a0000      5000  /data/dalvik-cache/x86_64/system@framework@boot.art
+    00007ffe'f7edd000-00007ffe'f7ee1fff rw-         0      5000  /system/etc/event-log-tags
+    00007ffe'f7ee2000-00007ffe'f7ee4fff r--         0      3000  [anon:atexit handlers]
+    00007ffe'f7ee5000-00007ffe'f7f04fff r--         0     20000  /dev/__properties__/properties_serial
+    00007ffe'f7f05000-00007ffe'f7f05fff rw-         0      1000  [anon:linker_alloc_vector]
+    00007ffe'f7f06000-00007ffe'f7f07fff rw-         0      2000  [anon:linker_alloc]
+    00007ffe'f7f08000-00007ffe'f7f08fff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7f09000-00007ffe'f7f09fff rw-         0      1000  [anon:linker_alloc_lob]
+    00007ffe'f7f0a000-00007ffe'f7f0afff r--         0      1000  [anon:linker_alloc]
+    00007ffe'f7f0b000-00007ffe'f7f0bfff rw-         0      1000  [anon:linker_alloc_vector]
+    00007ffe'f7f0c000-00007ffe'f7f0cfff rw-         0      1000  [anon:linker_alloc_small_objects]
+    00007ffe'f7f0d000-00007ffe'f7f0dfff r--         0      1000  [anon:atexit handlers]
+    00007ffe'f7f0e000-00007ffe'f7f0efff rw-         0      1000  [anon:linker_alloc_small_objects]
+    00007ffe'f7f0f000-00007ffe'f7f0ffff r--         0      1000  [anon:atexit handlers]
+    00007ffe'f7f10000-00007ffe'f7f10fff rw-         0      1000  [anon:linker_alloc_small_objects]
+    00007ffe'f7f11000-00007ffe'f7f11fff rw-         0      1000  [anon:arc4random _rsx structure]
+    00007ffe'f7f12000-00007ffe'f7f12fff rw-         0      1000  [anon:arc4random _rs structure]
+    00007ffe'f7f13000-00007ffe'f7f13fff r--         0      1000  [anon:atexit handlers]
+    00007ffe'f7f14000-00007ffe'f7f14fff ---         0      1000  [anon:thread signal stack guard page]
+    00007ffe'f7f15000-00007ffe'f7f18fff rw-         0      4000  [stack:4577]
+    00007ffe'f7f19000-00007ffe'f7fedfff r-x         0     d5000  /system/bin/linker64 (BuildId: 4d37d99f0e0c1dbc1e86f17395a53f2d)
+    00007ffe'f7fee000-00007ffe'f7ff2fff r--     d4000      5000  /system/bin/linker64
+    00007ffe'f7ff3000-00007ffe'f7ff3fff rw-     d9000      1000  /system/bin/linker64
+    00007ffe'f7ff4000-00007ffe'f7ff7fff rw-         0      4000
+    00007ffe'f7ff8000-00007ffe'f7ff8fff r--         0      1000
+    00007ffe'f7ff9000-00007ffe'f7ffbfff rw-         0      3000
+    00007ffe'f7ffc000-00007ffe'f7ffffff r-x         0      4000  /system/bin/app_process64
+    00007ffe'f8001000-00007ffe'f8001fff r--      4000      1000  /system/bin/app_process64
+    00007ffe'f8002000-00007ffe'f8002fff rw-         0      1000
+    00007fff'b7ec5000-00007fff'b7ec4fff ---         0         0
+    00007fff'b7ec5000-00007fff'b86c3fff rw-         0    7ff000
+    00007fff'b8776000-00007fff'b8777fff r-x         0      2000  [vdso] (load base 0xffffffffff700000)
+    ffffffff'ff600000-ffffffff'ff600fff r-x         0      1000  [vsyscall]
+--------- tail end of log main
+02-13 05:23:22.456  4577  4577 D Minikin : referenceTable OS/2 length=96
+02-13 05:23:22.456  4577  4577 D Minikin : nTypefaces = 1
+02-13 05:23:22.456  4577  4577 D Minikin : referenceTable cmap length=6348
+02-13 05:23:22.456  4577  4577 D Minikin : best table = 3
+02-13 05:23:22.456  4577  4577 D Minikin : adding range 0-1
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+pid: 4577, tid: 4614, name: ReferenceQueueD  >>> zygote64 <<<
+    rax fffffffffffffe00  rbx 00007ffef3496400  rcx ffffffffffffffff  rdx 0000000000000000
+    rsi 0000000000000000  rdi 00007ffef34f6a90
+    r8  0000000000000000  r9  0000000000000000  r10 0000000000000000  r11 0000000000000246
+    r12 00007ffef34f6a80  r13 0000000000000001  r14 00007ffef34f6a90  r15 00007ffef3496400
+    cs  0000000000000033  ss  000000000000002b
+    rip 00007ffef63a1cc8  rbp 0000000000000000  rsp 00007ffeeddb1cd8  eflags 0000000000000246
+
+backtrace:
+    #00 pc 000000000001ccc8  /system/lib64/libc.so (syscall+24)
+    #01 pc 000000000014f12b  /system/lib64/libart.so (_ZN3art17ConditionVariable16WaitHoldingLocksEPNS_6ThreadE+123)
+    #02 pc 0000000000414629  /system/lib64/libart.so (_ZN3art7Monitor4WaitEPNS_6ThreadElibNS_11ThreadStateE+569)
+    #03 pc 00000000004167a4  /system/lib64/libart.so (_ZN3art7Monitor4WaitEPNS_6ThreadEPNS_6mirror6ObjectElibNS_11ThreadStateE+372)
+    #04 pc 0000000000533861  /system/framework/x86_64/boot.oat (offset 0x533000) (java.lang.Object.wait+157)
+    #05 pc 000000000067b8cd  /system/framework/x86_64/boot-core-libart.oat (offset 0x48e000) (java.lang.Daemons$ReferenceQueueDaemon.run+121)
+    #06 pc 00000000005f07de  /system/framework/x86_64/boot.oat (offset 0x533000) (java.lang.Thread.run+74)
+    #07 pc 00000000001381b4  /system/lib64/libart.so (art_quick_invoke_stub+756)
+    #08 pc 00000000001463c7  /system/lib64/libart.so (_ZN3art9ArtMethod6InvokeEPNS_6ThreadEPjjPNS_6JValueEPKc+231)
+    #09 pc 00000000004daeb7  /system/lib64/libart.so (_ZN3artL18InvokeWithArgArrayERKNS_33ScopedObjectAccessAlreadyRunnableEPNS_9ArtMethodEPNS_8ArgArrayEPNS_6JValueEPKc+87)
+    #10 pc 00000000004dc4b9  /system/lib64/libart.so (_ZN3art35InvokeVirtualOrInterfaceWithJValuesERKNS_33ScopedObjectAccessAlreadyRunnableEP8_jobjectP10_jmethodIDP6jvalue+377)
+    #11 pc 00000000004fe1cd  /system/lib64/libart.so (_ZN3art6Thread14CreateCallbackEPv+1389)
+    #12 pc 00000000000897b1  /system/lib64/libc.so (_ZL15__pthread_startPv+177)
+    #13 pc 0000000000029a6b  /system/lib64/libc.so (__start_thread+11)
+    #14 pc 000000000001cae5  /system/lib64/libc.so (__bionic_clone+53)
+
+stack:
+         00007ffeeddb1c58  00007ffef2e54e91  /system/lib64/libart.so (_ZN3art5Mutex15ExclusiveUnlockEPNS_6ThreadE+321)
+         00007ffeeddb1c60  c0f22af800000000
+         00007ffeeddb1c68  0000000000000001
+         00007ffeeddb1c70  0000000000000002
+         00007ffeeddb1c78  00007ffef3496400  [anon:libc_malloc]
+         00007ffeeddb1c80  0000000000000002
+         00007ffeeddb1c88  00007ffef341c000  [anon:libc_malloc]
+         00007ffeeddb1c90  00007ffef3496401  [anon:libc_malloc]
+         00007ffeeddb1c98  00007ffef3117c7e  /system/lib64/libart.so (_ZN3art7Monitor7InstallEPNS_6ThreadE+654)
+         00007ffeeddb1ca0  c0f22af80ee59b69
+         00007ffeeddb1ca8  00007ffef3496400  [anon:libc_malloc]
+         00007ffeeddb1cb0  00007ffef34f6a80  [anon:libc_malloc]
+         00007ffeeddb1cb8  0000000000000001
+         00007ffeeddb1cc0  00007ffef34f6a90  [anon:libc_malloc]
+         00007ffeeddb1cc8  00007ffef3496400  [anon:libc_malloc]
+         00007ffeeddb1cd0  0000000000000000
+    #00  00007ffeeddb1cd8  00007ffef2e5612c  /system/lib64/libart.so (_ZN3art17ConditionVariable16WaitHoldingLocksEPNS_6ThreadE+124)
+    #01  00007ffeeddb1ce0  0000000000000000
+         00007ffeeddb1ce8  00007ffef351a288  [anon:libc_malloc]
+         00007ffeeddb1cf0  00007ffef341c000  [anon:libc_malloc]
+         00007ffeeddb1cf8  0000000000000000
+         00007ffeeddb1d00  00007ffef3496400  [anon:libc_malloc]
+         00007ffeeddb1d08  00007ffef3519728  [anon:libc_malloc]
+         00007ffeeddb1d10  c0f22af80ee59b69
+         00007ffeeddb1d18  0000000000000018
+         00007ffeeddb1d20  c0f22af80ee59b69
+         00007ffeeddb1d28  00007ffef34307c8  [anon:libc_malloc]
+         00007ffeeddb1d30  00007ffef341c000  [anon:libc_malloc]
+         00007ffeeddb1d38  00007ffef3430778  [anon:libc_malloc]
+         00007ffeeddb1d40  c0f22af80ee59b69
+         00007ffeeddb1d48  00007ffef3496400  [anon:libc_malloc]
+         00007ffeeddb1d50  0000000000000000
+         00007ffeeddb1d58  0000000000000000
+         ........  ........
+    #02  00007ffeeddb1d80  0000000000000000
+         00007ffeeddb1d88  ffffffff00000000
+         00007ffeeddb1d90  000000006fc35de0  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeeddb1d98  0000000100000000
+         00007ffeeddb1da0  0000000000430000
+         00007ffeeddb1da8  0047000000000000
+         00007ffeeddb1db0  c0f22af80ee59b69
+         00007ffeeddb1db8  00007ffef3496400  [anon:libc_malloc]
+         00007ffeeddb1dc0  0000000000000000
+         00007ffeeddb1dc8  0000000000000001
+         00007ffeeddb1dd0  0000000000000002
+         00007ffeeddb1dd8  00007ffef337e618  /system/lib64/libart.so
+         00007ffeeddb1de0  000000006fab1c30  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeeddb1de8  00007ffef311d7a5  /system/lib64/libart.so (_ZN3art7Monitor4WaitEPNS_6ThreadEPNS_6mirror6ObjectElibNS_11ThreadStateE+373)
+    #03  00007ffeeddb1df0  0000000000000000
+         00007ffeeddb1df8  0000000000000000
+         00007ffeeddb1e00  0000000000000047
+         00007ffeeddb1e08  0000000000000000
+         00007ffeeddb1e10  c0f22af80ee59b69
+         00007ffeeddb1e18  000000006fab1c30  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeeddb1e20  0000000000000000
+         00007ffeeddb1e28  00007ffeeddb22a8  [stack:4614]
+         00007ffeeddb1e30  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeeddb1e38  00007ffeeddb2288  [stack:4614]
+         00007ffeeddb1e40  000000006fd19cc8  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeeddb1e48  0000000070d5d862  /system/framework/x86_64/boot.oat (java.lang.Object.wait+158)
+    #04  00007ffeeddb1e50  00007ffef3602ac0  [anon:libc_malloc]
+         00007ffeeddb1e58  00007ffef6426ba2  /system/lib64/libc.so (je_arena_malloc_hard+370)
+         00007ffeeddb1e60  000000006fc35de0  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeeddb1e68  0000000000000000
+         00007ffeeddb1e70  6fab1c3000000001
+         00007ffeeddb1e78  0000000000000000
+         00007ffeeddb1e80  0000000000000000
+         00007ffeeddb1e88  0000000000000000
+         00007ffeeddb1e90  0000000000000000
+         00007ffeeddb1e98  0000000000000000
+         00007ffeeddb1ea0  0000000000000000
+         00007ffeeddb1ea8  000000006fab1c30  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeeddb1eb0  000000006fd19cc8  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeeddb1eb8  0000000000000000
+         00007ffeeddb1ec0  00007ffeeddb22a8  [stack:4614]
+         00007ffeeddb1ec8  0000000070b031bc  /system/framework/x86_64/boot.oat
+         ........  ........
+    #05  00007ffeeddb1ee0  000000006fdb64a0  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeeddb1ee8  6fab1c306fab1c30
+         00007ffeeddb1ef0  0000000000000000
+         00007ffeeddb1ef8  00007ffef346f400  [anon:libc_malloc]
+         00007ffeeddb1f00  000000006fd19cc8  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeeddb1f08  0000000012c06160  /dev/ashmem/dalvik-main space (deleted)
+         00007ffeeddb1f10  00007ffeeddb2380  [stack:4614]
+         00007ffeeddb1f18  0000000070e1a7df  /system/framework/x86_64/boot.oat (java.lang.Thread.run+75)
+    #06  00007ffeeddb1f20  000000006fc3a808  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeeddb1f28  00007ffe6fd19cc8
+         00007ffeeddb1f30  0000000000000000
+         00007ffeeddb1f38  00007ffef3496400  [anon:libc_malloc]
+         00007ffeeddb1f40  00007ffeeddb1f68  [stack:4614]
+         00007ffeeddb1f48  00007ffef2e3f1b5  /system/lib64/libart.so (art_quick_invoke_stub+757)
+    #07  00007ffeeddb1f50  0000000000000000
+         00007ffeeddb1f58  00007ffe12c06160
+         00007ffeeddb1f60  00007ffef3602200  [anon:libc_malloc]
+         00007ffeeddb1f68  00007ffeeddb2288  [stack:4614]
+         00007ffeeddb1f70  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeeddb1f78  00007ffeeddb22a8  [stack:4614]
+         00007ffeeddb1f80  00007ffeeddb2380  [stack:4614]
+         00007ffeeddb1f88  00007ffef3496400  [anon:libc_malloc]
+         00007ffeeddb1f90  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeeddb1f98  00007ffeeddb2288  [stack:4614]
+         00007ffeeddb1fa0  00007ffeeddb2030  [stack:4614]
+         00007ffeeddb1fa8  00007ffef2e4d3c8  /system/lib64/libart.so (_ZN3art9ArtMethod6InvokeEPNS_6ThreadEPjjPNS_6JValueEPKc+232)
+    #08  00007ffeeddb1fb0  c0f22af80ee59b69
+         00007ffeeddb1fb8  00007ffef3496498  [anon:libc_malloc]
+         00007ffeeddb1fc0  00007ffef346f468  [anon:libc_malloc]
+         00007ffeeddb1fc8  0000000000000100
+         00007ffeeddb1fd0  fffffffffffffffc
+         00007ffeeddb1fd8  00007ffef642615f  /system/lib64/libc.so (je_arena_tcache_fill_small+639)
+         00007ffeeddb1fe0  0000000000000000
+         00007ffeeddb1fe8  0000000000000000
+         00007ffeeddb1ff0  0000000000000000
+         00007ffeeddb1ff8  00007ffef64812f8  [anon:.bss]
+         00007ffeeddb2000  c0f22af80ee59b69
+         00007ffeeddb2008  000000006fc3a808  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeeddb2010  00007ffeeddb2380  [stack:4614]
+         00007ffeeddb2018  00007ffeeddb22a8  [stack:4614]
+         00007ffeeddb2020  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeeddb2028  00007ffeeddb2288  [stack:4614]
+         ........  ........
+    #09  00007ffeeddb2040  0000000000000002
+         00007ffeeddb2048  00007ffef308ac43  /system/lib64/libart.so (_ZN3art9JavaVMExt12DecodeGlobalEPv+19)
+         00007ffeeddb2050  0000000000000002
+         00007ffeeddb2058  00000000001001b2
+         00007ffeeddb2060  00007ffef3496400  [anon:libc_malloc]
+         00007ffeeddb2068  00007ffef320e619  /system/lib64/libart.so (_ZNK3art6Thread13DecodeJObjectEP8_jobject+201)
+         00007ffeeddb2070  0000000000000040
+         00007ffeeddb2078  00007ffef346f400  [anon:libc_malloc]
+         00007ffeeddb2080  0000000000000002
+         00007ffeeddb2088  00007ffef2f8c9fc  /system/lib64/libart.so (_ZNK3art2gc4Heap20IsValidObjectAddressEPKNS_6mirror6ObjectE+60)
+         00007ffeeddb2090  00007ffef348f600  [anon:libc_malloc]
+         00007ffeeddb2098  00007ffeeddb22e8  [stack:4614]
+         00007ffeeddb20a0  00007ffeeddb22b0  [stack:4614]
+         00007ffeeddb20a8  00000000001001b2
+         00007ffeeddb20b0  00007ffef3340e9b  /system/lib64/libart.so
+         00007ffeeddb20b8  00007ffef2e701e5  /system/lib64/libart.so (_ZN3art11ScopedCheck13CheckInstanceERNS_18ScopedObjectAccessENS0_12InstanceKindEP8_jobjectb+229)
+         ........  ........
+    #10  00007ffeeddb2270  0000000000100001
+         00007ffeeddb2278  0000000000000000
+         00007ffeeddb2280  00000000f3340b7e
+         00007ffeeddb2288  0000000000000000
+         00007ffeeddb2290  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeeddb2298  0000000400000001
+         00007ffeeddb22a0  00007ffeeddb22a8  [stack:4614]
+         00007ffeeddb22a8  00007ffe12c06160
+         00007ffeeddb22b0  00007ffef34f6ac0  [anon:libc_malloc]
+         00007ffeeddb22b8  00007ffef3340b4d  /system/lib64/libart.so
+         00007ffeeddb22c0  00007ffef33fe210  [anon:.bss]
+         00007ffeeddb22c8  00007ffef6423199  /system/lib64/libc.so (getpriority+9)
+         00007ffeeddb22d0  00007ffef3496400  [anon:libc_malloc]
+         00007ffeeddb22d8  00007ffef3322273  /system/lib64/libart.so (_ZN3art6Thread17SetNativePriorityEi+211)
+         00007ffeeddb22e0  00007ffef34de8d0  [anon:libc_malloc]
+         00007ffeeddb22e8  0000000000000000
+         ........  ........
+    #11  00007ffeeddb2330  0000000000000000
+         00007ffeeddb2338  6e65726566655228
+         00007ffeeddb2340  4465756575516563
+         00007ffeeddb2348  0000006e6f6d6561
+         00007ffeeddb2350  0000000000000000
+         00007ffeeddb2358  0000000000000000
+         00007ffeeddb2360  0000000000000000
+         00007ffeeddb2368  0000000000000000
+         00007ffeeddb2370  0000000000000000
+         00007ffeeddb2378  0059000000430000
+         00007ffeeddb2380  00007ffef3496400  [anon:libc_malloc]
+         00007ffeeddb2388  00007ffef343e180  [anon:libc_malloc]
+         00007ffeeddb2390  00007ffef34e7f00  [anon:libc_malloc]
+         00007ffeeddb2398  00007ffef3496400  [anon:libc_malloc]
+         00007ffeeddb23a0  0000005900000043
+         00007ffeeddb23a8  00007ffef640e600  /system/lib64/libc.so (_ZL12__do_nothingPv)
+         ........  ........
+    #12  00007ffeeddb23f0  0000000000000000
+         00007ffeeddb23f8  c0f22af80ee59b69
+         00007ffeeddb2400  0000000000000000
+         00007ffeeddb2408  00007ffef7ff9b40
+         00007ffeeddb2410  00000000000011e1
+         00007ffeeddb2418  0000000000000000
+         00007ffeeddb2420  00007ffef3204c60  /system/lib64/libart.so (_ZN3art6Thread14CreateCallbackEPv)
+         00007ffeeddb2428  00007ffeeddb2450  [stack:4614]
+         00007ffeeddb2430  00007ffeeddb24e8  [stack:4614]
+         00007ffeeddb2438  00007ffef63aea6c  /system/lib64/libc.so (__start_thread+12)
+    #13  00007ffeeddb2440  00007ffef640e700  /system/lib64/libc.so (_ZL15__pthread_startPv)
+         00007ffeeddb2448  00007ffef63a1ae6  /system/lib64/libc.so (__bionic_clone+54)
+    #14  00007ffeeddb2450  00007ffef7ff9b40
+         00007ffeeddb2458  00007ffeedcad450  [stack:4615]
+         00007ffeeddb2460  000011e100001206
+         00007ffeeddb2468  0000000000000001
+         00007ffeeddb2470  00007ffeedcae000  [anon:thread stack guard page]
+         00007ffeeddb2478  0000000000104450
+         00007ffeeddb2480  0000000000001000
+         00007ffeeddb2488  0000000000000000
+         00007ffeeddb2490  0000000012c006c0  /dev/ashmem/dalvik-main space (deleted)
+         00007ffeeddb2498  000000006fac6ac0  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeeddb24a0  0000000000000003
+         00007ffeeddb24a8  0000000000000000
+         00007ffeeddb24b0  00007ffef3204c60  /system/lib64/libart.so (_ZN3art6Thread14CreateCallbackEPv)
+         00007ffeeddb24b8  00007ffef3496400  [anon:libc_malloc]
+         00007ffeeddb24c0  0000000000000000
+         00007ffeeddb24c8  00007ffef7c9c000  [anon:thread signal stack guard page]
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+pid: 4577, tid: 4615, name: FinalizerDaemon  >>> zygote64 <<<
+    rax fffffffffffffe00  rbx 00007ffef3496e00  rcx ffffffffffffffff  rdx 0000000000000000
+    rsi 0000000000000000  rdi 00007ffef34f6af0
+    r8  0000000000000000  r9  0000000000000000  r10 0000000000000000  r11 0000000000000246
+    r12 00007ffef34f6ae0  r13 0000000000000001  r14 00007ffef34f6af0  r15 00007ffef3496e00
+    cs  0000000000000033  ss  000000000000002b
+    rip 00007ffef63a1cc8  rbp 0000000000000000  rsp 00007ffeedcacb88  eflags 0000000000000246
+
+backtrace:
+    #00 pc 000000000001ccc8  /system/lib64/libc.so (syscall+24)
+    #01 pc 000000000014f12b  /system/lib64/libart.so (_ZN3art17ConditionVariable16WaitHoldingLocksEPNS_6ThreadE+123)
+    #02 pc 0000000000414629  /system/lib64/libart.so (_ZN3art7Monitor4WaitEPNS_6ThreadElibNS_11ThreadStateE+569)
+    #03 pc 00000000004167a4  /system/lib64/libart.so (_ZN3art7Monitor4WaitEPNS_6ThreadEPNS_6mirror6ObjectElibNS_11ThreadStateE+372)
+    #04 pc 0000000000533a0f  /system/framework/x86_64/boot.oat (offset 0x533000) (java.lang.Object.wait+187)
+    #05 pc 0000000000533919  /system/framework/x86_64/boot.oat (offset 0x533000) (java.lang.Object.wait+53)
+    #06 pc 00000000005fa369  /system/framework/x86_64/boot.oat (offset 0x533000) (java.lang.ref.ReferenceQueue.remove+309)
+    #07 pc 00000000005fa205  /system/framework/x86_64/boot.oat (offset 0x533000) (java.lang.ref.ReferenceQueue.remove+49)
+    #08 pc 000000000067a630  /system/framework/x86_64/boot-core-libart.oat (offset 0x48e000) (java.lang.Daemons$FinalizerDaemon.run+348)
+    #09 pc 00000000005f07de  /system/framework/x86_64/boot.oat (offset 0x533000) (java.lang.Thread.run+74)
+    #10 pc 00000000001381b4  /system/lib64/libart.so (art_quick_invoke_stub+756)
+    #11 pc 00000000001463c7  /system/lib64/libart.so (_ZN3art9ArtMethod6InvokeEPNS_6ThreadEPjjPNS_6JValueEPKc+231)
+    #12 pc 00000000004daeb7  /system/lib64/libart.so (_ZN3artL18InvokeWithArgArrayERKNS_33ScopedObjectAccessAlreadyRunnableEPNS_9ArtMethodEPNS_8ArgArrayEPNS_6JValueEPKc+87)
+    #13 pc 00000000004dc4b9  /system/lib64/libart.so (_ZN3art35InvokeVirtualOrInterfaceWithJValuesERKNS_33ScopedObjectAccessAlreadyRunnableEP8_jobjectP10_jmethodIDP6jvalue+377)
+    #14 pc 00000000004fe1cd  /system/lib64/libart.so (_ZN3art6Thread14CreateCallbackEPv+1389)
+    #15 pc 00000000000897b1  /system/lib64/libc.so (_ZL15__pthread_startPv+177)
+    #16 pc 0000000000029a6b  /system/lib64/libc.so (__start_thread+11)
+    #17 pc 000000000001cae5  /system/lib64/libc.so (__bionic_clone+53)
+
+stack:
+         00007ffeedcacb08  00007ffef2e54e91  /system/lib64/libart.so (_ZN3art5Mutex15ExclusiveUnlockEPNS_6ThreadE+321)
+         00007ffeedcacb10  c0f22af800000000
+         00007ffeedcacb18  0000000000000001
+         00007ffeedcacb20  0000000000000003
+         00007ffeedcacb28  00007ffef3496e00  [anon:libc_malloc]
+         00007ffeedcacb30  0000000000000003
+         00007ffeedcacb38  00007ffef341c090  [anon:libc_malloc]
+         00007ffeedcacb40  00007ffef3496e01  [anon:libc_malloc]
+         00007ffeedcacb48  00007ffef3117c7e  /system/lib64/libart.so (_ZN3art7Monitor7InstallEPNS_6ThreadE+654)
+         00007ffeedcacb50  c0f22af80ee59b69
+         00007ffeedcacb58  00007ffef3496e00  [anon:libc_malloc]
+         00007ffeedcacb60  00007ffef34f6ae0  [anon:libc_malloc]
+         00007ffeedcacb68  0000000000000001
+         00007ffeedcacb70  00007ffef34f6af0  [anon:libc_malloc]
+         00007ffeedcacb78  00007ffef3496e00  [anon:libc_malloc]
+         00007ffeedcacb80  0000000000000000
+    #00  00007ffeedcacb88  00007ffef2e5612c  /system/lib64/libart.so (_ZN3art17ConditionVariable16WaitHoldingLocksEPNS_6ThreadE+124)
+    #01  00007ffeedcacb90  0000000000000000
+         00007ffeedcacb98  00007ffef351a308  [anon:libc_malloc]
+         00007ffeedcacba0  00007ffef341c090  [anon:libc_malloc]
+         00007ffeedcacba8  0000000000000000
+         00007ffeedcacbb0  00007ffef3496e00  [anon:libc_malloc]
+         00007ffeedcacbb8  00007ffef3519768  [anon:libc_malloc]
+         00007ffeedcacbc0  c0f22af80ee59b69
+         00007ffeedcacbc8  0000000000000018
+         00007ffeedcacbd0  c0f22af80ee59b69
+         00007ffeedcacbd8  00007ffef34307c8  [anon:libc_malloc]
+         00007ffeedcacbe0  00007ffef341c090  [anon:libc_malloc]
+         00007ffeedcacbe8  00007ffef3430778  [anon:libc_malloc]
+         00007ffeedcacbf0  c0f22af80ee59b69
+         00007ffeedcacbf8  00007ffef3496e00  [anon:libc_malloc]
+         00007ffeedcacc00  0000000000000000
+         00007ffeedcacc08  0000000000000000
+         ........  ........
+    #02  00007ffeedcacc30  0000000000000000
+         00007ffeedcacc38  ffffffff00000000
+         00007ffeedcacc40  000000006fc35e50  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeedcacc48  0000000100000000
+         00007ffeedcacc50  0000000000430000
+         00007ffeedcacc58  0047000000000000
+         00007ffeedcacc60  c0f22af80ee59b69
+         00007ffeedcacc68  00007ffef3496e00  [anon:libc_malloc]
+         00007ffeedcacc70  0000000000000000
+         00007ffeedcacc78  0000000000000001
+         00007ffeedcacc80  0000000000000002
+         00007ffeedcacc88  00007ffef337e618  /system/lib64/libart.so
+         00007ffeedcacc90  000000006fd0b130  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedcacc98  00007ffef311d7a5  /system/lib64/libart.so (_ZN3art7Monitor4WaitEPNS_6ThreadEPNS_6mirror6ObjectElibNS_11ThreadStateE+373)
+    #03  00007ffeedcacca0  0000000000000000
+         00007ffeedcacca8  0000000000000000
+         00007ffeedcaccb0  c0f22af800000044
+         00007ffeedcaccb8  0000000000000000
+         00007ffeedcaccc0  c0f22af80ee59b69
+         00007ffeedcaccc8  000000006fd0b130  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedcaccd0  0000000000000000
+         00007ffeedcaccd8  000000006fd19f38  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedcacce0  000000006fd0b130  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedcacce8  0000000000000000
+         00007ffeedcaccf0  0000000000000000
+         00007ffeedcaccf8  0000000070d5da10  /system/framework/x86_64/boot.oat (java.lang.Object.wait+188)
+    #04  00007ffeedcacd00  0000000000000000
+         00007ffeedcacd08  0000000000000000
+         00007ffeedcacd10  0000000000000000
+         00007ffeedcacd18  0000000000000000
+         00007ffeedcacd20  000000006fc35e50  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeedcacd28  0000000000000000
+         00007ffeedcacd30  6fd0b13000000001
+         00007ffeedcacd38  0000000000000000
+         00007ffeedcacd40  0000000000000000
+         00007ffeedcacd48  0000000000000000
+         00007ffeedcacd50  0000000000000000
+         00007ffeedcacd58  0000000000000000
+         00007ffeedcacd60  0000000000000000
+         00007ffeedcacd68  000000006fd0b130  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedcacd70  0000000000000000
+         00007ffeedcacd78  0000000000000000
+         ........  ........
+    #05  00007ffeedcacda0  000000006fc35e18  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeedcacda8  000000006fd0b130  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedcacdb0  0000000000000000
+         00007ffeedcacdb8  0000000000000000
+         00007ffeedcacdc0  0000000000000000
+         00007ffeedcacdc8  0000000000000000
+         00007ffeedcacdd0  000000006fd0b130  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedcacdd8  0000000070e2436a  /system/framework/x86_64/boot.oat (java.lang.ref.ReferenceQueue.remove+310)
+    #06  00007ffeedcacde0  000000006fbcf2d8  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeedcacde8  0000000000000000
+         00007ffeedcacdf0  6fd0b13000000000
+         00007ffeedcacdf8  0000000000000000
+         00007ffeedcace00  0000000000000000
+         00007ffeedcace08  0000000000000000
+         00007ffeedcace10  0000000000000000
+         00007ffeedcace18  0000000000000000
+         00007ffeedcace20  0000000000000000
+         00007ffeedcace28  0000000000000000
+         00007ffeedcace30  c0f22af80ee59b69
+         00007ffeedcace38  000000006fd19f38  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedcace40  000000006fd19f38  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedcace48  000000006fd1a1c8  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedcace50  0000000000000001
+         00007ffeedcace58  0000000000000000
+         ........  ........
+    #07  00007ffeedcace70  000000006fbcf2a0  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeedcace78  000000006fd19f38  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedcace80  000000006fd23f58  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedcace88  0000000000000000
+         00007ffeedcace90  000000006fd23f58  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedcace98  00000000717dd631  /system/framework/x86_64/boot-core-libart.oat (java.lang.Daemons$FinalizerDaemon.run+349)
+    #08  00007ffeedcacea0  000000006fdb3508  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedcacea8  00007ffe6fd19f38
+         00007ffeedcaceb0  000000006fd23f58  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedcaceb8  0000000000000000
+         00007ffeedcacec0  0000000000000001
+         00007ffeedcacec8  0000000000000001
+         00007ffeedcaced0  0000000000000000
+         00007ffeedcaced8  00007ffef6438e10  /system/lib64/libc.so (je_arena_tdata_get_hard+160)
+         00007ffeedcacee0  00000000000007c0
+         00007ffeedcacee8  0000000000000000
+         00007ffeedcacef0  000000006fd1a1c8  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedcacef8  0000000012c061f0  /dev/ashmem/dalvik-main space (deleted)
+         00007ffeedcacf00  00007ffeedcad380  [stack:4615]
+         00007ffeedcacf08  00007ffeedcad2a8  [stack:4615]
+         00007ffeedcacf10  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeedcacf18  0000000070e1a7df  /system/framework/x86_64/boot.oat (java.lang.Thread.run+75)
+    #09  00007ffeedcacf20  000000006fc3a808  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeedcacf28  00007ffe6fd1a1c8
+         00007ffeedcacf30  0000000000000000
+         00007ffeedcacf38  00007ffef3496e00  [anon:libc_malloc]
+         00007ffeedcacf40  00007ffeedcacf68  [stack:4615]
+         00007ffeedcacf48  00007ffef2e3f1b5  /system/lib64/libart.so (art_quick_invoke_stub+757)
+    #10  00007ffeedcacf50  0000000000000000
+         00007ffeedcacf58  00007ffe12c061f0
+         00007ffeedcacf60  00007ffef3602200  [anon:libc_malloc]
+         00007ffeedcacf68  00007ffeedcad288  [stack:4615]
+         00007ffeedcacf70  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeedcacf78  00007ffeedcad2a8  [stack:4615]
+         00007ffeedcacf80  00007ffeedcad380  [stack:4615]
+         00007ffeedcacf88  00007ffef3496e00  [anon:libc_malloc]
+         00007ffeedcacf90  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeedcacf98  00007ffeedcad288  [stack:4615]
+         00007ffeedcacfa0  00007ffeedcad030  [stack:4615]
+         00007ffeedcacfa8  00007ffef2e4d3c8  /system/lib64/libart.so (_ZN3art9ArtMethod6InvokeEPNS_6ThreadEPjjPNS_6JValueEPKc+232)
+    #11  00007ffeedcacfb0  fffffffffffffffc
+         00007ffeedcacfb8  00007ffef3496e98  [anon:libc_malloc]
+         00007ffeedcacfc0  00007ffef351b068  [anon:libc_malloc]
+         00007ffeedcacfc8  0000000000000100
+         00007ffeedcacfd0  fffffffffffffffc
+         00007ffeedcacfd8  00007ffef642615f  /system/lib64/libc.so (je_arena_tcache_fill_small+639)
+         00007ffeedcacfe0  0000000000000000
+         00007ffeedcacfe8  0000000000000000
+         00007ffeedcacff0  0000000000000000
+         00007ffeedcacff8  00007ffef64812f8  [anon:.bss]
+         00007ffeedcad000  c0f22af80ee59b69
+         00007ffeedcad008  000000006fc3a808  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeedcad010  00007ffeedcad380  [stack:4615]
+         00007ffeedcad018  00007ffeedcad2a8  [stack:4615]
+         00007ffeedcad020  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeedcad028  00007ffeedcad288  [stack:4615]
+         ........  ........
+    #12  00007ffeedcad040  0000000000000002
+         00007ffeedcad048  00007ffef308ac43  /system/lib64/libart.so (_ZN3art9JavaVMExt12DecodeGlobalEPv+19)
+         00007ffeedcad050  0000000000000002
+         00007ffeedcad058  00000000001001b6
+         00007ffeedcad060  00007ffef3496e00  [anon:libc_malloc]
+         00007ffeedcad068  00007ffef320e619  /system/lib64/libart.so (_ZNK3art6Thread13DecodeJObjectEP8_jobject+201)
+         00007ffeedcad070  0000000000000040
+         00007ffeedcad078  00007ffef351b000  [anon:libc_malloc]
+         00007ffeedcad080  0000000000000002
+         00007ffeedcad088  00007ffef2f8c9fc  /system/lib64/libart.so (_ZNK3art2gc4Heap20IsValidObjectAddressEPKNS_6mirror6ObjectE+60)
+         00007ffeedcad090  00007ffef348f600  [anon:libc_malloc]
+         00007ffeedcad098  00007ffeedcad2e8  [stack:4615]
+         00007ffeedcad0a0  00007ffeedcad2b0  [stack:4615]
+         00007ffeedcad0a8  00000000001001b6
+         00007ffeedcad0b0  00007ffef3340e9b  /system/lib64/libart.so
+         00007ffeedcad0b8  00007ffef2e701e5  /system/lib64/libart.so (_ZN3art11ScopedCheck13CheckInstanceERNS_18ScopedObjectAccessENS0_12InstanceKindEP8_jobjectb+229)
+         ........  ........
+    #13  00007ffeedcad270  0000000000100001
+         00007ffeedcad278  0000000000000000
+         00007ffeedcad280  00000000f3340b7e
+         00007ffeedcad288  0000000000000000
+         00007ffeedcad290  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeedcad298  0000000400000001
+         00007ffeedcad2a0  00007ffeedcad2a8  [stack:4615]
+         00007ffeedcad2a8  00007ffe12c061f0
+         00007ffeedcad2b0  00007ffef34f6b00  [anon:libc_malloc]
+         00007ffeedcad2b8  00007ffef3340b4d  /system/lib64/libart.so
+         00007ffeedcad2c0  00007ffef33fe210  [anon:.bss]
+         00007ffeedcad2c8  00007ffef6423199  /system/lib64/libc.so (getpriority+9)
+         00007ffeedcad2d0  00007ffef3496e00  [anon:libc_malloc]
+         00007ffeedcad2d8  00007ffef3322273  /system/lib64/libart.so (_ZN3art6Thread17SetNativePriorityEi+211)
+         00007ffeedcad2e0  00007ffef34de780  [anon:libc_malloc]
+         00007ffeedcad2e8  0000000000000000
+         ........  ........
+    #14  00007ffeedcad330  0000000000000000
+         00007ffeedcad338  7a696c616e69461e
+         00007ffeedcad340  6e6f6d6561447265
+         00007ffeedcad348  0000000000000000
+         00007ffeedcad350  0000000000000000
+         00007ffeedcad358  0000000000000000
+         00007ffeedcad360  0000000000000000
+         00007ffeedcad368  0000000000000000
+         00007ffeedcad370  0000000000000000
+         00007ffeedcad378  0059000000430000
+         00007ffeedcad380  00007ffef3496e00  [anon:libc_malloc]
+         00007ffeedcad388  00007ffef343e300  [anon:libc_malloc]
+         00007ffeedcad390  00007ffef34e7f00  [anon:libc_malloc]
+         00007ffeedcad398  00007ffef3496e00  [anon:libc_malloc]
+         00007ffeedcad3a0  0000005900000043
+         00007ffeedcad3a8  00007ffef640e600  /system/lib64/libc.so (_ZL12__do_nothingPv)
+         ........  ........
+    #15  00007ffeedcad3f0  0000000000000000
+         00007ffeedcad3f8  c0f22af80ee59b69
+         00007ffeedcad400  0000000000000000
+         00007ffeedcad408  00007ffef7ff9b40
+         00007ffeedcad410  00000000000011e1
+         00007ffeedcad418  0000000000000000
+         00007ffeedcad420  00007ffef3204c60  /system/lib64/libart.so (_ZN3art6Thread14CreateCallbackEPv)
+         00007ffeedcad428  00007ffeedcad450  [stack:4615]
+         00007ffeedcad430  00007ffeedcad4e8  [stack:4615]
+         00007ffeedcad438  00007ffef63aea6c  /system/lib64/libc.so (__start_thread+12)
+    #16  00007ffeedcad440  00007ffef640e700  /system/lib64/libc.so (_ZL15__pthread_startPv)
+         00007ffeedcad448  00007ffef63a1ae6  /system/lib64/libc.so (__bionic_clone+54)
+    #17  00007ffeedcad450  00007ffeeddb2450  [stack:4614]
+         00007ffeedcad458  00007ffeedba8450  [stack:4616]
+         00007ffeedcad460  000011e100001207
+         00007ffeedcad468  0000000000000001
+         00007ffeedcad470  00007ffeedba9000  [anon:thread stack guard page]
+         00007ffeedcad478  0000000000104450
+         00007ffeedcad480  0000000000001000
+         00007ffeedcad488  0000000000000000
+         00007ffeedcad490  0000000070e18520  /system/framework/x86_64/boot.oat
+         00007ffeedcad498  0000000012c070b0  /dev/ashmem/dalvik-main space (deleted)
+         00007ffeedcad4a0  0000000000000003
+         00007ffeedcad4a8  0000000000000000
+         00007ffeedcad4b0  00007ffef3204c60  /system/lib64/libart.so (_ZN3art6Thread14CreateCallbackEPv)
+         00007ffeedcad4b8  00007ffef3496e00  [anon:libc_malloc]
+         00007ffeedcad4c0  0000000000000000
+         00007ffeedcad4c8  00007ffef7bf7000  [anon:thread signal stack guard page]
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+pid: 4577, tid: 4616, name: FinalizerWatchd  >>> zygote64 <<<
+    rax fffffffffffffe00  rbx 00007ffef3497800  rcx ffffffffffffffff  rdx 0000000000000000
+    rsi 0000000000000000  rdi 00007ffef34f6b30
+    r8  0000000000000000  r9  0000000000000000  r10 0000000000000000  r11 0000000000000246
+    r12 00007ffef34f6b20  r13 0000000000000001  r14 00007ffef34f6b30  r15 00007ffef3497800
+    cs  0000000000000033  ss  000000000000002b
+    rip 00007ffef63a1cc8  rbp 0000000000000000  rsp 00007ffeedba7ca8  eflags 0000000000000246
+
+backtrace:
+    #00 pc 000000000001ccc8  /system/lib64/libc.so (syscall+24)
+    #01 pc 000000000014f12b  /system/lib64/libart.so (_ZN3art17ConditionVariable16WaitHoldingLocksEPNS_6ThreadE+123)
+    #02 pc 0000000000414629  /system/lib64/libart.so (_ZN3art7Monitor4WaitEPNS_6ThreadElibNS_11ThreadStateE+569)
+    #03 pc 00000000004167a4  /system/lib64/libart.so (_ZN3art7Monitor4WaitEPNS_6ThreadEPNS_6mirror6ObjectElibNS_11ThreadStateE+372)
+    #04 pc 0000000000533861  /system/framework/x86_64/boot.oat (offset 0x533000) (java.lang.Object.wait+157)
+    #05 pc 000000000067b076  /system/framework/x86_64/boot-core-libart.oat (offset 0x48e000) (java.lang.Daemons$FinalizerWatchdogDaemon.sleepUntilNeeded+82)
+    #06 pc 000000000067b41e  /system/framework/x86_64/boot-core-libart.oat (offset 0x48e000) (java.lang.Daemons$FinalizerWatchdogDaemon.run+74)
+    #07 pc 00000000005f07de  /system/framework/x86_64/boot.oat (offset 0x533000) (java.lang.Thread.run+74)
+    #08 pc 00000000001381b4  /system/lib64/libart.so (art_quick_invoke_stub+756)
+    #09 pc 00000000001463c7  /system/lib64/libart.so (_ZN3art9ArtMethod6InvokeEPNS_6ThreadEPjjPNS_6JValueEPKc+231)
+    #10 pc 00000000004daeb7  /system/lib64/libart.so (_ZN3artL18InvokeWithArgArrayERKNS_33ScopedObjectAccessAlreadyRunnableEPNS_9ArtMethodEPNS_8ArgArrayEPNS_6JValueEPKc+87)
+    #11 pc 00000000004dc4b9  /system/lib64/libart.so (_ZN3art35InvokeVirtualOrInterfaceWithJValuesERKNS_33ScopedObjectAccessAlreadyRunnableEP8_jobjectP10_jmethodIDP6jvalue+377)
+    #12 pc 00000000004fe1cd  /system/lib64/libart.so (_ZN3art6Thread14CreateCallbackEPv+1389)
+    #13 pc 00000000000897b1  /system/lib64/libc.so (_ZL15__pthread_startPv+177)
+    #14 pc 0000000000029a6b  /system/lib64/libc.so (__start_thread+11)
+    #15 pc 000000000001cae5  /system/lib64/libc.so (__bionic_clone+53)
+
+stack:
+         00007ffeedba7c28  00007ffef2e54e91  /system/lib64/libart.so (_ZN3art5Mutex15ExclusiveUnlockEPNS_6ThreadE+321)
+         00007ffeedba7c30  c0f22af800000000
+         00007ffeedba7c38  0000000000000001
+         00007ffeedba7c40  0000000000000004
+         00007ffeedba7c48  00007ffef3497800  [anon:libc_malloc]
+         00007ffeedba7c50  0000000000000004
+         00007ffeedba7c58  00007ffef341c120  [anon:libc_malloc]
+         00007ffeedba7c60  00007ffef3497801  [anon:libc_malloc]
+         00007ffeedba7c68  00007ffef3117c7e  /system/lib64/libart.so (_ZN3art7Monitor7InstallEPNS_6ThreadE+654)
+         00007ffeedba7c70  c0f22af80ee59b69
+         00007ffeedba7c78  00007ffef3497800  [anon:libc_malloc]
+         00007ffeedba7c80  00007ffef34f6b20  [anon:libc_malloc]
+         00007ffeedba7c88  0000000000000001
+         00007ffeedba7c90  00007ffef34f6b30  [anon:libc_malloc]
+         00007ffeedba7c98  00007ffef3497800  [anon:libc_malloc]
+         00007ffeedba7ca0  0000000000000000
+    #00  00007ffeedba7ca8  00007ffef2e5612c  /system/lib64/libart.so (_ZN3art17ConditionVariable16WaitHoldingLocksEPNS_6ThreadE+124)
+    #01  00007ffeedba7cb0  0000000000000000
+         00007ffeedba7cb8  00007ffef351a388  [anon:libc_malloc]
+         00007ffeedba7cc0  00007ffef341c120  [anon:libc_malloc]
+         00007ffeedba7cc8  0000000000000000
+         00007ffeedba7cd0  00007ffef3497800  [anon:libc_malloc]
+         00007ffeedba7cd8  00007ffef35197a8  [anon:libc_malloc]
+         00007ffeedba7ce0  c0f22af80ee59b69
+         00007ffeedba7ce8  0000000000000018
+         00007ffeedba7cf0  c0f22af80ee59b69
+         00007ffeedba7cf8  00007ffef34307c8  [anon:libc_malloc]
+         00007ffeedba7d00  00007ffef341c120  [anon:libc_malloc]
+         00007ffeedba7d08  00007ffef3430778  [anon:libc_malloc]
+         00007ffeedba7d10  c0f22af80ee59b69
+         00007ffeedba7d18  00007ffef3497800  [anon:libc_malloc]
+         00007ffeedba7d20  0000000000000000
+         00007ffeedba7d28  0000000000000000
+         ........  ........
+    #02  00007ffeedba7d50  0000000000000000
+         00007ffeedba7d58  ffffffff00000000
+         00007ffeedba7d60  000000006fc35de0  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeedba7d68  0000000100000000
+         00007ffeedba7d70  0000000000430000
+         00007ffeedba7d78  0047000000000000
+         00007ffeedba7d80  c0f22af80ee59b69
+         00007ffeedba7d88  00007ffef3497800  [anon:libc_malloc]
+         00007ffeedba7d90  0000000000000000
+         00007ffeedba7d98  0000000000000001
+         00007ffeedba7da0  0000000000000002
+         00007ffeedba7da8  00007ffef337e618  /system/lib64/libart.so
+         00007ffeedba7db0  000000006fd1a150  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedba7db8  00007ffef311d7a5  /system/lib64/libart.so (_ZN3art7Monitor4WaitEPNS_6ThreadEPNS_6mirror6ObjectElibNS_11ThreadStateE+373)
+    #03  00007ffeedba7dc0  0000000000000000
+         00007ffeedba7dc8  0000000000000000
+         00007ffeedba7dd0  0000000000000047
+         00007ffeedba7dd8  0000000000000000
+         00007ffeedba7de0  c0f22af80ee59b69
+         00007ffeedba7de8  000000006fd1a150  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedba7df0  00007ffeedba8380  [stack:4616]
+         00007ffeedba7df8  00007ffeedba82a8  [stack:4616]
+         00007ffeedba7e00  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeedba7e08  00007ffeedba8288  [stack:4616]
+         00007ffeedba7e10  0000000000000000
+         00007ffeedba7e18  0000000070d5d862  /system/framework/x86_64/boot.oat (java.lang.Object.wait+158)
+    #04  00007ffeedba7e20  0000000000000000
+         00007ffeedba7e28  0000000000000000
+         00007ffeedba7e30  000000006fc35de0  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeedba7e38  0000000000000000
+         00007ffeedba7e40  6fd1a15000000001
+         00007ffeedba7e48  0000000000000000
+         00007ffeedba7e50  00007ffef3602ac0  [anon:libc_malloc]
+         00007ffeedba7e58  0000000000000000
+         00007ffeedba7e60  0000000000000000
+         00007ffeedba7e68  0000000000000000
+         00007ffeedba7e70  0000000000000000
+         00007ffeedba7e78  000000006fd1a150  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedba7e80  0000000000000000
+         00007ffeedba7e88  00007ffeedba8380  [stack:4616]
+         00007ffeedba7e90  00007ffeedba82a8  [stack:4616]
+         00007ffeedba7e98  0000000070b031bc  /system/framework/x86_64/boot.oat
+         ........  ........
+    #05  00007ffeedba7eb0  000000006fdb37f0  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedba7eb8  000000006fd1a150  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedba7ec0  000000006fddb0c0  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedba7ec8  000000006fd1a150  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedba7ed0  0000000000000001
+         00007ffeedba7ed8  00000000717de41f  /system/framework/x86_64/boot-core-libart.oat (java.lang.Daemons$FinalizerWatchdogDaemon.run+75)
+    #06  00007ffeedba7ee0  000000006fdb3898  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedba7ee8  000000006fd1a150  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedba7ef0  0000000000000000
+         00007ffeedba7ef8  00007ffef351cc00  [anon:libc_malloc]
+         00007ffeedba7f00  000000006fd1a150  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedba7f08  0000000012c06280  /dev/ashmem/dalvik-main space (deleted)
+         00007ffeedba7f10  00007ffeedba8380  [stack:4616]
+         00007ffeedba7f18  0000000070e1a7df  /system/framework/x86_64/boot.oat (java.lang.Thread.run+75)
+    #07  00007ffeedba7f20  000000006fc3a808  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeedba7f28  00007ffef6426c83  /system/lib64/libc.so (je_arena_malloc_hard+595)
+         00007ffeedba7f30  0000000000000000
+         00007ffeedba7f38  00007ffef3497800  [anon:libc_malloc]
+         00007ffeedba7f40  00007ffeedba7f68  [stack:4616]
+         00007ffeedba7f48  00007ffef2e3f1b5  /system/lib64/libart.so (art_quick_invoke_stub+757)
+    #08  00007ffeedba7f50  0000000000000000
+         00007ffeedba7f58  00007ffe12c06280
+         00007ffeedba7f60  00007ffef3602200  [anon:libc_malloc]
+         00007ffeedba7f68  00007ffeedba8288  [stack:4616]
+         00007ffeedba7f70  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeedba7f78  00007ffeedba82a8  [stack:4616]
+         00007ffeedba7f80  00007ffeedba8380  [stack:4616]
+         00007ffeedba7f88  00007ffef3497800  [anon:libc_malloc]
+         00007ffeedba7f90  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeedba7f98  00007ffeedba8288  [stack:4616]
+         00007ffeedba7fa0  00007ffeedba8030  [stack:4616]
+         00007ffeedba7fa8  00007ffef2e4d3c8  /system/lib64/libart.so (_ZN3art9ArtMethod6InvokeEPNS_6ThreadEPjjPNS_6JValueEPKc+232)
+    #09  00007ffeedba7fb0  c0f22af80ee59b69
+         00007ffeedba7fb8  00007ffef3497898  [anon:libc_malloc]
+         00007ffeedba7fc0  00007ffef351cc68  [anon:libc_malloc]
+         00007ffeedba7fc8  0000000000000100
+         00007ffeedba7fd0  fffffffffffffffc
+         00007ffeedba7fd8  00007ffef642615f  /system/lib64/libc.so (je_arena_tcache_fill_small+639)
+         00007ffeedba7fe0  0000000000000000
+         00007ffeedba7fe8  0000000000000000
+         00007ffeedba7ff0  0000000000000000
+         00007ffeedba7ff8  00007ffef64812f8  [anon:.bss]
+         00007ffeedba8000  c0f22af80ee59b69
+         00007ffeedba8008  000000006fc3a808  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeedba8010  00007ffeedba8380  [stack:4616]
+         00007ffeedba8018  00007ffeedba82a8  [stack:4616]
+         00007ffeedba8020  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeedba8028  00007ffeedba8288  [stack:4616]
+         ........  ........
+    #10  00007ffeedba8040  0000000000000002
+         00007ffeedba8048  00007ffef308ac43  /system/lib64/libart.so (_ZN3art9JavaVMExt12DecodeGlobalEPv+19)
+         00007ffeedba8050  0000000000000002
+         00007ffeedba8058  00000000001001ba
+         00007ffeedba8060  00007ffef3497800  [anon:libc_malloc]
+         00007ffeedba8068  00007ffef320e619  /system/lib64/libart.so (_ZNK3art6Thread13DecodeJObjectEP8_jobject+201)
+         00007ffeedba8070  0000000000000040
+         00007ffeedba8078  00007ffef351cc00  [anon:libc_malloc]
+         00007ffeedba8080  0000000000000002
+         00007ffeedba8088  00007ffef2f8c9fc  /system/lib64/libart.so (_ZNK3art2gc4Heap20IsValidObjectAddressEPKNS_6mirror6ObjectE+60)
+         00007ffeedba8090  00007ffef348f600  [anon:libc_malloc]
+         00007ffeedba8098  00007ffeedba82e8  [stack:4616]
+         00007ffeedba80a0  00007ffeedba82b0  [stack:4616]
+         00007ffeedba80a8  00000000001001ba
+         00007ffeedba80b0  00007ffef3340e9b  /system/lib64/libart.so
+         00007ffeedba80b8  00007ffef2e701e5  /system/lib64/libart.so (_ZN3art11ScopedCheck13CheckInstanceERNS_18ScopedObjectAccessENS0_12InstanceKindEP8_jobjectb+229)
+         ........  ........
+    #11  00007ffeedba8270  0000000000100001
+         00007ffeedba8278  0000000000000000
+         00007ffeedba8280  00000000f3340b7e
+         00007ffeedba8288  0000000000000000
+         00007ffeedba8290  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeedba8298  0000000400000001
+         00007ffeedba82a0  00007ffeedba82a8  [stack:4616]
+         00007ffeedba82a8  00007ffe12c06280
+         00007ffeedba82b0  00007ffef34f6c80  [anon:libc_malloc]
+         00007ffeedba82b8  00007ffef351a388  [anon:libc_malloc]
+         00007ffeedba82c0  00007ffef34f6b40  [anon:libc_malloc]
+         00007ffeedba82c8  00007ffef6423199  /system/lib64/libc.so (getpriority+9)
+         00007ffeedba82d0  00007ffef3497800  [anon:libc_malloc]
+         00007ffeedba82d8  00007ffef3322273  /system/lib64/libart.so (_ZN3art6Thread17SetNativePriorityEi+211)
+         00007ffeedba82e0  00007ffef34de7e0  [anon:libc_malloc]
+         00007ffeedba82e8  0000000000000000
+         ........  ........
+    #12  00007ffeedba8330  0000000000000000
+         00007ffeedba8338  0000000000000021
+         00007ffeedba8340  0000000000000017
+         00007ffeedba8348  00007ffef34f6c80  [anon:libc_malloc]
+         00007ffeedba8350  0000000000000000
+         00007ffeedba8358  0000000000000000
+         00007ffeedba8360  0000000000000000
+         00007ffeedba8368  0000000000000000
+         00007ffeedba8370  0000000000000000
+         00007ffeedba8378  0059000000430000
+         00007ffeedba8380  00007ffef3497800  [anon:libc_malloc]
+         00007ffeedba8388  00007ffef343e3c0  [anon:libc_malloc]
+         00007ffeedba8390  00007ffef34e7f00  [anon:libc_malloc]
+         00007ffeedba8398  00007ffef3497800  [anon:libc_malloc]
+         00007ffeedba83a0  0000005900000043
+         00007ffeedba83a8  00007ffef640e600  /system/lib64/libc.so (_ZL12__do_nothingPv)
+         ........  ........
+    #13  00007ffeedba83f0  0000000000000000
+         00007ffeedba83f8  c0f22af80ee59b69
+         00007ffeedba8400  0000000000000000
+         00007ffeedba8408  00007ffef7ff9b40
+         00007ffeedba8410  00000000000011e1
+         00007ffeedba8418  0000000000000000
+         00007ffeedba8420  00007ffef3204c60  /system/lib64/libart.so (_ZN3art6Thread14CreateCallbackEPv)
+         00007ffeedba8428  00007ffeedba8450  [stack:4616]
+         00007ffeedba8430  00007ffeedba84e8  [stack:4616]
+         00007ffeedba8438  00007ffef63aea6c  /system/lib64/libc.so (__start_thread+12)
+    #14  00007ffeedba8440  00007ffef640e700  /system/lib64/libc.so (_ZL15__pthread_startPv)
+         00007ffeedba8448  00007ffef63a1ae6  /system/lib64/libc.so (__bionic_clone+54)
+    #15  00007ffeedba8450  00007ffeedcad450  [stack:4615]
+         00007ffeedba8458  00007ffeedaa3450  [stack:4617]
+         00007ffeedba8460  000011e100001208
+         00007ffeedba8468  0000000000000001
+         00007ffeedba8470  00007ffeedaa4000  [anon:thread stack guard page]
+         00007ffeedba8478  0000000000104450
+         00007ffeedba8480  0000000000001000
+         00007ffeedba8488  0000000000000000
+         00007ffeedba8490  0000000070e18520  /system/framework/x86_64/boot.oat
+         00007ffeedba8498  0000000012c070c8  /dev/ashmem/dalvik-main space (deleted)
+         00007ffeedba84a0  0000000000000003
+         00007ffeedba84a8  0000000000000000
+         00007ffeedba84b0  00007ffef3204c60  /system/lib64/libart.so (_ZN3art6Thread14CreateCallbackEPv)
+         00007ffeedba84b8  00007ffef3497800  [anon:libc_malloc]
+         00007ffeedba84c0  0000000000000000
+         00007ffeedba84c8  00007ffef7bf2000  [anon:thread signal stack guard page]
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
+pid: 4577, tid: 4617, name: HeapTaskDaemon  >>> zygote64 <<<
+    rax fffffffffffffe00  rbx 00007ffef3519400  rcx ffffffffffffffff  rdx 0000000000000000
+    rsi 0000000000000000  rdi 00007ffef34f60b0
+    r8  0000000000000000  r9  0000000000000000  r10 0000000000000000  r11 0000000000000246
+    r12 00007ffef34f60a0  r13 0000000000000001  r14 00007ffef34f60b0  r15 00007ffef3498200
+    cs  0000000000000033  ss  000000000000002b
+    rip 00007ffef63a1cc8  rbp 0000000000000000  rsp 00007ffeedaa2cf8  eflags 0000000000000246
+
+backtrace:
+    #00 pc 000000000001ccc8  /system/lib64/libc.so (syscall+24)
+    #01 pc 000000000014f12b  /system/lib64/libart.so (_ZN3art17ConditionVariable16WaitHoldingLocksEPNS_6ThreadE+123)
+    #02 pc 00000000002c1e01  /system/lib64/libart.so (_ZN3art2gc13TaskProcessor7GetTaskEPNS_6ThreadE+337)
+    #03 pc 00000000002c264f  /system/lib64/libart.so (_ZN3art2gc13TaskProcessor11RunAllTasksEPNS_6ThreadE+63)
+    #04 pc 0000000000675ca1  /system/framework/x86_64/boot-core-libart.oat (offset 0x48e000) (dalvik.system.VMRuntime.runHeapTasks+157)
+    #05 pc 000000000067b76d  /system/framework/x86_64/boot-core-libart.oat (offset 0x48e000) (java.lang.Daemons$HeapTaskDaemon.run+201)
+    #06 pc 00000000005f07de  /system/framework/x86_64/boot.oat (offset 0x533000) (java.lang.Thread.run+74)
+    #07 pc 00000000001381b4  /system/lib64/libart.so (art_quick_invoke_stub+756)
+    #08 pc 00000000001463c7  /system/lib64/libart.so (_ZN3art9ArtMethod6InvokeEPNS_6ThreadEPjjPNS_6JValueEPKc+231)
+    #09 pc 00000000004daeb7  /system/lib64/libart.so (_ZN3artL18InvokeWithArgArrayERKNS_33ScopedObjectAccessAlreadyRunnableEPNS_9ArtMethodEPNS_8ArgArrayEPNS_6JValueEPKc+87)
+    #10 pc 00000000004dc4b9  /system/lib64/libart.so (_ZN3art35InvokeVirtualOrInterfaceWithJValuesERKNS_33ScopedObjectAccessAlreadyRunnableEP8_jobjectP10_jmethodIDP6jvalue+377)
+    #11 pc 00000000004fe1cd  /system/lib64/libart.so (_ZN3art6Thread14CreateCallbackEPv+1389)
+    #12 pc 00000000000897b1  /system/lib64/libc.so (_ZL15__pthread_startPv+177)
+    #13 pc 0000000000029a6b  /system/lib64/libc.so (__start_thread+11)
+    #14 pc 000000000001cae5  /system/lib64/libc.so (__bionic_clone+53)
+
+stack:
+         00007ffeedaa2c78  00007ffef2e54e91  /system/lib64/libart.so (_ZN3art5Mutex15ExclusiveUnlockEPNS_6ThreadE+321)
+         00007ffeedaa2c80  0000000000000000
+         00007ffeedaa2c88  0000000000000000
+         00007ffeedaa2c90  0000000000000000
+         00007ffeedaa2c98  0000000000000000
+         00007ffeedaa2ca0  0000000000000000
+         00007ffeedaa2ca8  0000000000000000
+         00007ffeedaa2cb0  0000000000000000
+         00007ffeedaa2cb8  0000000000000000
+         00007ffeedaa2cc0  c0f22af80ee59b69
+         00007ffeedaa2cc8  00007ffef3519400  [anon:libc_malloc]
+         00007ffeedaa2cd0  00007ffef34f60a0  [anon:libc_malloc]
+         00007ffeedaa2cd8  0000000000000001
+         00007ffeedaa2ce0  00007ffef34f60b0  [anon:libc_malloc]
+         00007ffeedaa2ce8  00007ffef3498200  [anon:libc_malloc]
+         00007ffeedaa2cf0  0000000000000000
+    #00  00007ffeedaa2cf8  00007ffef2e5612c  /system/lib64/libart.so (_ZN3art17ConditionVariable16WaitHoldingLocksEPNS_6ThreadE+124)
+    #01  00007ffeedaa2d00  0000000000000000
+         00007ffeedaa2d08  0000000000000000
+         00007ffeedaa2d10  0000000000000000
+         00007ffeedaa2d18  0000000000000000
+         00007ffeedaa2d20  0000000000000000
+         00007ffeedaa2d28  00007ffef3519468  [anon:libc_malloc]
+         00007ffeedaa2d30  0000000000000000
+         00007ffeedaa2d38  0000000000000000
+         00007ffeedaa2d40  0000000000000000
+         00007ffeedaa2d48  0000000000000000
+         00007ffeedaa2d50  0000004300000059
+         00007ffeedaa2d58  00590000f343e480
+         00007ffeedaa2d60  c0f22af80ee59b69
+         00007ffeedaa2d68  00007ffef3519400  [anon:libc_malloc]
+         00007ffeedaa2d70  431bde82d7b634db
+         00007ffeedaa2d78  00007ffef3519440  [anon:libc_malloc]
+         ........  ........
+    #02  00007ffeedaa2da0  0000000000000000
+         00007ffeedaa2da8  0000000000000059
+         00007ffeedaa2db0  0000000000000000
+         00007ffeedaa2db8  0000000000000000
+         00007ffeedaa2dc0  00000000717d9020  /system/framework/x86_64/boot-core-libart.oat
+         00007ffeedaa2dc8  0000000000000000
+         00007ffeedaa2dd0  c0f22af80ee59b69
+         00007ffeedaa2dd8  000000006fd22750  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedaa2de0  00007ffeedaa3380  [stack:4617]
+         00007ffeedaa2de8  00007ffef33fec60  [anon:.bss]
+         00007ffeedaa2df0  00007ffef3498200  [anon:libc_malloc]
+         00007ffeedaa2df8  00007ffef3519400  [anon:libc_malloc]
+         00007ffeedaa2e00  000000006fd22750  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedaa2e08  00007ffef2fc9650  /system/lib64/libart.so (_ZN3art2gc13TaskProcessor11RunAllTasksEPNS_6ThreadE+64)
+    #03  00007ffeedaa2e10  00007ffef3519400  [anon:libc_malloc]
+         00007ffeedaa2e18  000000006fd22750  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedaa2e20  00007ffeedaa3380  [stack:4617]
+         00007ffeedaa2e28  00007ffeedaa32a8  [stack:4617]
+         00007ffeedaa2e30  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeedaa2e38  00007ffeedaa3288  [stack:4617]
+         00007ffeedaa2e40  000000006fd22750  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedaa2e48  00000000717d8ca2  /system/framework/x86_64/boot-core-libart.oat (dalvik.system.VMRuntime.runHeapTasks+158)
+    #04  00007ffeedaa2e50  00007ffef3602ac0  [anon:libc_malloc]
+         00007ffeedaa2e58  00007ffef6426ba2  /system/lib64/libc.so (je_arena_malloc_hard+370)
+         00007ffeedaa2e60  000000006fdee018  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedaa2e68  0000000000000000
+         00007ffeedaa2e70  6fd2275000000001
+         00007ffeedaa2e78  0000000000000000
+         00007ffeedaa2e80  0000000000000000
+         00007ffeedaa2e88  0000000000000000
+         00007ffeedaa2e90  0000000000000000
+         00007ffeedaa2e98  0000000000000000
+         00007ffeedaa2ea0  0000000000000000
+         00007ffeedaa2ea8  000000006fd22750  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedaa2eb0  000000006fd22750  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedaa2eb8  00007ffeedaa3380  [stack:4617]
+         00007ffeedaa2ec0  00007ffeedaa32a8  [stack:4617]
+         00007ffeedaa2ec8  0000000070b031bc  /system/framework/x86_64/boot.oat
+         ........  ........
+    #05  00007ffeedaa2ee0  000000006fdb65c0  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedaa2ee8  000000006fd22750  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedaa2ef0  0000000000000000
+         00007ffeedaa2ef8  00007ffef351e800  [anon:libc_malloc]
+         00007ffeedaa2f00  00007ffef3603a40  [anon:libc_malloc]
+         00007ffeedaa2f08  000000006fd19c88  /data/dalvik-cache/x86_64/system@framework@boot-core-libart.art
+         00007ffeedaa2f10  0000000012c06310  /dev/ashmem/dalvik-main space (deleted)
+         00007ffeedaa2f18  0000000070e1a7df  /system/framework/x86_64/boot.oat (java.lang.Thread.run+75)
+    #06  00007ffeedaa2f20  000000006fc3a808  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeedaa2f28  00007ffe6fd19c88
+         00007ffeedaa2f30  0000000000000000
+         00007ffeedaa2f38  00007ffef3498200  [anon:libc_malloc]
+         00007ffeedaa2f40  00007ffeedaa2f68  [stack:4617]
+         00007ffeedaa2f48  00007ffef2e3f1b5  /system/lib64/libart.so (art_quick_invoke_stub+757)
+    #07  00007ffeedaa2f50  0000000000000000
+         00007ffeedaa2f58  00007ffe12c06310
+         00007ffeedaa2f60  00007ffef3602200  [anon:libc_malloc]
+         00007ffeedaa2f68  00007ffeedaa3288  [stack:4617]
+         00007ffeedaa2f70  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeedaa2f78  00007ffeedaa32a8  [stack:4617]
+         00007ffeedaa2f80  00007ffeedaa3380  [stack:4617]
+         00007ffeedaa2f88  00007ffef3498200  [anon:libc_malloc]
+         00007ffeedaa2f90  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeedaa2f98  00007ffeedaa3288  [stack:4617]
+         00007ffeedaa2fa0  00007ffeedaa3030  [stack:4617]
+         00007ffeedaa2fa8  00007ffef2e4d3c8  /system/lib64/libart.so (_ZN3art9ArtMethod6InvokeEPNS_6ThreadEPjjPNS_6JValueEPKc+232)
+    #08  00007ffeedaa2fb0  c0f22af80ee59b69
+         00007ffeedaa2fb8  00007ffef3498298  [anon:libc_malloc]
+         00007ffeedaa2fc0  00007ffef351e868  [anon:libc_malloc]
+         00007ffeedaa2fc8  0000000000000100
+         00007ffeedaa2fd0  fffffffffffffffc
+         00007ffeedaa2fd8  00007ffef642615f  /system/lib64/libc.so (je_arena_tcache_fill_small+639)
+         00007ffeedaa2fe0  0000000000000000
+         00007ffeedaa2fe8  0000000000000000
+         00007ffeedaa2ff0  0000000000000000
+         00007ffeedaa2ff8  00007ffef64812f8  [anon:.bss]
+         00007ffeedaa3000  c0f22af80ee59b69
+         00007ffeedaa3008  000000006fc3a808  /data/dalvik-cache/x86_64/system@framework@boot.art
+         00007ffeedaa3010  00007ffeedaa3380  [stack:4617]
+         00007ffeedaa3018  00007ffeedaa32a8  [stack:4617]
+         00007ffeedaa3020  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeedaa3028  00007ffeedaa3288  [stack:4617]
+         ........  ........
+    #09  00007ffeedaa3040  0000000000000002
+         00007ffeedaa3048  00007ffef308ac43  /system/lib64/libart.so (_ZN3art9JavaVMExt12DecodeGlobalEPv+19)
+         00007ffeedaa3050  0000000000000002
+         00007ffeedaa3058  00000000001001be
+         00007ffeedaa3060  00007ffef3498200  [anon:libc_malloc]
+         00007ffeedaa3068  00007ffef320e619  /system/lib64/libart.so (_ZNK3art6Thread13DecodeJObjectEP8_jobject+201)
+         00007ffeedaa3070  0000000000000040
+         00007ffeedaa3078  00007ffef351e800  [anon:libc_malloc]
+         00007ffeedaa3080  0000000000000002
+         00007ffeedaa3088  00007ffef2f8c9fc  /system/lib64/libart.so (_ZNK3art2gc4Heap20IsValidObjectAddressEPKNS_6mirror6ObjectE+60)
+         00007ffeedaa3090  00007ffef348f600  [anon:libc_malloc]
+         00007ffeedaa3098  00007ffeedaa32e8  [stack:4617]
+         00007ffeedaa30a0  00007ffeedaa32b0  [stack:4617]
+         00007ffeedaa30a8  00000000001001be
+         00007ffeedaa30b0  00007ffef3340e9b  /system/lib64/libart.so
+         00007ffeedaa30b8  00007ffef2e701e5  /system/lib64/libart.so (_ZN3art11ScopedCheck13CheckInstanceERNS_18ScopedObjectAccessENS0_12InstanceKindEP8_jobjectb+229)
+         ........  ........
+    #10  00007ffeedaa3270  0000000000100001
+         00007ffeedaa3278  0000000000000000
+         00007ffeedaa3280  00000000f3340b7e
+         00007ffeedaa3288  0000000000000000
+         00007ffeedaa3290  0000000070b031bc  /system/framework/x86_64/boot.oat
+         00007ffeedaa3298  0000000400000001
+         00007ffeedaa32a0  00007ffeedaa32a8  [stack:4617]
+         00007ffeedaa32a8  00007ffe12c06310
+         00007ffeedaa32b0  00007ffef34f6b80  [anon:libc_malloc]
+         00007ffeedaa32b8  00007ffef3340b4d  /system/lib64/libart.so
+         00007ffeedaa32c0  00007ffef33fe210  [anon:.bss]
+         00007ffeedaa32c8  00007ffef6423199  /system/lib64/libc.so (getpriority+9)
+         00007ffeedaa32d0  00007ffef3498200  [anon:libc_malloc]
+         00007ffeedaa32d8  00007ffef3322273  /system/lib64/libart.so (_ZN3art6Thread17SetNativePriorityEi+211)
+         00007ffeedaa32e0  00007ffef34de8a0  [anon:libc_malloc]
+         00007ffeedaa32e8  0000000000000000
+         ........  ........
+    #11  00007ffeedaa3330  0000000000000000
+         00007ffeedaa3338  736154706165481c
+         00007ffeedaa3340  006e6f6d6561446b
+         00007ffeedaa3348  0000000000000000
+         00007ffeedaa3350  0000000000000000
+         00007ffeedaa3358  0000000000000000
+         00007ffeedaa3360  0000000000000000
+         00007ffeedaa3368  0000000000000000
+         00007ffeedaa3370  0000000000000000
+         00007ffeedaa3378  0059000000430000
+         00007ffeedaa3380  00007ffef3498200  [anon:libc_malloc]
+         00007ffeedaa3388  00007ffef343e480  [anon:libc_malloc]
+         00007ffeedaa3390  00007ffef34e7f00  [anon:libc_malloc]
+         00007ffeedaa3398  00007ffef3498200  [anon:libc_malloc]
+         00007ffeedaa33a0  0000005900000043
+         00007ffeedaa33a8  00007ffef640e600  /system/lib64/libc.so (_ZL12__do_nothingPv)
+         ........  ........
+    #12  00007ffeedaa33f0  0000000000000000
+         00007ffeedaa33f8  c0f22af80ee59b69
+         00007ffeedaa3400  0000000000000000
+         00007ffeedaa3408  00007ffef7ff9b40
+         00007ffeedaa3410  00000000000011e1
+         00007ffeedaa3418  0000000000000000
+         00007ffeedaa3420  00007ffef3204c60  /system/lib64/libart.so (_ZN3art6Thread14CreateCallbackEPv)
+         00007ffeedaa3428  00007ffeedaa3450  [stack:4617]
+         00007ffeedaa3430  00007ffeedaa34e8  [stack:4617]
+         00007ffeedaa3438  00007ffef63aea6c  /system/lib64/libc.so (__start_thread+12)
+    #13  00007ffeedaa3440  00007ffef640e700  /system/lib64/libc.so (_ZL15__pthread_startPv)
+         00007ffeedaa3448  00007ffef63a1ae6  /system/lib64/libc.so (__bionic_clone+54)
+    #14  00007ffeedaa3450  00007ffeedba8450  [stack:4616]
+         00007ffeedaa3458  0000000000000000
+         00007ffeedaa3460  000011e100001209
+         00007ffeedaa3468  0000000000000001
+         00007ffeedaa3470  00007ffeed99f000  [anon:thread stack guard page]
+         00007ffeedaa3478  0000000000104450
+         00007ffeedaa3480  0000000000001000
+         00007ffeedaa3488  0000000000000000
+         00007ffeedaa3490  00007ffef344b700  [anon:libc_malloc]
+         00007ffeedaa3498  0000000012c070e0  /dev/ashmem/dalvik-main space (deleted)
+         00007ffeedaa34a0  0000000000000003
+         00007ffeedaa34a8  0000000000000000
+         00007ffeedaa34b0  00007ffef3204c60  /system/lib64/libart.so (_ZN3art6Thread14CreateCallbackEPv)
+         00007ffeedaa34b8  00007ffef3498200  [anon:libc_malloc]
+         00007ffeedaa34c0  0000000000000000
+         00007ffeedaa34c8  00007ffef7bed000  [anon:thread signal stack guard page]
+--------- log main
+02-13 05:23:22.106  4577  4577 D AndroidRuntime: >>>>>> START com.android.internal.os.ZygoteInit uid 0 <<<<<<
+02-13 05:23:22.106  4577  4577 D AndroidRuntime: CheckJNI is ON
+02-13 05:23:22.106  4577  4577 I art     : option[0]=-Xzygote
+02-13 05:23:22.106  4577  4577 I art     : option[1]=-Xcheck:jni
+02-13 05:23:22.106  4577  4577 I art     : option[2]=-Xstacktracefile:/data/anr/traces.txt
+02-13 05:23:22.106  4577  4577 I art     : option[3]=exit
+02-13 05:23:22.106  4577  4577 I art     : option[4]=vfprintf
+02-13 05:23:22.106  4577  4577 I art     : option[5]=sensitiveThread
+02-13 05:23:22.106  4577  4577 I art     : option[6]=-verbose:gc
+02-13 05:23:22.106  4577  4577 I art     : option[7]=-Xms4m
+02-13 05:23:22.106  4577  4577 I art     : option[8]=-Xmx48m
+02-13 05:23:22.106  4577  4577 I art     : option[9]=-Xusejit:true
+02-13 05:23:22.106  4577  4577 I art     : option[10]=-Xjitsaveprofilinginfo
+02-13 05:23:22.106  4577  4577 I art     : option[11]=-agentlib:jdwp=transport=dt_android_adb,suspend=n,server=y
+02-13 05:23:22.106  4577  4577 I art     : option[12]=-Xlockprofthreshold:500
+02-13 05:23:22.106  4577  4577 I art     : option[13]=-Ximage-compiler-option
+02-13 05:23:22.106  4577  4577 I art     : option[14]=--runtime-arg
+02-13 05:23:22.106  4577  4577 I art     : option[15]=-Ximage-compiler-option
+02-13 05:23:22.106  4577  4577 I art     : option[16]=-Xms64m
+02-13 05:23:22.106  4577  4577 I art     : option[17]=-Ximage-compiler-option
+02-13 05:23:22.106  4577  4577 I art     : option[18]=--runtime-arg
+02-13 05:23:22.106  4577  4577 I art     : option[19]=-Ximage-compiler-option
+02-13 05:23:22.106  4577  4577 I art     : option[20]=-Xmx64m
+02-13 05:23:22.106  4577  4577 I art     : option[21]=-Ximage-compiler-option
+02-13 05:23:22.106  4577  4577 I art     : option[22]=--compiler-filter=verify-none
+02-13 05:23:22.106  4577  4577 I art     : option[23]=-Ximage-compiler-option
+02-13 05:23:22.106  4577  4577 I art     : option[24]=--image-classes=/system/etc/preloaded-classes
+02-13 05:23:22.106  4577  4577 I art     : option[25]=-Ximage-compiler-option
+02-13 05:23:22.106  4577  4577 I art     : option[26]=--compiled-classes=/system/etc/compiled-classes
+02-13 05:23:22.106  4577  4577 I art     : option[27]=-Xcompiler-option
+02-13 05:23:22.106  4577  4577 I art     : option[28]=--runtime-arg
+02-13 05:23:22.106  4577  4577 I art     : option[29]=-Xcompiler-option
+02-13 05:23:22.106  4577  4577 I art     : option[30]=-Xms64m
+02-13 05:23:22.106  4577  4577 I art     : option[31]=-Xcompiler-option
+02-13 05:23:22.106  4577  4577 I art     : option[32]=--runtime-arg
+02-13 05:23:22.106  4577  4577 I art     : option[33]=-Xcompiler-option
+02-13 05:23:22.106  4577  4577 I art     : option[34]=-Xmx512m
+02-13 05:23:22.106  4577  4577 I art     : option[35]=-Ximage-compiler-option
+02-13 05:23:22.106  4577  4577 I art     : option[36]=--instruction-set-variant=x86_64
+02-13 05:23:22.106  4577  4577 I art     : option[37]=-Xcompiler-option
+02-13 05:23:22.106  4577  4577 I art     : option[38]=--instruction-set-variant=x86_64
+02-13 05:23:22.106  4577  4577 I art     : option[39]=-Ximage-compiler-option
+02-13 05:23:22.106  4577  4577 I art     : option[40]=--instruction-set-features=default
+02-13 05:23:22.106  4577  4577 I art     : option[41]=-Xcompiler-option
+02-13 05:23:22.106  4577  4577 I art     : option[42]=--instruction-set-features=default
+02-13 05:23:22.106  4577  4577 I art     : option[43]=-Duser.locale=zh-Hans-CN
+02-13 05:23:22.106  4577  4577 I art     : option[44]=--cpu-abilist=x86_64
+02-13 05:23:22.106  4577  4577 I art     : option[45]=-Xfingerprint:Android/aosp_x86_64/generic_x86_64:7.1.1/N6F26Q/bob01172320:eng/test-keys
+02-13 05:23:22.206  4577  4577 D ICU     : No timezone override file found: /data/misc/zoneinfo/current/icu/icu_tzdata.dat
+02-13 05:23:22.206  4577  4577 E memtrack: Couldn't load memtrack module (No such file or directory)
+02-13 05:23:22.206  4577  4577 E android.os.Debug: failed to load memtrack module: -2
+02-13 05:23:22.206  4577  4577 I Radio-JNI: register_android_hardware_Radio DONE
+02-13 05:23:22.226  4577  4577 I SamplingProfilerIntegration: Profiling disabled.
+02-13 05:23:22.226  4577  4577 D Zygote  : begin preload
+02-13 05:23:22.226  4577  4577 I Zygote  : Installing ICU cache reference pinning...
+02-13 05:23:22.226  4577  4577 I Zygote  : Preloading ICU data...
+02-13 05:23:22.276  4577  4577 I Zygote  : Preloading resources...
+02-13 05:23:22.276  4577  4577 D Minikin : ICU normalized 'zh-Hans-CN' to 'zh-Hans-CN'
+02-13 05:23:22.276  4577  4577 W Resources: Preloaded drawable resource #0x108025c (android:drawable/dialog_background_material) that varies with configuration!!
+02-13 05:23:22.276  4577  4577 W Resources: Preloaded drawable resource #0x1080298 (android:drawable/editbox_dropdown_background_dark) that varies with configuration!!
+02-13 05:23:22.276  4577  4577 W Resources: Preloaded color resource #0x10600e2 (android:color/material_grey_800) that varies with configuration!!
+02-13 05:23:22.276  4577  4577 W Resources: Preloaded drawable resource #0x10802c9 (android:drawable/floating_popup_background_dark) that varies with configuration!!
+02-13 05:23:22.296  4577  4577 W Resources: Preloaded drawable resource #0x108030b (android:drawable/ic_clear_disabled) that varies with configuration!!
+02-13 05:23:22.296  4577  4577 W Resources: Preloaded drawable resource #0x1080310 (android:drawable/ic_clear_normal) that varies with configuration!!
+02-13 05:23:22.296  4577  4577 W Resources: Preloaded drawable resource #0x1080359 (android:drawable/ic_go) that varies with configuration!!
+02-13 05:23:22.296  4577  4577 W Resources: Preloaded drawable resource #0x1080038 (android:drawable/ic_menu_close_clear_cancel) that varies with configuration!!
+02-13 05:23:22.296  4577  4577 W Resources: Preloaded drawable resource #0x1080045 (android:drawable/ic_menu_more) that varies with configuration!!
+02-13 05:23:22.296  4577  4577 W Resources: Preloaded drawable resource #0x10804e8 (android:drawable/menu_background_fill_parent_width) that varies with configuration!!
+02-13 05:23:22.326  4577  4577 W Resources: Preloaded drawable resource #0x108077e (android:drawable/text_edit_paste_window) that varies with configuration!!
+02-13 05:23:22.366  4577  4577 W Resources: Preloaded drawable resource #0x1080096 (android:drawable/toast_frame) that varies with configuration!!
+02-13 05:23:22.366  4577  4577 I Zygote  : ...preloaded 114 resources in 90ms.
+02-13 05:23:22.366  4577  4577 W Resources: Preloaded color resource #0x106010b (android:color/background_cache_hint_selector_material_dark) that varies with configuration!!
+02-13 05:23:22.366  4577  4577 W Resources: Preloaded color resource #0x1060110 (android:color/btn_default_material_dark) that varies with configuration!!
+02-13 05:23:22.366  4577  4577 I Zygote  : ...preloaded 41 resources in 0ms.
+02-13 05:23:22.366  4577  4577 D libEGL  : Emulator without GPU support detected. Fallback to legacy software renderer, qemu.gles is set to 0.
+02-13 05:23:22.386  4577  4577 D libEGL  : loaded /system/lib64/egl/libGLES_android.so
+02-13 05:23:22.416  4577  4577 I Zygote  : Preloading shared libraries...
+02-13 05:23:22.456  4577  4577 D OpenGLRenderer: makeFontCollection adding /system/fonts/Roboto-Regular.ttf
+02-13 05:23:22.456  4577  4577 D Minikin : referenceTable head length=54
+02-13 05:23:22.456  4577  4577 D Minikin : referenceTable cmap length=6348
+02-13 05:23:22.456  4577  4577 D Minikin : referenceTable OS/2 length=96
+02-13 05:23:22.456  4577  4577 D Minikin : referenceTable hhea length=36
+02-13 05:23:22.456  4577  4577 D Minikin : referenceTable hmtx length=13434
+02-13 05:23:22.456  4577  4577 D Minikin : referenceTable head length=54
+02-13 05:23:22.456  4577  4577 D Minikin : referenceTable loca length=13440
+02-13 05:23:22.456  4577  4577 D Minikin : referenceTable glyf length=191422
+02-13 05:23:22.456  4577  4577 D Minikin : referenceTable OS/2 length=96
+02-13 05:23:22.456  4577  4577 D Minikin : nTypefaces = 1
+02-13 05:23:22.456  4577  4577 D Minikin : referenceTable cmap length=6348
+02-13 05:23:22.456  4577  4577 D Minikin : best table = 3
+02-13 05:23:22.456  4577  4577 D Minikin : adding range 0-1

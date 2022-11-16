@@ -1,0 +1,97 @@
+@startuml
+
+Actor Handler
+participant "telecom.Call$1"
+participant "incallui.Call$1"
+participant incallui.Call
+participant CallList
+participant InCallPresenter
+participant CallCardPresenter
+participant CallCardFragment
+participant mSecondaryCallName
+
+...
+==  [setSecondary needSetText]   name: 10010  number: 10010  this: b1eccc7  ==
+...
+
+/'
+08-02 14:07:27.557 14506 14506 D bob_log_tag:  	_ [setSecondary needSetText]   name: 10010  number: 10010  this: b1eccc7
+08-02 14:07:27.558 14506 14506 D bob_log_tag:  	|-- com.android.incallui.CallCardFragment.setSecondary(CallCardFragment.java:1340)
+08-02 14:07:27.558 14506 14506 D bob_log_tag:  	|-- com.android.incallui.CallCardPresenter.updateSecondaryDisplayInfo(CallCardPresenter.java:1088)
+08-02 14:07:27.558 14506 14506 D bob_log_tag:  	|-- com.android.incallui.CallCardPresenter.onStateChange(CallCardPresenter.java:371)
+08-02 14:07:27.559 14506 14506 D bob_log_tag:  	|-- com.android.incallui.InCallPresenter.onCallListChange(InCallPresenter.java:779)
+08-02 14:07:27.559 14506 14506 D bob_log_tag:  	|-- com.android.incallui.CallList.notifyGenericListeners(CallList.java:472)
+08-02 14:07:27.559 14506 14506 D bob_log_tag:  	|-- com.android.incallui.CallList.onUpdate(CallList.java:190)
+08-02 14:07:27.559 14506 14506 D bob_log_tag:  	|-- com.android.incallui.Call.update(Call.java:300)
+08-02 14:07:27.559 14506 14506 D bob_log_tag:  	|-- com.android.incallui.Call.access$000(Call.java:44)
+08-02 14:07:27.559 14506 14506 D bob_log_tag:  	|-- com.android.incallui.Call$1.onStateChanged(Call.java:183)
+08-02 14:07:27.560 14506 14506 D bob_log_tag:  	|-- android.telecom.Call$1.run(Call.java:1242)
+08-02 14:07:27.560 14506 14506 D bob_log_tag:  	|-- android.os.Handler.handleCallback(Handler.java:739)
+08-02 14:07:27.560 14506 14506 D bob_log_tag:  	|-- android.os.Handler.dispatchMessage(Handler.java:95)
+08-02 14:07:27.560 14506 14506 D bob_log_tag:  	|-- android.os.Looper.loop(Looper.java:148)
+08-02 14:07:27.560 14506 14506 D bob_log_tag:  	|-- android.app.ActivityThread.main(ActivityThread.java:5515)
+08-02 14:07:27.561 14506 14506 D bob_log_tag:  	|-- java.lang.reflect.Method.invoke(Native Method)
+08-02 14:07:27.561 14506 14506 D bob_log_tag:  	|-- com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:764)
+08-02 14:07:27.561 14506 14506 D bob_log_tag:  	|-- com.android.internal.os.ZygoteInit.main(ZygoteInit.java:654)
+08-02 14:07:27.561 14506 14506 D bob_log_tag:  	@
+'/
+
+Handler -> "telecom.Call$1":run(Call.java:1242)
+"telecom.Call$1" -> "incallui.Call$1":onStateChanged(183)
+"incallui.Call$1" -> incallui.Call:update(300)
+incallui.Call -> CallList:onUpdate(190)
+CallList -> CallList:notifyGenericListeners(472)
+rnote left:<&tag>
+
+CallList -> InCallPresenter:onCallListChange()\n{InCallPresenter.java:779}
+rnote left:mInCallState<-newState<-<color red>callList.mCallById</color>
+
+InCallPresenter -> CallCardPresenter:onStateChange()\n{CallCardPresenter.java:371}
+rnote left:mSecondaryContactInfo.number<-mSecondary.getNumber()\n\t<-secondary<-newState<-<color red>mInCallState</color>
+
+CallCardPresenter -> CallCardPresenter:updateSecondaryDisplayInfo()\n{CallCardPresenter.java:1088}
+rnote left:<color blue>mSecondaryContactInfo.number</color>
+
+CallCardPresenter -> CallCardFragment:setSecondary()\n{CallCardFragment.java:1340}
+rnote left:<color blue>name</color><-<color red>mSecondaryContactInfo.number</color>
+
+CallCardFragment -> mSecondaryCallName : setText()
+rnote left:<color red>name="10010"</color>
+
+
+...
+==  [setSecondary needSetText]   name: 10010  number: 10010  this: b1eccc7  ==
+...
+
+/'
+08-02 14:07:27.581 14506 14506 D bob_log_tag:  	_ [setSecondary needSetText]   name: 10010  number: 10010  this: b1eccc7
+08-02 14:07:27.582 14506 14506 D bob_log_tag:  	|-- com.android.incallui.CallCardFragment.setSecondary(CallCardFragment.java:1340)
+08-02 14:07:27.582 14506 14506 D bob_log_tag:  	|-- com.android.incallui.CallCardPresenter.updateSecondaryDisplayInfo(CallCardPresenter.java:1088)
+08-02 14:07:27.582 14506 14506 D bob_log_tag:  	|-- com.android.incallui.CallCardPresenter.updateContactEntry(CallCardPresenter.java:666)
+08-02 14:07:27.582 14506 14506 D bob_log_tag:  	|-- com.android.incallui.CallCardPresenter.onContactInfoComplete(CallCardPresenter.java:632)
+08-02 14:07:27.583 14506 14506 D bob_log_tag:  	|-- com.android.incallui.CallCardPresenter.access$000(CallCardPresenter.java:113)
+08-02 14:07:27.583 14506 14506 D bob_log_tag:  	|-- com.android.incallui.CallCardPresenter$ContactLookupCallback.onContactInfoComplete(CallCardPresenter.java:154)
+08-02 14:07:27.583 14506 14506 D bob_log_tag:  	|-- com.android.incallui.ContactInfoCache.findInfo(ContactInfoCache.java:148)
+08-02 14:07:27.583 14506 14506 D bob_log_tag:  	|-- com.android.incallui.CallCardPresenter.startContactInfoSearch(CallCardPresenter.java:628)
+08-02 14:07:27.583 14506 14506 D bob_log_tag:  	|-- com.android.incallui.CallCardPresenter.maybeStartSearch(CallCardPresenter.java:617)
+08-02 14:07:27.583 14506 14506 D bob_log_tag:  	|-- com.android.incallui.CallCardPresenter.onStateChange(CallCardPresenter.java:372)
+08-02 14:07:27.584 14506 14506 D bob_log_tag:  	|-- com.android.incallui.InCallPresenter.onCallListChange(InCallPresenter.java:779)
+08-02 14:07:27.584 14506 14506 D bob_log_tag:  	|-- com.android.incallui.CallList.notifyGenericListeners(CallList.java:472)
+08-02 14:07:27.584 14506 14506 D bob_log_tag:  	|-- com.android.incallui.CallList.onUpdate(CallList.java:190)
+08-02 14:07:27.584 14506 14506 D bob_log_tag:  	|-- com.android.incallui.Call.update(Call.java:300)
+08-02 14:07:27.584 14506 14506 D bob_log_tag:  	|-- com.android.incallui.Call.access$000(Call.java:44)
+08-02 14:07:27.585 14506 14506 D bob_log_tag:  	|-- com.android.incallui.Call$1.onStateChanged(Call.java:183)
+08-02 14:07:27.585 14506 14506 D bob_log_tag:  	|-- android.telecom.Call$1.run(Call.java:1242)
+08-02 14:07:27.585 14506 14506 D bob_log_tag:  	|-- android.os.Handler.handleCallback(Handler.java:739)
+08-02 14:07:27.585 14506 14506 D bob_log_tag:  	|-- android.os.Handler.dispatchMessage(Handler.java:95)
+08-02 14:07:27.585 14506 14506 D bob_log_tag:  	|-- android.os.Looper.loop(Looper.java:148)
+08-02 14:07:27.586 14506 14506 D bob_log_tag:  	|-- android.app.ActivityThread.main(ActivityThread.java:5515)
+08-02 14:07:27.586 14506 14506 D bob_log_tag:  	|-- java.lang.reflect.Method.invoke(Native Method)
+08-02 14:07:27.586 14506 14506 D bob_log_tag:  	|-- com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:764)
+08-02 14:07:27.587 14506 14506 D bob_log_tag:  	|-- com.android.internal.os.ZygoteInit.main(ZygoteInit.java:654)
+08-02 14:07:27.587 14506 14506 D bob_log_tag:  	@
+'/
+
+
+@enduml
+

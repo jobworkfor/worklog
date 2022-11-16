@@ -1,0 +1,135 @@
+@startuml
+
+autonumber
+'hide footbox
+
+title "Initial process of WifiService"
+legend top left
+This diagram describes the initial process of wifi service
+end legend
+
+actor System
+
+box "system_server" #white
+participant SystemServer
+participant SystemServiceManager
+participant WifiService
+participant WifiServiceImpl
+participant WifiController
+participant SystemService
+participant ServiceManager
+end box
+
+System -> SystemServer : main()
+activate SystemServer
+SystemServer -> SystemServer : new SystemServer.run()
+activate SystemServer
+
+rnote right of SystemServer
+<&tag> 07-23 15:20:33.149  1402  1402 I SystemServer: Entered the Android system server!
+end note
+
+SystemServer -> SystemServiceManager : new SystemServiceManager()
+activate SystemServiceManager
+SystemServer <-- SystemServiceManager : mSystemServiceManager
+deactivate  SystemServiceManager
+
+SystemServer -> SystemServer : startOtherServices()
+activate SystemServer
+
+rnote right of SystemServer
+<&tag> 07-23 15:20:39.692  1402  1402 I SystemServer: Reading configuration...
+end note
+
+SystemServer -> SystemServiceManager : mSystemServiceManager.startService\n(WIFI_SERVICE_CLASS)
+activate SystemServiceManager
+SystemServiceManager -> SystemServiceManager:startService()
+activate SystemServiceManager
+
+rnote right of SystemServiceManager
+<&tag> 07-23 15:20:42.665  1402  1402 I SystemServiceManager: Starting com.android.server.wifi.WifiService
+end note
+
+SystemServiceManager->WifiService:constructor.newInstance()
+activate WifiService
+WifiService->WifiServiceImpl:new WifiServiceImpl()
+activate WifiServiceImpl
+
+WifiServiceImpl->WifiServiceImpl:HandlerThread("WifiService")\nwifiThread.start()
+
+WifiServiceImpl->WifiController:new WifiController()
+activate WifiController
+
+WifiController->WifiController:addState()
+
+rnote right of WifiController
+<&tag> 07-23 15:20:42.961  1402  1402 D WifiController: isAirplaneModeOn = false, isWifiEnabled = true, isScanningAvailable = true
+end note
+
+WifiServiceImpl <-- WifiController
+deactivate WifiController
+WifiService<--WifiServiceImpl
+deactivate WifiServiceImpl
+SystemServiceManager<--WifiService
+deactivate WifiService
+
+SystemServiceManager->SystemServiceManager:mServices.add(service)
+
+SystemServiceManager->WifiService:service.onStart()
+activate WifiService
+
+rnote right of WifiService
+<&tag> 07-23 15:20:42.963  1402  1402 I WifiService: Registering wifi
+end note
+
+WifiService->SystemService: publishBinderService(Context.WIFI_SERVICE, service)
+activate SystemService
+
+SystemService->ServiceManager:ServiceManager.addService()
+
+WifiService<--SystemService
+deactivate SystemService
+
+SystemServiceManager<--WifiService
+deactivate WifiService
+deactivate SystemServiceManager
+SystemServer<--SystemServiceManager
+deactivate SystemServiceManager
+
+SystemServer->SystemServiceManager:mSystemServiceManager.startBootPhase\n(SystemService.PHASE_SYSTEM_SERVICES_READY)
+activate SystemServiceManager
+
+rnote right of SystemServiceManager
+<&tag> 07-23 15:20:43.370  1402  1402 I SystemServiceManager: Starting phase 500 
+end note
+
+SystemServiceManager->WifiService:service.onBootPhase()
+activate WifiService
+
+WifiService->WifiServiceImpl:mImpl.checkAndStartWifi()
+activate WifiServiceImpl
+
+rnote right of WifiServiceImpl
+<&tag> 07-23 15:20:43.376  1402  1402 I WifiService: WifiService starting up with Wi-Fi enabled 
+end note
+
+WifiServiceImpl->WifiServiceImpl:setWifiEnabled()
+activate WifiServiceImpl
+
+rnote right of WifiServiceImpl
+<&tag> 07-23 15:20:43.380  1402  1402 D WifiService: setWifiEnabled: true pid=1402, uid=1000
+<&tag> 07-23 15:20:43.380  1402  1402 E WifiService: Invoking mWifiStateMachine.setWifiEnabled
+end note
+
+WifiServiceImpl->WifiServiceImpl:mSettingsStore\n.handleWifiToggled()
+
+rnote right of WifiServiceImpl
+<&tag> 07-23 15:20:43.380  1402  1402 E WifiService: Send message CMD_WIFI_TOGGLED
+end note
+
+WifiServiceImpl->WifiController:mWifiController.sendMessage\n(CMD_WIFI_TOGGLED)
+
+deactivate  SystemServer
+deactivate  SystemServer
+
+@enduml

@@ -1,0 +1,50 @@
+@startuml
+autonumber
+
+actor "Alice's\nsoftphone"
+participant "atlanta.com\nproxy"
+participant "biloxi.com\nproxy"
+actor "Bob's\nSIP Phone"
+
+"biloxi.com\nproxy" <- "Bob's\nSIP Phone":REGISTER
+"biloxi.com\nproxy" -> "Bob's\nSIP Phone":200 OK
+
+
+
+/'
+                     atlanta.com  . . . biloxi.com
+                 .      proxy              proxy     .
+               .                                       .
+       Alice's  . . . . . . . . . . . . . . . . . . . .  Bob's
+      softphone                                        SIP Phone
+         |                |                |                |
+         |    INVITE F1   |                |                |
+         |--------------->|    INVITE F2   |                |
+         |  100 Trying F3 |--------------->|    INVITE F4   |
+         |<---------------|  100 Trying F5 |--------------->|
+         |                |<-------------- | 180 Ringing F6 |
+         |                | 180 Ringing F7 |<---------------|
+         | 180 Ringing F8 |<---------------|     200 OK F9  |
+         |<---------------|    200 OK F10  |<---------------|
+         |    200 OK F11  |<---------------|                |
+         |<---------------|                |                |
+         |                       ACK F12                    |
+         |------------------------------------------------->|
+         |                   Media Session                  |
+         |<================================================>|
+         |                       BYE F13                    |
+         |<-------------------------------------------------|
+         |                     200 OK F14                   |
+         |------------------------------------------------->|
+         |                                                  |
+
+         Figure 1: SIP session setup example with SIP trapezoid
+'/
+
+
+
+
+
+
+@enduml
+

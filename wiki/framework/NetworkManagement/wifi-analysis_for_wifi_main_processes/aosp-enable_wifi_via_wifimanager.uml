@@ -1,0 +1,67 @@
+@startuml
+
+autonumber
+'hide footbox
+
+title "Initial process of WifiService"
+legend top left
+This diagram describes the process for the function setWifiEnabled()
+/**
+ * Enable or disable Wi-Fi.
+ * @param enabled {@code true} to enable, {@code false} to disable.
+ * @return {@code true} if the operation succeeds (or if the existing state
+ *         is the same as the requested state).
+ */
+public boolean setWifiEnabled(boolean enabled)
+end legend
+
+box "com.android.systemui" #white
+actor NetworkControllerImpl
+participant WifiManager
+end box
+
+box "system_process" #white
+participant WifiServiceImpl
+participant WifiSettingsStore
+participant Settings.Global
+participant WifiController
+participant StateMachine.SmHandler
+participant WifiController.StaDisabledWithScanState
+participant WifiController.DeviceActiveState
+
+participant WifiStateMachine
+end box
+
+'---------------- com.android.systemui ----------------
+NetworkControllerImpl -> WifiManager : setWifiEnabled(<color red>true</color>)
+
+WifiManager -> WifiServiceImpl:setWifiEnabled(<color red>true</color>)
+
+rnote right of WifiServiceImpl
+<&tag> log.d(TAG, "setWifiEnabled: " + enable + " pid=" + Binder.getCallingPid() + ", uid=" + Binder.getCallingUid());
+end rnote
+
+'---------------- system_server ----------------
+WifiServiceImpl -> WifiSettingsStore:mSettingsStore.handleWifiToggled(<color red>true</color>)
+WifiSettingsStore -> WifiSettingsStore:persistWifiState(<color red>WIFI_ENABLED</color>)
+WifiSettingsStore -> Settings.Global:Settings.Global.putInt\n(, Settings.Global.WIFI_ON, <color red>WIFI_ENABLED</color>);
+
+WifiServiceImpl -> WifiController:mWifiController.sendMessage(CMD_WIFI_TOGGLED)
+WifiController --> StateMachine.SmHandler:handleMessage(CMD_WIFI_TOGGLED)
+StateMachine.SmHandler -> StateMachine.SmHandler:processMsg()
+StateMachine.SmHandler -> StateMachine.SmHandler:StateInfo curStateInfo = <color blue><b>mStateStack</b></color>[<color blue>mStateStackTopIndex</color>]
+note left: <color blue><b>mStateStack</b></color>[<color blue>mStateStackTopIndex</color>] == StaDisabledWithScanState
+
+StateMachine.SmHandler -> WifiController.StaDisabledWithScanState:curStateInfo.state.processMessage(CMD_WIFI_TOGGLED)
+WifiController.StaDisabledWithScanState -> WifiController:transitionTo(<color blue>mDeviceActiveState</color>)
+
+WifiController --> WifiController.DeviceActiveState:enter()
+
+WifiController.DeviceActiveState -> WifiStateMachine:mWifiStateMachine.setOperationalMode(WifiStateMachine.CONNECT_MODE)
+WifiController.DeviceActiveState -> WifiStateMachine:mWifiStateMachine.setDriverStart(true)
+WifiController.DeviceActiveState -> WifiStateMachine:mWifiStateMachine.setHighPerfModeEnabled(false)
+
+
+
+
+@enduml

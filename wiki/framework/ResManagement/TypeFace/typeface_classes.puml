@@ -1,0 +1,108 @@
+@startuml
+'---------------- definitions ----------------
+class Config<<FontListParser>> {
+    List<Family> families;
+    List<Alias> aliases;
+}
+
+class Family<<FontListParser>> {
+    String name;
+    List<Font> fonts;
+    String lang;
+    String variant;
+}
+
+class Alias<<FontListParser>> {
+    String name;
+    String toName;
+    int weight;
+}
+
+class Font<<FontListParser>> {
+    String fontName;
+    int ttcIndex;
+    final List<Axis> axes;
+    int weight;
+    boolean isItalic;
+}
+
+class Axis<<FontListParser>> {
+    int tag;
+    float styleValue;
+}
+
+class FontFamily{
+    String TAG = "FontFamily";
+    long mNativePtr;
+    ---
+    addFont()
+    addFontWeightStyle()
+    addFontFromAsset()
+    ---
+    <color brown>native nCreateFamily()
+    <color brown>native nUnrefFamily()
+    <color brown>native nAddFont()
+    <color brown>native nAddFontWeightStyle()
+    <color brown>native nAddFontFromAsset()
+}
+
+class Typeface{
+    Typeface[] sDefaults;
+    LongSparseArray<SparseArray<Typeface>> sTypefaceCache
+    LruCache<String, Typeface> sDynamicTypefaceCache
+    Typeface sDefaultTypeface;
+    Map<String, Typeface> sSystemFontMap;
+    FontFamily[] sFallbackFonts;
+    ---
+    <color brown>native nativeCreateFromTypeface();
+    <color brown>native nativeCreateWeightAlias();
+    <color brown>native nativeUnref();
+    <color brown>native nativeGetStyle();
+    <color brown>native nativeCreateFromArray();
+    <color brown>native void nativeSetDefault();
+}
+
+
+class (cpp)FontFamily <<(C,Brown)>>{
+    uint32_t mLangId;
+    int mVariant;
+    std::vector<Font> mFonts;
+
+    SparseBitSet mCoverage;
+    bool mHasVSTable;
+    bool mCoverageValid;
+}
+
+class (cpp)FontFamily.Font <<(C,Brown)>>{
+    MinikinFont* typeface;
+    FontStyle style;
+}
+
+class (cpp)Typeface <<(S,Brown)>>{
+    FontCollection *fFontCollection;
+    ' style used for constructing and querying Typeface objects
+    SkTypeface::Style fSkiaStyle;
+    ' base weight in CSS-style units, 100..900
+    int fBaseWeight;
+    ' resolved style actually used for rendering
+    FontStyle fStyle;
+    ---
+    void unref();
+    resolveDefault(Typeface* src);
+    createFromTypeface(Typeface* src, SkTypeface::Style style);
+    createWeightAlias(Typeface* src, int baseweight);
+    createFromFamilies(const std::vector<FontFamily*>& families);
+    setDefault(Typeface* face);
+}
+
+
+'---------------- relationships ----------------
+
+Config *-r- "*" Family
+Config *-d- "*" Alias
+Family *-d- "*" Font
+Font *-r- "*" Axis
+
+
+
+@enduml
